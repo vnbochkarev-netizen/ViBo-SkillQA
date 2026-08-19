@@ -44,15 +44,35 @@ else
 fi
 echo "$OUT"
 
+# --- security: if the test found possible REAL credentials in the skill
+# code, never print their values publicly — warn the author to rotate them.
+SECRET_HIT=0
+if echo "$OUT" | grep -q "secret_leak"; then
+  SECRET_HIT=1
+fi
+PUB_OUT=$(echo "$OUT" | grep -vE "possible secret|secret_leak" | tail -25)
+
+# --- policy: comment ONLY when the skill has real problems (fail > 0 or
+# possible real credentials). Clean skills (A/B, fail 0) are left untouched —
+# congratulating strangers reads as spam and gets accounts flagged.
+FAIL_COUNT=$(echo "$OUT" | grep -oE 'fail_count=[0-9]+' | head -1 | grep -oE '[0-9]+')
+FAIL_COUNT=${FAIL_COUNT:-0}
+if [ "$COMMENT" = "1" ] && [ "$FAIL_COUNT" = "0" ] && [ "$SECRET_HIT" = "0" ]; then
+  echo "==> skill looks clean (fail_count=0) — NOT posting (policy: clean skills are left untouched)"
+  echo "CLEAN: $REPO | $(echo "$OUT" | grep -oE 'Grade: [A-D] \(([0-9]+)/100\)' | head -1)" >> /root/vibo/docs/skillqa_clean_20260819.txt
+  exit 0
+fi
+
 if [ "$COMMENT" = "1" ]; then
-  GRADE=$(echo "$OUT" | grep -oE "Grade: [A-D] \([0-9]+/100\)" | head -1 || echo "Grade: ?")
+  GRADE=$(echo "$OUT" | grep -oE "Grade: [A-D] \(([0-9]+)/100\)" | head -1 || echo "Grade: ?")
   BODY="🛡️ **ViBo SkillQA report** (v$(cd /root/skillqa && grep -m1 'VERSION = ' skillqa.py | grep -oE '[0-9.]+'))
 
 **$GRADE** — fail_count: $(echo "$OUT" | grep -oE 'fail_count=[0-9]+' | head -1 || echo '?')
 
 \`\`\`
-$(echo "$OUT" | tail -25)
+$PUB_OUT
 \`\`\`
+$(if [ "$SECRET_HIT" = "1" ]; then echo "⚠️ **Security notice:** the scanner detected what looks like **real credentials** in the skill code. We are deliberately not disclosing the values publicly — please **rotate/remove them** before publishing the skill. This is a must-fix."; fi)
 
 *Certified by [ViBo SkillQA](https://wwwvibo.com/skillqa) — check your skills, certify them, sell with confidence. Want the full report with exact file:line fixes? DM @ViBomemorybot — free.*"
   BODY_JSON=$(python3 -c "import json,sys; print(json.dumps(sys.argv[1]))" "$BODY")

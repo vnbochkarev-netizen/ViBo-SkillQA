@@ -14,7 +14,7 @@ from modules.sandbox import FAKE_VALUES
 SECRET_PATTERNS = [
     (re.compile(r"Bearer\s+\S{8,}"), "bearer_token"),
     (re.compile(r"sk-[A-Za-z0-9]{16,}"), "sk_token"),
-    (re.compile(r"(?i)(token|api[_-]?key|password|passwd|secret|auth|credential)"
+    (re.compile(r"(?i)(token|api[_-]?key|key|password|passwd|secret|auth|credential)"
                 r"\s*[=:]\s*(?![A-Za-z_]\w*(?:\.|\())"
                 r"\S{8,}"), "assignment"),
     (re.compile(r"AKIA[0-9A-Z]{16}"), "aws_key"),

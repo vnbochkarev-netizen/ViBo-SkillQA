@@ -1,0 +1,179 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.4",
+  "edition": "pro",
+  "skill_name": "secret-test-skill",
+  "skill_path": "/tmp/secskill",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 1,
+  "date": "2026-08-19T18:57:58Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 161,
+  "skill_sha256": "999b09c3c7e31c57fbf2b84ef476322d5dad2e4c8de293327ead8c311e3c338a",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/noargs_app.py — reduce warning: no args: silent success (exit 0)",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:KEY = \"sk-live-1234567890abcdef1234567890abcdef1234567890\"",
+    "- novelty/has_examples — reduce warning: no usage examples found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 207 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (0)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 2 warns",
+      "duration_ms": 1,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_app.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_app.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_app.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns\n  app.py: exit=0, 51 ms, timed_out=False\n  app.py --help: exit=0, 51 ms, timed_out=False\n  app.py (no args): exit=0, 52 ms, timed_out=False",
+      "duration_ms": 157,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:KEY = \"sk-live-1234567890abcdef1234567890abcdef1234567890\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 1,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (42 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}
