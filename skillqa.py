@@ -29,13 +29,13 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.8"
+VERSION = "0.1.0"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
 # Licensing (ViBo-style: license file + machine-id binding)
 # ---------------------------------------------------------------------------
-LICENSE_SECRET = "skillqa-pro-v0.1.8::local-edition::2026"
+LICENSE_SECRET = "skillqa-pro-v0.1.0::local-edition::2026"
 LICENSE_DIR = Path.home() / ".config" / "skillqa"
 LICENSE_FILE = LICENSE_DIR / "skillqa_license.dat"
 LICENSE_ALT_NAMES = ["skillqa_license.dat"]
