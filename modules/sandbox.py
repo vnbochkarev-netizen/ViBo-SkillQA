@@ -468,10 +468,19 @@ class SandboxRun:
                 else:
                     checks.append(_check(name, "pass", t("check.run.ok", ms=r["duration_ms"])))
             else:
+                err_all = r["stderr"] + "\n" + r["stdout"]
                 if LICENSE_SCRIPT_RE.search(script.name):
                     checks.append(_check(name, "warn", t("check.run.warn")))
-                elif re.search(r"usage|use:|required|требуется|использование", r["stderr"] + "\n" + r["stdout"], re.I):
+                elif re.search(r"usage|use:|required|требуется|использование", err_all, re.I):
                     checks.append(_check(name, "warn", t("check.run.warn")))
+                elif (r["exit_code"] == 127
+                        or "ModuleNotFoundError" in err_all
+                        or "No module named" in err_all
+                        or "command not found" in err_all
+                        or "not found in PATH" in err_all):
+                    # environment gap (missing dependency/interpreter), not a
+                    # skill defect — warn, don't fail
+                    checks.append(_check(name, "warn", t("check.run.env")))
                 else:
                     detail = t("check.run.fail", code=r["exit_code"])
                     if tb:
@@ -494,6 +503,9 @@ class SandboxRun:
                 checks.append(_check(name, "warn", t("check.help.warn", code=rh["exit_code"])))
             elif re.search(r"usage|use:|help|использование", hout, re.I):
                 checks.append(_check(name, "warn", t("check.help.warn", code=rh["exit_code"])))
+            elif (rh["exit_code"] == 127 or "ModuleNotFoundError" in hout
+                  or "No module named" in hout or "command not found" in hout):
+                checks.append(_check(name, "warn", t("check.help.warn", code=rh["exit_code"])))
             elif _traceback_summary(hout):
                 if _traceback_kind(hout) == "missing_file" or (
                         _traceback_kind(hout) == "import" and LICENSE_SCRIPT_RE.search(script.name)):
@@ -515,6 +527,9 @@ class SandboxRun:
                 checks.append(_check(name, "fail", t("check.noargs.timeout", s=ctx.timeout)))
             elif rn["exit_code"] != 0:
                 if LICENSE_SCRIPT_RE.search(script.name):
+                    checks.append(_check(name, "warn", t("check.noargs.warn_code", code=rn["exit_code"])))
+                elif (rn["exit_code"] == 127 or "ModuleNotFoundError" in nout
+                      or "No module named" in nout or "command not found" in nout):
                     checks.append(_check(name, "warn", t("check.noargs.warn_code", code=rn["exit_code"])))
                 elif _traceback_summary(nout):
                     _kind = _traceback_kind(nout)

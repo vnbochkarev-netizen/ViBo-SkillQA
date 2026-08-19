@@ -1,0 +1,411 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "pdf",
+  "skill_path": "/root/.hermes/skills/productivity/pdf",
+  "grade": "D",
+  "score_pct": 0.3,
+  "fail_count": 3,
+  "date": "2026-08-19T18:29:23Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 10089,
+  "skill_sha256": "245161d27113fbd61d8250874977f50e07844397671dc5d4eaf7abc6a99e9d5b",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: o.png",
+    "- sandbox/noargs__raster.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_pdf_create.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_fill_form.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_form_layout.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_make_form.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_merge.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_meta.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_page_image.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_read.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_secure.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_split.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_pdf_stamp.py — reduce warning: exit 0 but stderr non-empty"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 12266 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: o.png"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.0.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 1 warns",
+      "duration_ms": 7268,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run__raster.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (53 ms)"
+        },
+        {
+          "name": "help__raster.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs__raster.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_pdf_create.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_create.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_create.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_fill_form.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_fill_form.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_fill_form.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_form_layout.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_form_layout.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_form_layout.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_make_form.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_make_form.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_make_form.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_merge.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_merge.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_merge.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_meta.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_meta.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_meta.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_page_image.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_page_image.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_page_image.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_read.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_read.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_read.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_secure.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_secure.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_secure.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_split.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_split.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_split.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_stamp.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_stamp.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_stamp.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_pdf_watermark.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_pdf_watermark.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_pdf_watermark.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_test_pdf_skill.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_pdf_skill.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_pdf_skill.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 43 checks, 3 fails, 13 warns\n  scripts/_raster.py: exit=0, 53 ms, timed_out=False\n  scripts/_raster.py --help: exit=0, 52 ms, timed_out=False\n  scripts/_raster.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/pdf_create.py: exit=2, 53 ms, timed_out=False\n  scripts/pdf_create.py --help: exit=0, 53 ms, timed_out=False\n  scripts/pdf_create.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_fill_form.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_fill_form.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_fill_form.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_form_layout.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_form_layout.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_form_layout.py (no args): exit=2, 53 ms, timed_out=False\n  scripts/pdf_make_form.py: exit=2, 53 ms, timed_out=False\n  scripts/pdf_make_form.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_make_form.py (no args): exit=2, 53 ms, timed_out=False\n  scripts/pdf_merge.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_merge.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_merge.py (no args): exit=2, 53 ms, timed_out=False\n  scripts/pdf_meta.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_meta.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_meta.py (no args): exit=2, 53 ms, timed_out=False\n  scripts/pdf_page_image.py: exit=2, 53 ms, timed_out=False\n  scripts/pdf_page_image.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_page_image.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_read.py: exit=2, 102 ms, timed_out=False\n  scripts/pdf_read.py --help: exit=0, 53 ms, timed_out=False\n  scripts/pdf_read.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_secure.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_secure.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_secure.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_split.py: exit=2, 58 ms, timed_out=False\n  scripts/pdf_split.py --help: exit=0, 53 ms, timed_out=False\n  scripts/pdf_split.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_stamp.py: exit=2, 53 ms, timed_out=False\n  scripts/pdf_stamp.py --help: exit=0, 53 ms, timed_out=False\n  scripts/pdf_stamp.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/pdf_watermark.py: exit=2, 52 ms, timed_out=False\n  scripts/pdf_watermark.py --help: exit=0, 52 ms, timed_out=False\n  scripts/pdf_watermark.py (no args): exit=2, 52 ms, timed_out=False\n  tests/test_pdf_skill.py: exit=1, 52 ms, timed_out=False\n  tests/test_pdf_skill.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_pdf_skill.py (no args): exit=1, 52 ms, timed_out=False",
+      "duration_ms": 2288,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:password=password), assignment:password=password), assignment:password=password), assignment:password=password)"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 17,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (48 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: f-string debug = (3.8+), union type hints (3.10+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: pypdf, pypdfium2, pytest, reportlab"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: f-string debug = (3.8+), union type hints (3.10+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns — detected features: f-string debug = (3.8+), union type hints (3.10+)",
+      "duration_ms": 505,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

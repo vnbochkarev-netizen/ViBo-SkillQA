@@ -29,7 +29,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
@@ -191,7 +191,8 @@ I18N = {
         "check.scripts_discovered.none": "исполняемых скриптов (*.py/*.sh/*.js) не найдено",
         "check.scripts_discovered.summary": "исполняемых скриптов не найдено",
         "check.run.timeout": "завис: убит по таймауту {s} c (SIGTERM/SIGKILL)",
-        "check.run.warn": "exit 0, но stderr непустой",
+        "check.run.warn": "exit 0, но stderr непуст, или usage",
+        "check.run.env": "не хватает зависимости/интерпретатора (окружение), не дефект скилла",
         "check.run.ok": "exit 0, stderr пуст ({ms} мс)",
         "check.run.fail": "exit {code} или необработанное исключение",
         "check.help.timeout": "--help завис: убит по таймауту {s} c",
@@ -314,7 +315,8 @@ I18N = {
         "check.scripts_discovered.none": "no executable scripts (*.py/*.sh/*.js) found",
         "check.scripts_discovered.summary": "no executable scripts found",
         "check.run.timeout": "hung: killed by {s}s timeout (SIGTERM/SIGKILL)",
-        "check.run.warn": "exit 0 but stderr non-empty",
+        "check.run.warn": "exit 0 but stderr non-empty, or usage shown",
+        "check.run.env": "environment gap (missing dependency/interpreter) — not a skill defect",
         "check.run.ok": "exit 0, empty stderr ({ms} ms)",
         "check.run.fail": "exit {code} or unhandled exception",
         "check.help.timeout": "--help hung: killed by {s}s timeout",
@@ -612,6 +614,19 @@ def _verdict_summary(report):
             + (" — clean, sellable skill" if crit == 0 else " — fix criticals first"))
 
 
+def _check_type(module, check):
+    """🔴 critical / 🟡 stylistic / ⚪ info — trust typology for findings."""
+    if check["status"] == "pass":
+        return "⚪"
+    if (module in ("sandbox", "log")
+            or check["name"] in ("secret_leak", "no_magic_paths",
+                                 "skilmd_exists", "frontmatter_valid",
+                                 "sandbox_isolated")
+            or check["name"].startswith(("run_", "help_", "noargs_"))):
+        return "🔴"
+    return "🟡"
+
+
 def render_certificate(report):
     grade = report["grade"]
     score = int(round(report["score_pct"] * 100))
@@ -647,7 +662,8 @@ def render_certificate(report):
                      f"({icon} {m['status']}, {m['duration_ms']} ms)")
         for c in m["checks"]:
             cicon = {"pass": "✓", "warn": "!", "fail": "✗"}[c["status"]]
-            lines.append(f"- [{cicon}] **{c['name']}** — {c['detail']}")
+            lines.append(f"- [{cicon}] {_check_type(m['module'], c)} "
+                         f"**{c['name']}** — {c['detail']}")
         if m.get("details"):
             lines += ["", f"> {m['details']}"]
         lines.append("")

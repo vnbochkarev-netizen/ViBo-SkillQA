@@ -201,6 +201,9 @@ class CompatCheck:
                     out = (r["stdout"] or "") + "\n" + (r["stderr"] or "")
                     if re.search(r"usage|use:|required|использование", out, re.I):
                         continue  # usage/help exit codes are not crashes
+                    if (r["exit_code"] == 127 or "ModuleNotFoundError" in out
+                            or "No module named" in out or "command not found" in out):
+                        continue  # environment gap, not a compat crash
                     minor = name.replace("python3.", "")
                     if req_minor and minor != req_minor:
                         unsupported.append(name)

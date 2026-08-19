@@ -1,0 +1,256 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "google-workspace",
+  "skill_path": "/root/.hermes/skills/productivity/google-workspace",
+  "grade": "D",
+  "score_pct": 0.4,
+  "fail_count": 3,
+  "date": "2026-08-19T18:29:08Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 6352,
+  "skill_sha256": "4b8fbb41ae55956266b8bbb58d66016daf05a76710bb872fd6624b6e144de794",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: google_token.json, google_client_secret.json, Logo.png",
+    "- **static/no_magic_paths** — fix FAIL: absolute magic paths in SKILL.md: /home/ (line 90)",
+    "- sandbox/noargs__hermes_home.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_google_api.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_gws_bridge.py — reduce warning: exit 0 but stderr non-empty",
+    "- **sandbox/help_gws_bridge.py** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/run_setup.py — reduce warning: exit 0 but stderr non-empty",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:auth==2.55.1\","
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 13670 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: google_token.json, google_client_secret.json, Logo.png"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "absolute magic paths in SKILL.md: /home/ (line 90)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.2.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 1 warns",
+      "duration_ms": 4382,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run__hermes_home.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (106 ms)"
+        },
+        {
+          "name": "help__hermes_home.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs__hermes_home.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_google_api.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_google_api.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_google_api.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_gws_bridge.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_gws_bridge.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_gws_bridge.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_setup.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_setup.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_setup.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 13 checks, 1 fails, 4 warns\n  scripts/_hermes_home.py: exit=0, 106 ms, timed_out=False\n  scripts/_hermes_home.py --help: exit=0, 53 ms, timed_out=False\n  scripts/_hermes_home.py (no args): exit=0, 53 ms, timed_out=False\n  scripts/google_api.py: exit=2, 103 ms, timed_out=False\n  scripts/google_api.py --help: exit=0, 102 ms, timed_out=False\n  scripts/google_api.py (no args): exit=2, 102 ms, timed_out=False\n  scripts/gws_bridge.py: exit=1, 52 ms, timed_out=False\n  scripts/gws_bridge.py --help: exit=1, 102 ms, timed_out=False\n  scripts/gws_bridge.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/setup.py: exit=2, 102 ms, timed_out=False\n  scripts/setup.py --help: exit=0, 103 ms, timed_out=False\n  scripts/setup.py (no args): exit=2, 103 ms, timed_out=False",
+      "duration_ms": 1094,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:auth==2.55.1\","
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 14,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (59 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: union type hints (3.10+), f-string debug = (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: union type hints (3.10+), f-string debug = (3.8+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 0 warns — detected features: union type hints (3.10+), f-string debug = (3.8+)",
+      "duration_ms": 853,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

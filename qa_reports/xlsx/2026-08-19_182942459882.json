@@ -1,0 +1,321 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "xlsx",
+  "skill_path": "/root/.hermes/skills/productivity/xlsx",
+  "grade": "D",
+  "score_pct": 0.3,
+  "fail_count": 3,
+  "date": "2026-08-19T18:29:42Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 7910,
+  "skill_sha256": "07590d782f1cf60254cc7381f529e4277a904ca8a9d177e9f5fd355239a23d83",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: d.csv, in.csv",
+    "- **sandbox/run_csv_to_xlsx.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'",
+    "- **sandbox/help_csv_to_xlsx.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_csv_to_xlsx.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_xlsx_create.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'",
+    "- **sandbox/help_xlsx_create.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_xlsx_create.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_xlsx_edit.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'",
+    "- **sandbox/help_xlsx_edit.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_xlsx_edit.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_xlsx_read.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'",
+    "- **sandbox/help_xlsx_read.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_xlsx_read.py** — fix FAIL: no-args run crashed with traceback"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 9655 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: d.csv, in.csv"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.1.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 1 warns",
+      "duration_ms": 6024,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_csv_to_xlsx.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_csv_to_xlsx.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_csv_to_xlsx.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xlsx_create.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_xlsx_create.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xlsx_create.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xlsx_edit.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_xlsx_edit.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xlsx_edit.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xlsx_read.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_xlsx_read.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xlsx_read.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xlsx_recalc.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_xlsx_recalc.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_xlsx_recalc.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_xlsx_restructure.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_xlsx_restructure.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xlsx_restructure.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xlsx_to_csv.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'openpyxl'"
+        },
+        {
+          "name": "help_xlsx_to_csv.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xlsx_to_csv.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_xlsx_skill.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_xlsx_skill.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_xlsx_skill.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 25 checks, 21 fails, 1 warns\n  scripts/csv_to_xlsx.py: exit=1, 105 ms, timed_out=False\n  scripts/csv_to_xlsx.py --help: exit=1, 52 ms, timed_out=False\n  scripts/csv_to_xlsx.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/xlsx_create.py: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_create.py --help: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_create.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/xlsx_edit.py: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_edit.py --help: exit=1, 103 ms, timed_out=False\n  scripts/xlsx_edit.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/xlsx_read.py: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_read.py --help: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_read.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/xlsx_recalc.py: exit=2, 52 ms, timed_out=False\n  scripts/xlsx_recalc.py --help: exit=0, 52 ms, timed_out=False\n  scripts/xlsx_recalc.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/xlsx_restructure.py: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_restructure.py --help: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_restructure.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/xlsx_to_csv.py: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_to_csv.py --help: exit=1, 52 ms, timed_out=False\n  scripts/xlsx_to_csv.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_xlsx_skill.py: exit=1, 52 ms, timed_out=False\n  tests/test_xlsx_skill.py --help: exit=1, 102 ms, timed_out=False\n  tests/test_xlsx_skill.py (no args): exit=1, 52 ms, timed_out=False",
+      "duration_ms": 1468,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:password = prot[\"password\"]"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 15,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (50 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: openpyxl, pytest"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "warn",
+          "detail": "unsupported (outside declared requirements): python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 2 warns",
+      "duration_ms": 394,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

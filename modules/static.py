@@ -19,6 +19,7 @@ RUNTIME_GENERATED = {
     ".env", "config.json", "config.yaml", "templates/_quick_index.json",
     "tsconfig.json", "package.json", ".comfyui-agent.json",
     "PERF.md", "CHANGELOG.md", "TASKS.md", "TODO.md", "NOTES.md", "HINTS.md",
+    "o.png", "out.png", "result.png", "output.png",
 }
 
 # code identifiers / DOM APIs that look like files but are not:
@@ -139,6 +140,10 @@ def _referenced_missing(md_text, skill_dir):
             continue
         # dated artifacts (2026-06-21_zimage_hero.json) are generated output
         if re.match(r"\d{4}-\d{2}-\d{2}_.*\.", tok):
+            continue
+        # editor/tool configs (.claude/settings.json, .cursor/rules) are
+        # per-user runtime files, not part of the package
+        if low.startswith((".claude/", ".cursor/", ".vscode/", ".idea/")):
             continue
         p = Path(skill_dir) / tok
         checked += 1

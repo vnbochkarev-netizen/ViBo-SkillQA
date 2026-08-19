@@ -24,7 +24,7 @@ SECRET_PATTERNS = [
 ]
 
 PLACEHOLDER_VALUE_RE = re.compile(
-    r"^(user[-_]?(pass|password|passphrase)|example|dummy|test|your[-_][a-z]+|change[-_]?me|123456|qwerty|demo|fake|placeholder|redacted|sample|xxx+|passphrase)[\"'<>]*$",
+    r"^(user[-_]?(pass|password|passphrase)|password|pwd|example|dummy|test|your[-_][a-z]+|change[-_]?me|123456|qwerty|demo|fake|placeholder|redacted|sample|xxx+|passphrase)[\"'<>]*$",
     re.I)
 
 

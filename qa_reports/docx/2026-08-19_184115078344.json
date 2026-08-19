@@ -1,0 +1,336 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "docx",
+  "skill_path": "/root/.hermes/skills/productivity/docx",
+  "grade": "C",
+  "score_pct": 0.6,
+  "fail_count": 1,
+  "date": "2026-08-19T18:41:15Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 6267,
+  "skill_sha256": "87469978e06cecdcac39c29002569ae7ac6f0d0d1f1bb2f8216dcc24ffa3ed43",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- static/referenced_paths_exist — reduce warning: mentioned in examples but missing: spec.json, values.json",
+    "- sandbox/run_docx_comments.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/noargs_docx_common.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_docx_create.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_docx_edit.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_docx_read.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_docx_revisions.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_docx_template.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_docx_validate.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_test_docx_skill.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- **sandbox/help_test_docx_skill.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_test_docx_skill.py** — fix FAIL: no-args run crashed with traceback",
+    "- compat/deps_installable — reduce warning: unresolvable imports: pytest"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 10395 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "mentioned in examples but missing: spec.json, values.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.1.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 2 warns",
+      "duration_ms": 2163,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_docx_comments.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_comments.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_comments.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_common.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_docx_common.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_common.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_docx_create.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_create.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_create.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_edit.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_edit.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_edit.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_read.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_read.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_read.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_revisions.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_revisions.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_revisions.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_template.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_template.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_template.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_docx_validate.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_docx_validate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_docx_validate.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_test_docx_skill.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_docx_skill.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_docx_skill.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 28 checks, 2 fails, 9 warns\n  scripts/docx_comments.py: exit=2, 153 ms, timed_out=False\n  scripts/docx_comments.py --help: exit=0, 152 ms, timed_out=False\n  scripts/docx_comments.py (no args): exit=2, 153 ms, timed_out=False\n  scripts/docx_common.py: exit=0, 52 ms, timed_out=False\n  scripts/docx_common.py --help: exit=0, 52 ms, timed_out=False\n  scripts/docx_common.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/docx_create.py: exit=2, 152 ms, timed_out=False\n  scripts/docx_create.py --help: exit=0, 153 ms, timed_out=False\n  scripts/docx_create.py (no args): exit=2, 153 ms, timed_out=False\n  scripts/docx_edit.py: exit=2, 152 ms, timed_out=False\n  scripts/docx_edit.py --help: exit=0, 152 ms, timed_out=False\n  scripts/docx_edit.py (no args): exit=2, 152 ms, timed_out=False\n  scripts/docx_read.py: exit=2, 152 ms, timed_out=False\n  scripts/docx_read.py --help: exit=0, 152 ms, timed_out=False\n  scripts/docx_read.py (no args): exit=2, 153 ms, timed_out=False\n  scripts/docx_revisions.py: exit=2, 152 ms, timed_out=False\n  scripts/docx_revisions.py --help: exit=0, 152 ms, timed_out=False\n  scripts/docx_revisions.py (no args): exit=2, 152 ms, timed_out=False\n  scripts/docx_template.py: exit=2, 152 ms, timed_out=False\n  scripts/docx_template.py --help: exit=0, 155 ms, timed_out=False\n  scripts/docx_template.py (no args): exit=2, 153 ms, timed_out=False\n  scripts/docx_validate.py: exit=2, 102 ms, timed_out=False\n  scripts/docx_validate.py --help: exit=0, 102 ms, timed_out=False\n  scripts/docx_validate.py (no args): exit=2, 102 ms, timed_out=False\n  tests/test_docx_skill.py: exit=1, 53 ms, timed_out=False\n  tests/test_docx_skill.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_docx_skill.py (no args): exit=1, 102 ms, timed_out=False",
+      "duration_ms": 3435,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 14,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (58 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: f-string debug = (3.8+), union type hints (3.10+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: pytest"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: f-string debug = (3.8+), union type hints (3.10+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns — detected features: f-string debug = (3.8+), union type hints (3.10+)",
+      "duration_ms": 645,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

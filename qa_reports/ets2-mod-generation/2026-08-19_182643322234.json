@@ -1,0 +1,245 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "ets2-mod-generation",
+  "skill_path": "/root/.hermes/skills/creative/ets2-mod-generation",
+  "grade": "D",
+  "score_pct": 0.4,
+  "fail_count": 3,
+  "date": "2026-08-19T18:26:43Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 77301,
+  "skill_sha256": "188a0df7c4f335a74431021e04007ed32e0ed48b8eafe92c619e0ec9ac3eebe6",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/no_magic_paths** — fix FAIL: absolute magic paths in SKILL.md: /root/ (line 15), /root/ (line 82), /root/ (line 113)",
+    "- static/version_consistent — reduce warning: versions in SKILL.md text differ: 12.08.2026, 13.08.2026, 1.60.1, 1.60.2, 12.08.2026",
+    "- **sandbox/run_fix_all_mods.py** — fix FAIL: hung: killed by 15s timeout (SIGTERM/SIGKILL)",
+    "- **sandbox/help_fix_all_mods.py** — fix FAIL: --help hung: killed by 15s timeout",
+    "- **sandbox/noargs_fix_all_mods.py** — fix FAIL: no-args run hung: killed by 15s timeout",
+    "- **sandbox/run_fix_mods_batch.py** — fix FAIL: exit 1 or unhandled exception",
+    "- **sandbox/help_fix_mods_batch.py** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/noargs_fix_mods_batch.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_probe_scs.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/sandbox_isolated — reduce warning: some runs timed out (hang suspected)",
+    "- compat/deps_installable — reduce warning: unresolvable imports: generator",
+    "- **compat/runs_on_installed_pythons** — fix FAIL: crashes on: python3.11 (exit 137)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 20294 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (16)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "absolute magic paths in SKILL.md: /root/ (line 15), /root/ (line 82), /root/ (line 113)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "versions in SKILL.md text differ: 12.08.2026, 13.08.2026, 1.60.1, 1.60.2, 12.08.2026"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 1751,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_fix_all_mods.py",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_fix_all_mods.py",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_fix_all_mods.py",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "run_fix_mods_batch.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_fix_mods_batch.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_fix_mods_batch.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_probe_scs.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_probe_scs.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_probe_scs.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 10 checks, 5 fails, 3 warns\n  scripts/fix_all_mods.py: exit=137, 15021 ms, timed_out=True\n  scripts/fix_all_mods.py --help: exit=137, 15050 ms, timed_out=True\n  scripts/fix_all_mods.py (no args): exit=137, 15032 ms, timed_out=True\n  scripts/fix_mods_batch.py: exit=1, 52 ms, timed_out=False\n  scripts/fix_mods_batch.py --help: exit=1, 51 ms, timed_out=False\n  scripts/fix_mods_batch.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/probe_scs.py: exit=2, 51 ms, timed_out=False\n  scripts/probe_scs.py --help: exit=0, 51 ms, timed_out=False\n  scripts/probe_scs.py (no args): exit=2, 51 ms, timed_out=False",
+      "duration_ms": 45416,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 5,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (44 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: f-string debug = (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: generator"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "fail",
+          "detail": "crashes on: python3.11 (exit 137)"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: f-string debug = (3.8+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 1 fails, 1 warns — detected features: f-string debug = (3.8+)",
+      "duration_ms": 30122,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}
