@@ -1,0 +1,216 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "lnurl-auth",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "C",
+  "score_pct": 0.5,
+  "fail_count": 2,
+  "date": "2026-08-19T16:38:58Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 523,
+  "skill_sha256": "7c32de3b338f79f1178369b0d36a92a3324226d155727e1276602eaf7b5d999c",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: Node.js",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- **sandbox/run_lnurl_auth.js** — fix FAIL: exit 127 or unhandled exception",
+    "- **sandbox/help_lnurl_auth.js** — fix FAIL: --help failed (exit 127)",
+    "- sandbox/noargs_lnurl_auth.js — reduce warning: no args: exit 127 without explanation",
+    "- **sandbox/run_mock_server.js** — fix FAIL: exit 127 or unhandled exception",
+    "- **sandbox/help_mock_server.js** — fix FAIL: --help failed (exit 127)",
+    "- sandbox/noargs_mock_server.js — reduce warning: no args: exit 127 without explanation",
+    "- **sandbox/run_vitest.config.js** — fix FAIL: exit 127 or unhandled exception",
+    "- **sandbox/help_vitest.config.js** — fix FAIL: --help failed (exit 127)",
+    "- sandbox/noargs_vitest.config.js — reduce warning: no args: exit 127 without explanation"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 5757 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: Node.js"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.2.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 17,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_lnurl_auth.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_lnurl_auth.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_lnurl_auth.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_mock_server.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_mock_server.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_mock_server.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_vitest.config.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_vitest.config.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_vitest.config.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 10 checks, 6 fails, 3 warns\n  lnurl_auth.js: exit=127, 51 ms, timed_out=False\n  lnurl_auth.js --help: exit=127, 51 ms, timed_out=False\n  lnurl_auth.js (no args): exit=127, 51 ms, timed_out=False\n  mock_server.js: exit=127, 51 ms, timed_out=False\n  mock_server.js --help: exit=127, 51 ms, timed_out=False\n  mock_server.js (no args): exit=127, 51 ms, timed_out=False\n  vitest.config.js: exit=127, 51 ms, timed_out=False\n  vitest.config.js --help: exit=127, 51 ms, timed_out=False\n  vitest.config.js (no args): exit=127, 51 ms, timed_out=False",
+      "duration_ms": 470,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 25,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (408 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

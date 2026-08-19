@@ -1,0 +1,179 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "didit-phone-verification",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/didit-phone-verification",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 2,
+  "date": "2026-08-19T16:54:23Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 468,
+  "skill_sha256": "c1b9785b5c315ee9afeedee73106a541228ff545e100e12e002a2c25bbf8d340",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- static/version_consistent — reduce warning: versions in SKILL.md text differ: 18.0.1, 1.2.34",
+    "- sandbox/run_verify_phone.py — reduce warning: exit 0 but stderr non-empty",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:api-key: your_api_key_here, assignment:API_KEY=\"your_api_key\"",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 9895 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (1)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "versions in SKILL.md text differ: 18.0.1, 1.2.34"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 2 warns",
+      "duration_ms": 5,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_verify_phone.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_verify_phone.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_verify_phone.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns\n  scripts/verify_phone.py: exit=2, 151 ms, timed_out=False\n  scripts/verify_phone.py --help: exit=0, 151 ms, timed_out=False\n  scripts/verify_phone.py (no args): exit=2, 151 ms, timed_out=False",
+      "duration_ms": 457,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:api-key: your_api_key_here, assignment:API_KEY=\"your_api_key\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 3,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

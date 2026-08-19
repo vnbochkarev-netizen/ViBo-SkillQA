@@ -1,0 +1,126 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "nihaixia",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "C",
+  "score_pct": 0.625,
+  "fail_count": 1,
+  "date": "2026-08-19T16:35:21Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 120,
+  "skill_sha256": "e489551f20bd382b66e6fe0274d1290613a276682ed76157d603e4914344d58b",
+  "recommendations": [
+    "- **static/module_crash** — fix FAIL: ValueError: Invalid pattern: '**' can only be an entire path component",
+    "- sandbox/scripts_discovered — reduce warning: no executable scripts (*.py/*.sh/*.js) found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "ValueError: Invalid pattern: '**' can only be an entire path component"
+        }
+      ],
+      "details": "ValueError: Invalid pattern: '**' can only be an entire path component",
+      "duration_ms": 15,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "scripts_discovered",
+          "status": "warn",
+          "detail": "no executable scripts (*.py/*.sh/*.js) found"
+        }
+      ],
+      "details": "no executable scripts found",
+      "duration_ms": 2,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 78,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (340 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 1,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

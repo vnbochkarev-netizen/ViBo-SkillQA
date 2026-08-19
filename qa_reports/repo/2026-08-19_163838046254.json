@@ -1,0 +1,938 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T16:38:38Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 99811,
+  "skill_sha256": "ecd307b9532b7494305999b0c926fcc2253e7fb1b4f1b7877a9822383e057af8",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_build-video.sh** — fix FAIL: exit 1 or unhandled exception: OSError: cannot open resource",
+    "- sandbox/help_build-video.sh — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_build-video.sh — reduce warning: no args: exit 1 without explanation",
+    "- **sandbox/run_gen-cards.py** — fix FAIL: exit 1 or unhandled exception: OSError: cannot open resource",
+    "- sandbox/help_gen-cards.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_gen-cards.py — reduce warning: no args: exit 1 without explanation",
+    "- **sandbox/run_record.sh** — fix FAIL: exit 127 or unhandled exception",
+    "- **sandbox/help_record.sh** — fix FAIL: --help failed (exit 127)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 13,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_build-video.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: OSError: cannot open resource"
+        },
+        {
+          "name": "help_build-video.sh",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_build-video.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_gen-cards.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: OSError: cannot open resource"
+        },
+        {
+          "name": "help_gen-cards.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_gen-cards.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_record.sh",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_record.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_record.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 127)"
+        },
+        {
+          "name": "run_term-video.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_term-video.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_term-video.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_ask.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_ask.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_ask.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_benchmark.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_benchmark.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_benchmark.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_claims.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_claims.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_claims.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_config.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_config.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_config.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_cypher.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_cypher.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_cypher.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_db.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (252 ms)"
+        },
+        {
+          "name": "help_db.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_db.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evaluate.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_evaluate.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_evaluate.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_extract.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_extract.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_extract.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___main__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help___main__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___main__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_generator.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_generator.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_generator.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_scenarios.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_scenarios.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_scenarios.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_ingest.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_ingest.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_ingest.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_ingest_api.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_ingest_api.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_ingest_api.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_llm.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (202 ms)"
+        },
+        {
+          "name": "help_llm.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_llm.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_longmemeval.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_longmemeval.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_longmemeval.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_model.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_model.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_model.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_pipeline.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_pipeline.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_pipeline.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_probe.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_probe.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_probe.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_ratelimit.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_ratelimit.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_ratelimit.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_reconcile.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_reconcile.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reconcile.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_retrieve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_retrieve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_retrieve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_router.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_router.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_router.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_schema.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_schema.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_schema.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_scoring.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_scoring.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_scoring.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_serve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_serve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_serve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_slack_import.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_slack_import.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_slack_import.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_demo.sh",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_demo.sh",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_demo.sh",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "run_dev-up.sh",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_dev-up.sh",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_dev-up.sh",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "run_test_benchmark.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_benchmark.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_benchmark.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_cypher.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_cypher.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_cypher.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_evaluate.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_evaluate.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_evaluate.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_extract.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_extract.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_extract.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_generator.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_generator.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_generator.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_ingest_api.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_ingest_api.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_ingest_api.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_llm.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_llm.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_llm.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_longmemeval.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_longmemeval.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_longmemeval.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_model.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_model.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_model.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_reconcile.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_reconcile.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_reconcile.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_retrieve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_retrieve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_retrieve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_router.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_router.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_router.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_scoring.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_scoring.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_scoring.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_serve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_serve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_serve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_slack_import.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'hydraclaim'"
+        },
+        {
+          "name": "help_test_slack_import.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_slack_import.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_app.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_app.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_app.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_config.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_config.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_config.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 154 checks, 103 fails, 21 warns\n  demo/build-video.sh: exit=1, 101 ms, timed_out=False\n  demo/build-video.sh --help: exit=1, 101 ms, timed_out=False\n  demo/build-video.sh (no args): exit=1, 101 ms, timed_out=False\n  demo/gen-cards.py: exit=1, 101 ms, timed_out=False\n  demo/gen-cards.py --help: exit=1, 101 ms, timed_out=False\n  demo/gen-cards.py (no args): exit=1, 101 ms, timed_out=False\n  demo/record.sh: exit=127, 238 ms, timed_out=False\n  demo/record.sh --help: exit=127, 69 ms, timed_out=False\n  demo/record.sh (no args): exit=127, 70 ms, timed_out=False\n  demo/term-video.py: exit=2, 101 ms, timed_out=False\n  demo/term-video.py --help: exit=0, 101 ms, timed_out=False\n  demo/term-video.py (no args): exit=2, 101 ms, timed_out=False\n  hydraclaim/__init__.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/__init__.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/ask.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/ask.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/ask.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/benchmark.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/benchmark.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/benchmark.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/claims.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/claims.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/claims.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/config.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/config.py --help: exit=0, 52 ms, timed_out=False\n  hydraclaim/config.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/cypher.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/cypher.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/cypher.py (no args): exit=0, 102 ms, timed_out=False\n  hydraclaim/db.py: exit=0, 252 ms, timed_out=False\n  hydraclaim/db.py --help: exit=0, 202 ms, timed_out=False\n  hydraclaim/db.py (no args): exit=0, 202 ms, timed_out=False\n  hydraclaim/evaluate.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/evaluate.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/evaluate.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/extract.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/extract.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/extract.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/__init__.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/generate/__init__.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/generate/__init__.py (no args): exit=0, 52 ms, timed_out=False\n  hydraclaim/generate/__main__.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/__main__.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/__main__.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/generator.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/generator.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/generator.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/generate/scenarios.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/generate/scenarios.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/generate/scenarios.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/ingest.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/ingest.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/ingest.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/ingest_api.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/ingest_api.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/ingest_api.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/llm.py: exit=0, 202 ms, timed_out=False\n  hydraclaim/llm.py --help: exit=0, 202 ms, timed_out=False\n  hydraclaim/llm.py (no args): exit=0, 202 ms, timed_out=False\n  hydraclaim/longmemeval.py: exit=2, 51 ms, timed_out=False\n  hydraclaim/longmemeval.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/longmemeval.py (no args): exit=2, 51 ms, timed_out=False\n  hydraclaim/model.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/model.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/model.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/pipeline.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/pipeline.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/pipeline.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/probe.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/probe.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/probe.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/ratelimit.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/ratelimit.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/ratelimit.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/reconcile.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/reconcile.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/reconcile.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/retrieve.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/retrieve.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/retrieve.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/router.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/router.py --help: exit=1, 101 ms, timed_out=False\n  hydraclaim/router.py (no args): exit=1, 52 ms, timed_out=False\n  hydraclaim/schema.py: exit=1, 51 ms, timed_out=False\n  hydraclaim/schema.py --help: exit=1, 51 ms, timed_out=False\n  hydraclaim/schema.py (no args): exit=1, 51 ms, timed_out=False\n  hydraclaim/scoring.py: exit=0, 51 ms, timed_out=False\n  hydraclaim/scoring.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/scoring.py (no args): exit=0, 51 ms, timed_out=False\n  hydraclaim/serve.py: exit=1, 101 ms, timed_out=False\n  hydraclaim/serve.py --help: exit=1, 102 ms, timed_out=False\n  hydraclaim/serve.py (no args): exit=1, 102 ms, timed_out=False\n  hydraclaim/slack_import.py: exit=0, 52 ms, timed_out=False\n  hydraclaim/slack_import.py --help: exit=0, 51 ms, timed_out=False\n  hydraclaim/slack_import.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/demo.sh: exit=137, 15036 ms, timed_out=True\n  scripts/demo.sh --help: exit=137, 15035 ms, timed_out=True\n  scripts/demo.sh (no args): exit=137, 15033 ms, timed_out=True\n  scripts/dev-up.sh: exit=137, 15034 ms, timed_out=True\n  scripts/dev-up.sh --help: exit=137, 15034 ms, timed_out=True\n  scripts/dev-up.sh (no args): exit=137, 15031 ms, timed_out=True\n  tests/test_benchmark.py: exit=1, 51 ms, timed_out=False\n  tests/test_benchmark.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_benchmark.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_cypher.py: exit=1, 51 ms, timed_out=False\n  tests/test_cypher.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_cypher.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_evaluate.py: exit=1, 51 ms, timed_out=False\n  tests/test_evaluate.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_evaluate.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_extract.py: exit=1, 51 ms, timed_out=False\n  tests/test_extract.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_extract.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_generator.py: exit=1, 51 ms, timed_out=False\n  tests/test_generator.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_generator.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_ingest_api.py: exit=1, 51 ms, timed_out=False\n  tests/test_ingest_api.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_ingest_api.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_llm.py: exit=1, 51 ms, timed_out=False\n  tests/test_llm.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_llm.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_longmemeval.py: exit=1, 51 ms, timed_out=False\n  tests/test_longmemeval.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_longmemeval.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_model.py: exit=1, 51 ms, timed_out=False\n  tests/test_model.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_model.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_reconcile.py: exit=1, 51 ms, timed_out=False\n  tests/test_reconcile.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_reconcile.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_retrieve.py: exit=1, 51 ms, timed_out=False\n  tests/test_retrieve.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_retrieve.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_router.py: exit=1, 51 ms, timed_out=False\n  tests/test_router.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_router.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_scoring.py: exit=1, 51 ms, timed_out=False\n  tests/test_scoring.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_scoring.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_serve.py: exit=1, 51 ms, timed_out=False\n  tests/test_serve.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_serve.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_slack_import.py: exit=1, 51 ms, timed_out=False\n  tests/test_slack_import.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_slack_import.py (no args): exit=1, 51 ms, timed_out=False\n  web/app.js: exit=127, 51 ms, timed_out=False\n  web/app.js --help: exit=127, 51 ms, timed_out=False\n  web/app.js (no args): exit=127, 51 ms, timed_out=False\n  web/config.js: exit=127, 51 ms, timed_out=False\n  web/config.js --help: exit=127, 51 ms, timed_out=False\n  web/config.js (no args): exit=127, 51 ms, timed_out=False",
+      "duration_ms": 99706,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:API_KEY=sk-local\", assignment:token: local-development-token-32-bytes)\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 74,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

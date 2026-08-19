@@ -54,7 +54,7 @@ if [ "$COMMENT" = "1" ]; then
 $(echo "$OUT" | tail -25)
 \`\`\`
 
-*Certified by [ViBo SkillQA](https://wwwvibo.com/skillqa) — $5/mo, 2-day free trial.*"
+*Certified by [ViBo SkillQA](https://wwwvibo.com/skillqa) — check your skills, certify them, sell with confidence.*"
   BODY_JSON=$(python3 -c "import json,sys; print(json.dumps(sys.argv[1]))" "$BODY")
   if [ -n "$PR" ]; then
     echo "==> posting PR review comment (#$PR)"

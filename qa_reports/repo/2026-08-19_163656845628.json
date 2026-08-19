@@ -1,0 +1,168 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 2,
+  "date": "2026-08-19T16:36:56Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 16,
+  "skill_sha256": "f7573d574b70c8934478858f098e510ade3cbb0c25dcb3db8c08a164dcd2c0cd",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/scripts_discovered — reduce warning: no executable scripts (*.py/*.sh/*.js) found",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template",
+    "- novelty/has_examples — reduce warning: no usage examples found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 5,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "scripts_discovered",
+          "status": "warn",
+          "detail": "no executable scripts (*.py/*.sh/*.js) found"
+        }
+      ],
+      "details": "no executable scripts found",
+      "duration_ms": 0,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 9,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

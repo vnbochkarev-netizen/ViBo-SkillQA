@@ -1,0 +1,368 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "x-marketing",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T16:35:36Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 3346,
+  "skill_sha256": "182131f9e2f3825eb0f40379ea4cbe2f8a1034b48c24f90330e83aa8462f1d68",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run___init__.py** — fix FAIL: exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package",
+    "- **sandbox/help___init__.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs___init__.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_apify_client.py** — fix FAIL: exit 1 or unhandled exception: ApifyAuthError: No APIFY_TOKEN set. Get one free at https://console.apify.com/account/integrations. Or paste ",
+    "- **sandbox/help_apify_client.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_apify_client.py** — fix FAIL: no-args run crashed with traceback",
+    "- sandbox/noargs_approval.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_backend_selector.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_publora_client.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_url_parser.py — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run___init__.py** — fix FAIL: exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package",
+    "- **sandbox/help___init__.py** — fix FAIL: --help crashed with traceback"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 6918 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (6)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 1 warns",
+      "duration_ms": 19,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_apify_client.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ApifyAuthError: No APIFY_TOKEN set. Get one free at https://console.apify.com/account/integrations. Or paste the tweets/replies you already have and t"
+        },
+        {
+          "name": "help_apify_client.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_apify_client.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_approval.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_approval.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_approval.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_backend_selector.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_backend_selector.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_backend_selector.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_publora_client.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (151 ms)"
+        },
+        {
+          "name": "help_publora_client.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_publora_client.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_url_parser.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_url_parser.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_url_parser.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_apify_client.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ApifyAuthError: No APIFY_TOKEN set. Get one free at https://console.apify.com/account/integrations. Or paste the tweets/replies you already have and t"
+        },
+        {
+          "name": "help_apify_client.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_apify_client.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_approval.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_approval.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_approval.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_backend_selector.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_backend_selector.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_backend_selector.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_publora_client.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (151 ms)"
+        },
+        {
+          "name": "help_publora_client.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_publora_client.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_url_parser.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_url_parser.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_url_parser.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_sync_codex_marketplace.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_sync_codex_marketplace.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_sync_codex_marketplace.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 40 checks, 12 fails, 9 warns\n  .codex-marketplace/x-skills/lib/__init__.py: exit=1, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/__init__.py --help: exit=1, 52 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/apify_client.py: exit=1, 151 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/apify_client.py --help: exit=1, 152 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/apify_client.py (no args): exit=1, 152 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/approval.py: exit=0, 102 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/approval.py --help: exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/approval.py (no args): exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/backend_selector.py: exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/backend_selector.py --help: exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/backend_selector.py (no args): exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/publora_client.py: exit=0, 151 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/publora_client.py --help: exit=0, 151 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/publora_client.py (no args): exit=0, 152 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/url_parser.py: exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/url_parser.py --help: exit=0, 51 ms, timed_out=False\n  .codex-marketplace/x-skills/lib/url_parser.py (no args): exit=0, 51 ms, timed_out=False\n  lib/__init__.py: exit=1, 51 ms, timed_out=False\n  lib/__init__.py --help: exit=1, 51 ms, timed_out=False\n  lib/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  lib/apify_client.py: exit=1, 151 ms, timed_out=False\n  lib/apify_client.py --help: exit=1, 151 ms, timed_out=False\n  lib/apify_client.py (no args): exit=1, 151 ms, timed_out=False\n  lib/approval.py: exit=0, 51 ms, timed_out=False\n  lib/approval.py --help: exit=0, 51 ms, timed_out=False\n  lib/approval.py (no args): exit=0, 51 ms, timed_out=False\n  lib/backend_selector.py: exit=0, 51 ms, timed_out=False\n  lib/backend_selector.py --help: exit=0, 51 ms, timed_out=False\n  lib/backend_selector.py (no args): exit=0, 51 ms, timed_out=False\n  lib/publora_client.py: exit=0, 151 ms, timed_out=False\n  lib/publora_client.py --help: exit=0, 151 ms, timed_out=False\n  lib/publora_client.py (no args): exit=0, 152 ms, timed_out=False\n  lib/url_parser.py: exit=0, 51 ms, timed_out=False\n  lib/url_parser.py --help: exit=0, 51 ms, timed_out=False\n  lib/url_parser.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/sync_codex_marketplace.py: exit=0, 51 ms, timed_out=False\n  scripts/sync_codex_marketplace.py --help: exit=0, 51 ms, timed_out=False\n  scripts/sync_codex_marketplace.py (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 3285,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:API_KEY=sk_your_key_here, assignment:API_KEY=sk_your_key_here, assignment:API_KEY=sk_your_key_here, assignment:API_KEY=sk_your_key_here, assignment:API_KEY=sk_your_key_here"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 18,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (502 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

@@ -1,0 +1,413 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T16:38:55Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 5022,
+  "skill_sha256": "d5df1078bb399c868e5cbe884fa7f98766ea713753c97dc42b0e148fe729c91f",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_log-wrapper.sh** — fix FAIL: exit 127 or unhandled exception",
+    "- sandbox/help_log-wrapper.sh — reduce warning: exit 127 but usage/help shown",
+    "- sandbox/noargs_log-wrapper.sh — reduce warning: no args: exit 127 without explanation",
+    "- sandbox/noargs_check-tests.sh — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_messages_api_example.py** — fix FAIL: exit 1 or unhandled exception: NameError: name 'client' is not defined",
+    "- **sandbox/help_messages_api_example.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_messages_api_example.py** — fix FAIL: no-args run crashed with traceback",
+    "- sandbox/noargs_cache_helpers.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 236,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_log-wrapper.sh",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_log-wrapper.sh",
+          "status": "warn",
+          "detail": "exit 127 but usage/help shown"
+        },
+        {
+          "name": "noargs_log-wrapper.sh",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_check-tests.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_check-tests.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check-tests.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_messages_api_example.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: NameError: name 'client' is not defined"
+        },
+        {
+          "name": "help_messages_api_example.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_messages_api_example.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_cache_helpers.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_cache_helpers.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_cache_helpers.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_prune_helpers.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_prune_helpers.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_prune_helpers.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_screenshot_pipeline.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_screenshot_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_screenshot_pipeline.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_create_post_from_extract.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_create_post_from_extract.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_create_post_from_extract.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_fix_language_switcher.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_fix_language_switcher.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_fix_language_switcher.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_list_pending.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_list_pending.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_list_pending.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_mark_processed.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_mark_processed.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_mark_processed.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_rebuild_readme_index.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (151 ms)"
+        },
+        {
+          "name": "help_rebuild_readme_index.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_rebuild_readme_index.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_rename_with_date_prefix.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_rename_with_date_prefix.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_rename_with_date_prefix.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_strip_parent_refs.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_strip_parent_refs.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_strip_parent_refs.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_sync_readme_index.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_sync_readme_index.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_sync_readme_index.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_update_last_run.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_update_last_run.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_update_last_run.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_validate.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (302 ms)"
+        },
+        {
+          "name": "help_validate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_validate.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 49 checks, 4 fails, 17 warns\n  2025.12.11_how-to-configure-hooks/hooks/log-wrapper.sh: exit=127, 52 ms, timed_out=False\n  2025.12.11_how-to-configure-hooks/hooks/log-wrapper.sh --help: exit=127, 51 ms, timed_out=False\n  2025.12.11_how-to-configure-hooks/hooks/log-wrapper.sh (no args): exit=127, 51 ms, timed_out=False\n  2026.04.07_subagents-in-claude-code/hooks/check-tests.sh: exit=0, 51 ms, timed_out=False\n  2026.04.07_subagents-in-claude-code/hooks/check-tests.sh --help: exit=0, 51 ms, timed_out=False\n  2026.04.07_subagents-in-claude-code/hooks/check-tests.sh (no args): exit=0, 51 ms, timed_out=False\n  2026.04.09_the-advisor-strategy/skills/advisor-strategy-playbook/examples/messages_api_example.py: exit=1, 51 ms, timed_out=False\n  2026.04.09_the-advisor-strategy/skills/advisor-strategy-playbook/examples/messages_api_example.py --help: exit=1, 51 ms, timed_out=False\n  2026.04.09_the-advisor-strategy/skills/advisor-strategy-playbook/examples/messages_api_example.py (no args): exit=1, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/cache_helpers.py: exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/cache_helpers.py --help: exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/cache_helpers.py (no args): exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/prune_helpers.py: exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/prune_helpers.py --help: exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/prune_helpers.py (no args): exit=0, 51 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/screenshot_pipeline.py: exit=0, 101 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/screenshot_pipeline.py --help: exit=0, 101 ms, timed_out=False\n  2026.05.13_best-practices-for-computer-and-browser-use-with-claude/skills/computer-use-best-practices/scripts/screenshot_pipeline.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/create_post_from_extract.py: exit=2, 51 ms, timed_out=False\n  scripts/create_post_from_extract.py --help: exit=0, 51 ms, timed_out=False\n  scripts/create_post_from_extract.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/fix_language_switcher.py: exit=0, 101 ms, timed_out=False\n  scripts/fix_language_switcher.py --help: exit=0, 101 ms, timed_out=False\n  scripts/fix_language_switcher.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/list_pending.py: exit=0, 101 ms, timed_out=False\n  scripts/list_pending.py --help: exit=0, 101 ms, timed_out=False\n  scripts/list_pending.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/mark_processed.py: exit=2, 51 ms, timed_out=False\n  scripts/mark_processed.py --help: exit=0, 51 ms, timed_out=False\n  scripts/mark_processed.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/rebuild_readme_index.py: exit=0, 151 ms, timed_out=False\n  scripts/rebuild_readme_index.py --help: exit=0, 102 ms, timed_out=False\n  scripts/rebuild_readme_index.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/rename_with_date_prefix.py: exit=0, 51 ms, timed_out=False\n  scripts/rename_with_date_prefix.py --help: exit=0, 51 ms, timed_out=False\n  scripts/rename_with_date_prefix.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/strip_parent_refs.py: exit=0, 51 ms, timed_out=False\n  scripts/strip_parent_refs.py --help: exit=0, 51 ms, timed_out=False\n  scripts/strip_parent_refs.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/sync_readme_index.py: exit=0, 51 ms, timed_out=False\n  scripts/sync_readme_index.py --help: exit=0, 51 ms, timed_out=False\n  scripts/sync_readme_index.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/update_last_run.py: exit=0, 51 ms, timed_out=False\n  scripts/update_last_run.py --help: exit=0, 51 ms, timed_out=False\n  scripts/update_last_run.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/validate.py: exit=0, 302 ms, timed_out=False\n  scripts/validate.py --help: exit=0, 302 ms, timed_out=False\n  scripts/validate.py (no args): exit=0, 302 ms, timed_out=False",
+      "duration_ms": 4045,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 445,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

@@ -1,0 +1,290 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "gtars",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/gtars",
+  "grade": "C",
+  "score_pct": 0.625,
+  "fail_count": 1,
+  "date": "2026-08-19T16:55:04Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 1681,
+  "skill_sha256": "156ee023b3244ebc1d4c1a19508145306d9f30738c3541ef989d97bc5bac4b85",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/noargs___init__.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs__common.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_artifact_inspector.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_bed_validator.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_coverage_preflight.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_execution_plan.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_refget_digest_plan.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_tokenizer_manifest.py — reduce warning: exit 0 but stderr non-empty"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 12261 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (12)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 6,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run__common.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help__common.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs__common.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_artifact_inspector.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_artifact_inspector.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_artifact_inspector.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_bed_validator.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_bed_validator.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_bed_validator.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_coverage_preflight.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_coverage_preflight.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_coverage_preflight.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_execution_plan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_execution_plan.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_execution_plan.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_refget_digest_plan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_refget_digest_plan.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_refget_digest_plan.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_tokenizer_manifest.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_tokenizer_manifest.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_tokenizer_manifest.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 25 checks, 0 fails, 8 warns\n  scripts/__init__.py: exit=0, 51 ms, timed_out=False\n  scripts/__init__.py --help: exit=0, 51 ms, timed_out=False\n  scripts/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/_common.py: exit=0, 51 ms, timed_out=False\n  scripts/_common.py --help: exit=0, 51 ms, timed_out=False\n  scripts/_common.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/artifact_inspector.py: exit=2, 101 ms, timed_out=False\n  scripts/artifact_inspector.py --help: exit=0, 101 ms, timed_out=False\n  scripts/artifact_inspector.py (no args): exit=2, 101 ms, timed_out=False\n  scripts/bed_validator.py: exit=2, 51 ms, timed_out=False\n  scripts/bed_validator.py --help: exit=0, 51 ms, timed_out=False\n  scripts/bed_validator.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/coverage_preflight.py: exit=2, 51 ms, timed_out=False\n  scripts/coverage_preflight.py --help: exit=0, 101 ms, timed_out=False\n  scripts/coverage_preflight.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/execution_plan.py: exit=2, 51 ms, timed_out=False\n  scripts/execution_plan.py --help: exit=0, 51 ms, timed_out=False\n  scripts/execution_plan.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/refget_digest_plan.py: exit=2, 51 ms, timed_out=False\n  scripts/refget_digest_plan.py --help: exit=0, 101 ms, timed_out=False\n  scripts/refget_digest_plan.py (no args): exit=2, 101 ms, timed_out=False\n  scripts/tokenizer_manifest.py: exit=2, 102 ms, timed_out=False\n  scripts/tokenizer_manifest.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tokenizer_manifest.py (no args): exit=2, 51 ms, timed_out=False",
+      "duration_ms": 1646,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 22,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (202 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

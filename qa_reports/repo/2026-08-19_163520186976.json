@@ -1,0 +1,248 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T16:35:20Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 1546,
+  "skill_sha256": "939f902e1012687d006767897b959df8ca74b3e99399f7228a776bdd4c599ad0",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/noargs_link-skills.sh — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_list-skills.sh — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_hitl-loop.template.sh** — fix FAIL: exit 1 or unhandled exception",
+    "- **sandbox/help_hitl-loop.template.sh** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/noargs_hitl-loop.template.sh — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/noargs_template.sh — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_block-dangerous-git.sh — reduce warning: no args: silent success (exit 0)",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 28,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_link-skills.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (252 ms)"
+        },
+        {
+          "name": "help_link-skills.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_link-skills.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_list-skills.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_list-skills.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_list-skills.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_hitl-loop.template.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_hitl-loop.template.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_hitl-loop.template.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_template.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_template.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_template.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_block-dangerous-git.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_block-dangerous-git.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_block-dangerous-git.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 16 checks, 2 fails, 5 warns\n  scripts/link-skills.sh: exit=0, 252 ms, timed_out=False\n  scripts/link-skills.sh --help: exit=0, 252 ms, timed_out=False\n  scripts/link-skills.sh (no args): exit=0, 252 ms, timed_out=False\n  scripts/list-skills.sh: exit=0, 51 ms, timed_out=False\n  scripts/list-skills.sh --help: exit=0, 51 ms, timed_out=False\n  scripts/list-skills.sh (no args): exit=0, 51 ms, timed_out=False\n  skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh: exit=1, 51 ms, timed_out=False\n  skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh --help: exit=1, 51 ms, timed_out=False\n  skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh (no args): exit=1, 51 ms, timed_out=False\n  skills/engineering/wizard/template.sh: exit=0, 51 ms, timed_out=False\n  skills/engineering/wizard/template.sh --help: exit=0, 51 ms, timed_out=False\n  skills/engineering/wizard/template.sh (no args): exit=0, 51 ms, timed_out=False\n  skills/misc/git-guardrails-claude-code/scripts/block-dangerous-git.sh: exit=0, 51 ms, timed_out=False\n  skills/misc/git-guardrails-claude-code/scripts/block-dangerous-git.sh --help: exit=0, 51 ms, timed_out=False\n  skills/misc/git-guardrails-claude-code/scripts/block-dangerous-git.sh (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 1395,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 90,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

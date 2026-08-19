@@ -1,0 +1,194 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "seo-audit",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/seo-audit",
+  "grade": "C",
+  "score_pct": 0.625,
+  "fail_count": 1,
+  "date": "2026-08-19T16:38:44Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 530,
+  "skill_sha256": "06fffcd0566944ae8267fbffb6dd76ef8878b4197cceb2f1cd72a921a9e3a370",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: robots.txt, llms.txt, astro.conf, next.conf, nuxt.conf",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/run_check-live.sh — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/noargs_head-check.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 6802 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: robots.txt, llms.txt, astro.conf, next.conf, nuxt.conf"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 1 warns",
+      "duration_ms": 5,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_check-live.sh",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_check-live.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check-live.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_head-check.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_head-check.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_head-check.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 0 fails, 2 warns\n  scripts/check-live.sh: exit=2, 51 ms, timed_out=False\n  scripts/check-live.sh --help: exit=0, 256 ms, timed_out=False\n  scripts/check-live.sh (no args): exit=2, 52 ms, timed_out=False\n  scripts/head-check.py: exit=0, 52 ms, timed_out=False\n  scripts/head-check.py --help: exit=0, 51 ms, timed_out=False\n  scripts/head-check.py (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 517,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 4,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (515 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

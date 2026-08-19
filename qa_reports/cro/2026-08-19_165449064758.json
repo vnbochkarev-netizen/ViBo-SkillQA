@@ -1,0 +1,164 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "cro",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/cro",
+  "grade": "C",
+  "score_pct": 0.5,
+  "fail_count": 1,
+  "date": "2026-08-19T16:54:49Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 9,
+  "skill_sha256": "2aecb96e545cbb8ead1ff514def6c482199260165075496c294df3aa25dfd34e",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- static/referenced_paths_exist — reduce warning: mentioned in examples but missing: .agents/product-marketing.md, .claude/product-marketing.md, product-marketing-context",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/scripts_discovered — reduce warning: no executable scripts (*.py/*.sh/*.js) found",
+    "- novelty/has_examples — reduce warning: no usage examples found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 6101 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "mentioned in examples but missing: .agents/product-marketing.md, .claude/product-marketing.md, product-marketing-context.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 2,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "scripts_discovered",
+          "status": "warn",
+          "detail": "no executable scripts (*.py/*.sh/*.js) found"
+        }
+      ],
+      "details": "no executable scripts found",
+      "duration_ms": 0,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 3,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (654 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

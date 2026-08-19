@@ -1,0 +1,180 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "clawsec-scanner",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/clawsec-scanner",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 2,
+  "date": "2026-08-19T16:35:31Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 204,
+  "skill_sha256": "278922ca976d01eb45338cbb79002c31f3d184844eca5b1d82f056ffe35f0ec0",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: package-lock.json, pyproject.toml, BASE/checksums.json, TEMP_DIR/checksums.json, .archive.sh",
+    "- **static/no_empty_broken_files** — fix FAIL: empty/broken files: hooks/.gitkeep, lib/.gitkeep, scripts/.gitkeep, test/.gitkeep",
+    "- static/version_consistent — reduce warning: versions in SKILL.md text differ: 0.1.0",
+    "- sandbox/run_runner.sh — reduce warning: exit 0 but stderr non-empty",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:API_KEY=\"your-nvd-api-key\", assignment:TOKEN=\"ghp_your_token_here\", assignment:token = argv[i];, assignment"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 16498 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: package-lock.json, pyproject.toml, BASE/checksums.json, TEMP_DIR/checksums.json, .archive.sh"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "fail",
+          "detail": "empty/broken files: hooks/.gitkeep, lib/.gitkeep, scripts/.gitkeep, test/.gitkeep"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "versions in SKILL.md text differ: 0.1.0"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 2 warns",
+      "duration_ms": 13,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_runner.sh",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_runner.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_runner.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns\n  scripts/runner.sh: exit=1, 51 ms, timed_out=False\n  scripts/runner.sh --help: exit=0, 51 ms, timed_out=False\n  scripts/runner.sh (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 158,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:API_KEY=\"your-nvd-api-key\", assignment:TOKEN=\"ghp_your_token_here\", assignment:token = argv[i];, assignment:token = argv[i];, assignment:token = argv[i];"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 24,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (255 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

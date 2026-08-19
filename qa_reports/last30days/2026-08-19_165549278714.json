@@ -1,0 +1,1868 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "last30days",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/last30days",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T16:55:49Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 37078,
+  "skill_sha256": "7b24fe0a2ffd21d0bc99cdca5bd366e96b21115ba8435b72d0e384e3b319b883",
+  "recommendations": [
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: CLAUDE_CACHE_LATEST/skills/last30days/SKILL.md, CLAUDE_CACHE_LATEST/SKILL.md, SKILL_DIR/../../.claude-",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- static/version_consistent — reduce warning: versions in SKILL.md text differ: 3.11.0, 3.11.0, 3.11.0, 3.11.0",
+    "- sandbox/run_briefing.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_build-skill.sh — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/help_build-skill.sh — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/run_compare.sh — reduce warning: exit 0 but stderr non-empty",
+    "- **sandbox/help_compare.sh** — fix FAIL: --help hung: killed by 15s timeout",
+    "- **sandbox/run_evaluate_search_quality.py** — fix FAIL: exit 1 or unhandled exception: subprocess.CalledProcessError: Command '['git', 'worktree', 'add', '--detach', '/tmp/skillqa_79mzfqnl/tmp/las",
+    "- **sandbox/noargs_evaluate_search_quality.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_last30days.py** — fix FAIL: exit 1 or unhandled exception",
+    "- **sandbox/help_last30days.py** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/noargs_last30days.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/noargs___init__.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 228814 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "required fields (name, description, version, tools) present"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: CLAUDE_CACHE_LATEST/skills/last30days/SKILL.md, CLAUDE_CACHE_LATEST/SKILL.md, SKILL_DIR/../../.claude-plugin/plugin.json, SKILL_DIR/SKILL.md, index.html"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "versions in SKILL.md text differ: 3.11.0, 3.11.0, 3.11.0, 3.11.0"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 104,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_briefing.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_briefing.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_briefing.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_build-skill.sh",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_build-skill.sh",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_build-skill.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_compare.sh",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_compare.sh",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_compare.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_evaluate_search_quality.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: subprocess.CalledProcessError: Command '['git', 'worktree', 'add', '--detach', '/tmp/skillqa_79mzfqnl/tmp/last30days-eval-l9zuyq13', 'HEAD~1']' return"
+        },
+        {
+          "name": "help_evaluate_search_quality.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_evaluate_search_quality.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_last30days.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_last30days.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_last30days.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_amazon.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_amazon.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_amazon.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_arxiv.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_arxiv.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_arxiv.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_backends.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_backends.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_backends.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_bird_x.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_bird_x.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_bird_x.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_bluesky.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_bluesky.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_bluesky.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_brightdata.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_brightdata.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_brightdata.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_categories.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_categories.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_categories.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_chrome_cookies.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_chrome_cookies.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_chrome_cookies.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_cjk.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_cjk.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_cjk.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_cluster.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_cluster.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_cluster.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_competitors.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_competitors.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_competitors.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_cookie_extract.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_cookie_extract.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_cookie_extract.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_corpus.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_corpus.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_corpus.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_dates.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_dates.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dates.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_dedupe.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_dedupe.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_dedupe.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_digg.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_digg.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_digg.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_discovery_handoff.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_discovery_handoff.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_discovery_handoff.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_doctor.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_doctor.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_doctor.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_dripstack.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_dripstack.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_dripstack.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_entity_extract.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_entity_extract.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_entity_extract.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_env.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_env.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_env.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_fanout.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_fanout.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_fanout.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_feed.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_feed.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_feed.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_freshness.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_freshness.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_freshness.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_fusion.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_fusion.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_fusion.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_github.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_github.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_github.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_grok_x.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_grok_x.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_grok_x.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_grounding.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_grounding.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_grounding.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_hackernews.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_hackernews.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_hackernews.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_health.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_hiring_signals.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_hiring_signals.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_hiring_signals.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_hosted.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_hosted.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_hosted.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_html_publish.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_html_publish.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_html_publish.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_html_render.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_html_render.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_html_render.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_http.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_http.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_http.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_instagram.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_instagram.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_instagram.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_jobs.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_jobs.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_jobs.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_library.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_library.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_library.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_library_index.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_library_index.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_library_index.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_linkedin.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_linkedin.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_linkedin.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_log.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_log.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_log.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_normalize.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_normalize.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_normalize.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_permission_preflight.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_permission_preflight.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_permission_preflight.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_perplexity.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_perplexity.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_perplexity.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_pinterest.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_pinterest.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_pinterest.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_pipeline.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_pipeline.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_pipeline.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_planner.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_planner.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_planner.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_polymarket.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_polymarket.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_polymarket.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_preflight.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_preflight.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_preflight.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_prescriptions.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_prescriptions.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_prescriptions.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_providers.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_providers.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_providers.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_quality_nudge.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_quality_nudge.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_quality_nudge.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_query.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_query.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_query.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_reddit.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_arctic.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_arctic.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_arctic.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_enrich.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_enrich.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_enrich.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_keyless.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_keyless.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_keyless.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_listing.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_listing.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_listing.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_public.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_public.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_public.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_rss.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_rss.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_rss.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_reddit_shreddit.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_reddit_shreddit.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_reddit_shreddit.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_registers.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_registers.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_registers.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_relevance.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_relevance.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_relevance.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_render.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_render.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_render.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_rerank.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_rerank.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_rerank.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_resolve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_resolve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_resolve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_safari_cookies.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_safari_cookies.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_safari_cookies.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_schema.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_schema.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_schema.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_setup_wizard.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_setup_wizard.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_setup_wizard.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_signals.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_signals.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_signals.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_skill_meta.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_skill_meta.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_meta.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_snippet.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_snippet.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_snippet.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_stocktwits.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_stocktwits.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_stocktwits.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_subproc.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (53 ms)"
+        },
+        {
+          "name": "help_subproc.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_subproc.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_techmeme.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_techmeme.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_techmeme.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_threads.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_threads.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_threads.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_tiktok.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_tiktok.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_tiktok.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_topic_shape.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_topic_shape.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_topic_shape.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_transcribe.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_transcribe.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_transcribe.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_trustpilot.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_trustpilot.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_trustpilot.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_truthsocial.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_truthsocial.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_truthsocial.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_ui.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_ui.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_ui.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_cookies.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_cookies.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_cookies.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_paginate-cursor.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_paginate-cursor.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_paginate-cursor.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_runtime-features.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_runtime-features.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_runtime-features.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_runtime-query-ids.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_runtime-query-ids.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_runtime-query-ids.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-base.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-base.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-base.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-constants.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-constants.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-constants.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-features.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-features.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-features.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-search.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-search.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-search.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-types.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-types.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-types.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_twitter-client-utils.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_twitter-client-utils.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_twitter-client-utils.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_web_fetch_keyless.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_web_fetch_keyless.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_web_fetch_keyless.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_web_search_keyless.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_web_search_keyless.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_web_search_keyless.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_x_judge.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_x_judge.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_x_judge.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xai_x.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_xai_x.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xai_x.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xiaohongshu_api.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_xiaohongshu_api.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xiaohongshu_api.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xquik.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_xquik.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xquik.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_xurl_x.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_xurl_x.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_xurl_x.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_youtube_yt.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_youtube_yt.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_youtube_yt.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_setup-keychain.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_setup-keychain.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_setup-keychain.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_setup-pass.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_setup-pass.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_setup-pass.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_store.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_store.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_store.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_test-v1-vs-v2.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_test-v1-vs-v2.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_test-v1-vs-v2.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_device_auth.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_test_device_auth.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_test_device_auth.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_verify_v3.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: subprocess.CalledProcessError: Command '['/usr/local/lib/hermes-agent/venv/bin/python3', '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py"
+        },
+        {
+          "name": "help_verify_v3.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_verify_v3.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_watchlist.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_watchlist.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_watchlist.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 340 checks, 251 fails, 39 warns\n  scripts/briefing.py: exit=1, 102 ms, timed_out=False\n  scripts/briefing.py --help: exit=0, 101 ms, timed_out=False\n  scripts/briefing.py (no args): exit=1, 108 ms, timed_out=False\n  scripts/build-skill.sh: exit=1, 51 ms, timed_out=False\n  scripts/build-skill.sh --help: exit=1, 51 ms, timed_out=False\n  scripts/build-skill.sh (no args): exit=1, 51 ms, timed_out=False\n  scripts/compare.sh: exit=1, 52 ms, timed_out=False\n  scripts/compare.sh --help: exit=137, 15029 ms, timed_out=True\n  scripts/compare.sh (no args): exit=1, 51 ms, timed_out=False\n  scripts/evaluate_search_quality.py: exit=1, 151 ms, timed_out=False\n  scripts/evaluate_search_quality.py --help: exit=0, 151 ms, timed_out=False\n  scripts/evaluate_search_quality.py (no args): exit=1, 151 ms, timed_out=False\n  scripts/last30days.py: exit=1, 101 ms, timed_out=False\n  scripts/last30days.py --help: exit=1, 101 ms, timed_out=False\n  scripts/last30days.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/__init__.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/__init__.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/amazon.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/amazon.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/amazon.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/arxiv.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/arxiv.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/arxiv.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/backends.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/backends.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/backends.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/bird_x.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/bird_x.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/bird_x.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/bluesky.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/bluesky.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/bluesky.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/brightdata.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/brightdata.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/brightdata.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/categories.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/categories.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/categories.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/chrome_cookies.py: exit=0, 101 ms, timed_out=False\n  scripts/lib/chrome_cookies.py --help: exit=0, 101 ms, timed_out=False\n  scripts/lib/chrome_cookies.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/cjk.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/cjk.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/cjk.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/cluster.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/cluster.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/cluster.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/competitors.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/competitors.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/competitors.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/cookie_extract.py: exit=0, 101 ms, timed_out=False\n  scripts/lib/cookie_extract.py --help: exit=0, 101 ms, timed_out=False\n  scripts/lib/cookie_extract.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/corpus.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/corpus.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/corpus.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/dates.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/dates.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/dates.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/dedupe.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/dedupe.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/dedupe.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/digg.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/digg.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/digg.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/discovery_handoff.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/discovery_handoff.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/discovery_handoff.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/doctor.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/doctor.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/doctor.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/dripstack.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/dripstack.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/dripstack.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/entity_extract.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/entity_extract.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/entity_extract.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/env.py: exit=0, 101 ms, timed_out=False\n  scripts/lib/env.py --help: exit=0, 101 ms, timed_out=False\n  scripts/lib/env.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/fanout.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/fanout.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/fanout.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/feed.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/feed.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/feed.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/freshness.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/freshness.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/freshness.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/fusion.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/fusion.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/fusion.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/github.py: exit=1, 102 ms, timed_out=False\n  scripts/lib/github.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/github.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/grok_x.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/grok_x.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/grok_x.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/grounding.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/grounding.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/grounding.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/hackernews.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/hackernews.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/hackernews.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/health.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/health.py --help: exit=0, 101 ms, timed_out=False\n  scripts/lib/health.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/hiring_signals.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/hiring_signals.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/hiring_signals.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/hosted.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/hosted.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/hosted.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/html_publish.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/html_publish.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/html_publish.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/html_render.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/html_render.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/html_render.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/http.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/http.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/http.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/instagram.py: exit=1, 52 ms, timed_out=False\n  scripts/lib/instagram.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/instagram.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/jobs.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/jobs.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/jobs.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/library.py: exit=0, 101 ms, timed_out=False\n  scripts/lib/library.py --help: exit=0, 101 ms, timed_out=False\n  scripts/lib/library.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/library_index.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/library_index.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/library_index.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/linkedin.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/linkedin.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/linkedin.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/log.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/log.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/log.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/normalize.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/normalize.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/normalize.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/permission_preflight.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/permission_preflight.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/permission_preflight.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/perplexity.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/perplexity.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/perplexity.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/pinterest.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/pinterest.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/pinterest.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/pipeline.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/pipeline.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/pipeline.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/planner.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/planner.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/planner.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/polymarket.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/polymarket.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/polymarket.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/preflight.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/preflight.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/preflight.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/prescriptions.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/prescriptions.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/prescriptions.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/providers.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/providers.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/providers.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/quality_nudge.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/quality_nudge.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/quality_nudge.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/query.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/query.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/query.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/reddit.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_arctic.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_arctic.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_arctic.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_enrich.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_enrich.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_enrich.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_keyless.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_keyless.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_keyless.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_listing.py: exit=1, 102 ms, timed_out=False\n  scripts/lib/reddit_listing.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_listing.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_public.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/reddit_public.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/reddit_public.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/reddit_rss.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_rss.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_rss.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_shreddit.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_shreddit.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/reddit_shreddit.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/registers.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/registers.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/registers.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/lib/relevance.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/relevance.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/relevance.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/render.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/render.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/render.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/rerank.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/rerank.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/rerank.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/resolve.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/resolve.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/resolve.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/safari_cookies.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/safari_cookies.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/safari_cookies.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/schema.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/schema.py --help: exit=1, 55 ms, timed_out=False\n  scripts/lib/schema.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/lib/setup_wizard.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/setup_wizard.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/setup_wizard.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/signals.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/signals.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/signals.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/skill_meta.py: exit=0, 51 ms, timed_out=False\n  scripts/lib/skill_meta.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/skill_meta.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/snippet.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/snippet.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/snippet.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/lib/stocktwits.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/stocktwits.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/stocktwits.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/lib/subproc.py: exit=0, 53 ms, timed_out=False\n  scripts/lib/subproc.py --help: exit=0, 51 ms, timed_out=False\n  scripts/lib/subproc.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/lib/techmeme.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/techmeme.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/techmeme.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/threads.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/threads.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/threads.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/tiktok.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/tiktok.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/tiktok.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/topic_shape.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/topic_shape.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/topic_shape.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/transcribe.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/transcribe.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/transcribe.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/trustpilot.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/trustpilot.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/trustpilot.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/truthsocial.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/truthsocial.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/truthsocial.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/ui.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/ui.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/ui.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/cookies.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/cookies.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/cookies.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/paginate-cursor.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/paginate-cursor.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/paginate-cursor.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-features.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-features.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-features.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-query-ids.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-query-ids.js --help: exit=127, 52 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/runtime-query-ids.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-base.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-base.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-base.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-constants.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-constants.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-constants.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-features.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-features.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-features.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-search.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-search.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-search.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-types.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-types.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-types.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-utils.js: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-utils.js --help: exit=127, 51 ms, timed_out=False\n  scripts/lib/vendor/bird-search/lib/twitter-client-utils.js (no args): exit=127, 51 ms, timed_out=False\n  scripts/lib/web_fetch_keyless.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/web_fetch_keyless.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/web_fetch_keyless.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/web_search_keyless.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/web_search_keyless.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/web_search_keyless.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/x_judge.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/x_judge.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/x_judge.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/xai_x.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/xai_x.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/xai_x.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/xiaohongshu_api.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/xiaohongshu_api.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/xiaohongshu_api.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/lib/xquik.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/xquik.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/xquik.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/xurl_x.py: exit=1, 51 ms, timed_out=False\n  scripts/lib/xurl_x.py --help: exit=1, 51 ms, timed_out=False\n  scripts/lib/xurl_x.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/lib/youtube_yt.py: exit=1, 101 ms, timed_out=False\n  scripts/lib/youtube_yt.py --help: exit=1, 101 ms, timed_out=False\n  scripts/lib/youtube_yt.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/setup-keychain.sh: exit=1, 51 ms, timed_out=False\n  scripts/setup-keychain.sh --help: exit=1, 51 ms, timed_out=False\n  scripts/setup-keychain.sh (no args): exit=1, 51 ms, timed_out=False\n  scripts/setup-pass.sh: exit=1, 51 ms, timed_out=False\n  scripts/setup-pass.sh --help: exit=0, 51 ms, timed_out=False\n  scripts/setup-pass.sh (no args): exit=1, 51 ms, timed_out=False\n  scripts/store.py: exit=1, 101 ms, timed_out=False\n  scripts/store.py --help: exit=0, 101 ms, timed_out=False\n  scripts/store.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/test-v1-vs-v2.sh: exit=1, 51 ms, timed_out=False\n  scripts/test-v1-vs-v2.sh --help: exit=1, 51 ms, timed_out=False\n  scripts/test-v1-vs-v2.sh (no args): exit=1, 51 ms, timed_out=False\n  scripts/test_device_auth.py: exit=1, 101 ms, timed_out=False\n  scripts/test_device_auth.py --help: exit=1, 101 ms, timed_out=False\n  scripts/test_device_auth.py (no args): exit=1, 101 ms, timed_out=False\n  scripts/verify_v3.py: exit=1, 152 ms, timed_out=False\n  scripts/verify_v3.py --help: exit=0, 51 ms, timed_out=False\n  scripts/verify_v3.py (no args): exit=1, 151 ms, timed_out=False\n  scripts/watchlist.py: exit=1, 151 ms, timed_out=False\n  scripts/watchlist.py --help: exit=0, 151 ms, timed_out=False\n  scripts/watchlist.py (no args): exit=1, 152 ms, timed_out=False",
+      "duration_ms": 36770,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "logging detected (logging module / .log files)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "warn",
+          "detail": "append logging without rotation: setup_wizard.py"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:TOKEN=<value>\\nCT0=<value>, assignment:api_key=api_key),, assignment:api_key=gemini_api_key,, assignment:password=password), assignment:password=password,"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns",
+      "duration_ms": 137,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (246 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 3,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

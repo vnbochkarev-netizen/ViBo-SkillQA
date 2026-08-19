@@ -1,0 +1,548 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "trip-planner",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T16:36:50Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 65175,
+  "skill_sha256": "508b5cf9d9d8c61ce47f62d6fb46927d9cd2d4701946a647e5d6cded3328a6cd",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: trip.html, .art.json, out.png",
+    "- static/reasonable_sizes — reduce warning: files over 5 MB: .git/objects/pack/pack-76c59034a893fb27593b0a69a90361b8d17b283e.pack",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_build_site.py** — fix FAIL: exit 1 or unhandled exception",
+    "- sandbox/run_flight_scan.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_render_plan.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_route_tools.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/noargs_build_manifest.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_build_portal_jobs.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_cutout.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_gen.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_genvideo.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_qc.py — reduce warning: exit 0 but stderr non-empty"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 38932 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: trip.html, .art.json, out.png"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "warn",
+          "detail": "files over 5 MB: .git/objects/pack/pack-76c59034a893fb27593b0a69a90361b8d17b283e.pack"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 2 warns",
+      "duration_ms": 125,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_build_site.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_build_site.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_build_site.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_flight_scan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_flight_scan.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_flight_scan.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_plan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_plan.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_plan.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_route_tools.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_route_tools.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_route_tools.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_build_manifest.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_build_manifest.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_build_manifest.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_build_portal_jobs.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_build_portal_jobs.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_build_portal_jobs.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_cutout.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_cutout.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_cutout.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_gen.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_gen.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_gen.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_genvideo.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_genvideo.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_genvideo.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_qc.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_qc.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_qc.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_render_clay2.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_clay2.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_clay2.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_glass2.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_glass2.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_glass2.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_journal.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_journal.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_journal.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_noir2.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_noir2.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_noir2.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_picker.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_picker.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_picker.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_portal.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_portal.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_portal.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_splash.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_splash.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_splash.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_theme2.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_theme2.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_theme2.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_render_zine.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_render_zine.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_render_zine.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_split_sheet.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_split_sheet.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_split_sheet.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_stock_art.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_stock_art.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_stock_art.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_theme_common.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_theme_common.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_theme_common.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_towebp.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_towebp.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_towebp.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_xprobe.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_xprobe.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_xprobe.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_xt.sh",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_xt.sh",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_xt.sh",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 76 checks, 6 fails, 24 warns\n  scripts/build_site.py: exit=1, 6464 ms, timed_out=False\n  scripts/build_site.py --help: exit=0, 101 ms, timed_out=False\n  scripts/build_site.py (no args): exit=1, 6415 ms, timed_out=False\n  scripts/flight_scan.py: exit=2, 52 ms, timed_out=False\n  scripts/flight_scan.py --help: exit=0, 101 ms, timed_out=False\n  scripts/flight_scan.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/render_plan.py: exit=2, 51 ms, timed_out=False\n  scripts/render_plan.py --help: exit=0, 51 ms, timed_out=False\n  scripts/render_plan.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/route_tools.py: exit=2, 102 ms, timed_out=False\n  scripts/route_tools.py --help: exit=0, 101 ms, timed_out=False\n  scripts/route_tools.py (no args): exit=2, 101 ms, timed_out=False\n  themes/build_manifest.py: exit=0, 101 ms, timed_out=False\n  themes/build_manifest.py --help: exit=0, 51 ms, timed_out=False\n  themes/build_manifest.py (no args): exit=0, 102 ms, timed_out=False\n  themes/build_portal_jobs.py: exit=2, 51 ms, timed_out=False\n  themes/build_portal_jobs.py --help: exit=0, 51 ms, timed_out=False\n  themes/build_portal_jobs.py (no args): exit=2, 51 ms, timed_out=False\n  themes/cutout.py: exit=2, 151 ms, timed_out=False\n  themes/cutout.py --help: exit=0, 101 ms, timed_out=False\n  themes/cutout.py (no args): exit=2, 101 ms, timed_out=False\n  themes/gen.py: exit=2, 51 ms, timed_out=False\n  themes/gen.py --help: exit=0, 51 ms, timed_out=False\n  themes/gen.py (no args): exit=2, 51 ms, timed_out=False\n  themes/genvideo.py: exit=2, 51 ms, timed_out=False\n  themes/genvideo.py --help: exit=0, 51 ms, timed_out=False\n  themes/genvideo.py (no args): exit=2, 51 ms, timed_out=False\n  themes/qc.py: exit=1, 51 ms, timed_out=False\n  themes/qc.py --help: exit=0, 51 ms, timed_out=False\n  themes/qc.py (no args): exit=1, 51 ms, timed_out=False\n  themes/render_clay2.py: exit=2, 101 ms, timed_out=False\n  themes/render_clay2.py --help: exit=0, 101 ms, timed_out=False\n  themes/render_clay2.py (no args): exit=2, 101 ms, timed_out=False\n  themes/render_glass2.py: exit=2, 101 ms, timed_out=False\n  themes/render_glass2.py --help: exit=0, 101 ms, timed_out=False\n  themes/render_glass2.py (no args): exit=2, 102 ms, timed_out=False\n  themes/render_journal.py: exit=2, 102 ms, timed_out=False\n  themes/render_journal.py --help: exit=0, 102 ms, timed_out=False\n  themes/render_journal.py (no args): exit=2, 102 ms, timed_out=False\n  themes/render_noir2.py: exit=2, 102 ms, timed_out=False\n  themes/render_noir2.py --help: exit=0, 102 ms, timed_out=False\n  themes/render_noir2.py (no args): exit=2, 101 ms, timed_out=False\n  themes/render_picker.py: exit=2, 101 ms, timed_out=False\n  themes/render_picker.py --help: exit=0, 102 ms, timed_out=False\n  themes/render_picker.py (no args): exit=2, 102 ms, timed_out=False\n  themes/render_portal.py: exit=2, 101 ms, timed_out=False\n  themes/render_portal.py --help: exit=0, 101 ms, timed_out=False\n  themes/render_portal.py (no args): exit=2, 51 ms, timed_out=False\n  themes/render_splash.py: exit=2, 102 ms, timed_out=False\n  themes/render_splash.py --help: exit=0, 102 ms, timed_out=False\n  themes/render_splash.py (no args): exit=2, 102 ms, timed_out=False\n  themes/render_theme2.py: exit=2, 102 ms, timed_out=False\n  themes/render_theme2.py --help: exit=0, 102 ms, timed_out=False\n  themes/render_theme2.py (no args): exit=2, 101 ms, timed_out=False\n  themes/render_zine.py: exit=2, 102 ms, timed_out=False\n  themes/render_zine.py --help: exit=0, 101 ms, timed_out=False\n  themes/render_zine.py (no args): exit=2, 102 ms, timed_out=False\n  themes/split_sheet.py: exit=2, 102 ms, timed_out=False\n  themes/split_sheet.py --help: exit=0, 101 ms, timed_out=False\n  themes/split_sheet.py (no args): exit=2, 101 ms, timed_out=False\n  themes/stock_art.py: exit=2, 101 ms, timed_out=False\n  themes/stock_art.py --help: exit=0, 102 ms, timed_out=False\n  themes/stock_art.py (no args): exit=2, 101 ms, timed_out=False\n  themes/theme_common.py: exit=0, 51 ms, timed_out=False\n  themes/theme_common.py --help: exit=0, 51 ms, timed_out=False\n  themes/theme_common.py (no args): exit=0, 51 ms, timed_out=False\n  themes/towebp.py: exit=2, 101 ms, timed_out=False\n  themes/towebp.py --help: exit=0, 103 ms, timed_out=False\n  themes/towebp.py (no args): exit=2, 101 ms, timed_out=False\n  themes/xprobe.sh: exit=1, 51 ms, timed_out=False\n  themes/xprobe.sh --help: exit=1, 51 ms, timed_out=False\n  themes/xprobe.sh (no args): exit=1, 51 ms, timed_out=False\n  themes/xt.sh: exit=137, 15036 ms, timed_out=True\n  themes/xt.sh --help: exit=137, 15033 ms, timed_out=True\n  themes/xt.sh (no args): exit=137, 15033 ms, timed_out=True",
+      "duration_ms": 63960,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: bearer_token:Bearer <OpenRouter, bearer_token:Bearer <OpenRouter, bearer_token:Bearer <OpenRouter, bearer_token:Bearer <OpenRouter, bearer_token:Bearer <OpenRouter"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 841,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 1,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

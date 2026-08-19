@@ -1,0 +1,1703 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T16:54:47Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 21224,
+  "skill_sha256": "93949b689c94af666a9640d70f4fa9cfe0c82a2b6323c07369ba3078bf640496",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- **static/no_empty_broken_files** — fix FAIL: empty/broken files: benchmark/tests/__init__.py, core/tests/__init__.py",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run___init__.py** — fix FAIL: exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package",
+    "- **sandbox/help___init__.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs___init__.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_base.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'anthropic'",
+    "- **sandbox/help_base.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_base.py** — fix FAIL: no-args run crashed with traceback",
+    "- sandbox/noargs_utils.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "fail",
+          "detail": "empty/broken files: benchmark/tests/__init__.py, core/tests/__init__.py"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 4 fails, 3 warns",
+      "duration_ms": 37,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_base.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'anthropic'"
+        },
+        {
+          "name": "help_base.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_base.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_utils.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_utils.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_utils.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_config.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_config.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_config.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_content_coverage.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_content_coverage.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_content_coverage.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_merge_results.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_merge_results.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_merge_results.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_chart_data.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (54 ms)"
+        },
+        {
+          "name": "help_chart_data.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_chart_data.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_comparison.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'benchmark'"
+        },
+        {
+          "name": "help_comparison.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_comparison.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_metrics.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_metrics.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_metrics.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'anthropic'"
+        },
+        {
+          "name": "help_run.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_state.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_state.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_state.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_mcp_inject.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_mcp_inject.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_mcp_inject.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_pipelining.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_pipelining.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_pipelining.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_state.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_state.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_state.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_skillsbench.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'benchmark'"
+        },
+        {
+          "name": "help_skillsbench.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_skillsbench.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_install.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_install.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_install.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_mcp-config.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_mcp-config.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_mcp-config.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_paths.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_paths.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_paths.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_registry.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_registry.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_registry.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_ontoskills.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_ontoskills.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_ontoskills.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_embeddings-merge.test.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_embeddings-merge.test.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_embeddings-merge.test.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run_ontoskills-mcp-bootstrap.test.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_ontoskills-mcp-bootstrap.test.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_ontoskills-mcp-bootstrap.test.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___main__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help___main__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___main__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_audit.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_audit.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_audit.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_compile.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_compile.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_compile.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_dev.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_dev.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_dev.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_export.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_export.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_export.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_install.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_install.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_install.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_lint.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_lint.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_lint.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_query.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_query.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_query.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_registry.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_registry.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_registry.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_config.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_config.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_config.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_content_parser.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_content_parser.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_content_parser.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_core_ontology.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_core_ontology.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_core_ontology.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_differ.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_differ.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_differ.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_drift_report.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_drift_report.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_drift_report.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_exporter.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_exporter.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_exporter.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_env.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_env.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_env.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_exceptions.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_exceptions.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_exceptions.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_explainer.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_explainer.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_explainer.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_extractor.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_extractor.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_extractor.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_graph_export.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_graph_export.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_graph_export.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_linker.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_linker.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_linker.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_linter.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_linter.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_linter.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_loader.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_loader.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_loader.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_main.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_main.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_main.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_prompts.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_prompts.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_prompts.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_compile.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_compile.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_compile.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_index.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_index.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_index.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_install.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_install.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_install.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_models.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (201 ms)"
+        },
+        {
+          "name": "help_models.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_models.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_paths.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_paths.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_paths.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_resolve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_resolve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_resolve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_state.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_state.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_state.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_schemas.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (202 ms)"
+        },
+        {
+          "name": "help_schemas.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_schemas.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_security.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'anthropic'"
+        },
+        {
+          "name": "help_security.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_security.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_serialization.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_serialization.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_serialization.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_skill_registry.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_skill_registry.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_registry.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_snapshot.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_snapshot.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_snapshot.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_sparql.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_sparql.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_sparql.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_storage.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'owlrl'"
+        },
+        {
+          "name": "help_storage.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_storage.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_transformer.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'anthropic'"
+        },
+        {
+          "name": "help_transformer.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_transformer.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_validator.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'rdflib'"
+        },
+        {
+          "name": "help_validator.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_validator.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_conftest.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_conftest.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_conftest.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_cli.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_cli.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_cli.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_config.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_config.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_config.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_content_parser.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_content_parser.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_content_parser.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_core_ontology.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_core_ontology.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_core_ontology.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_differ.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_differ.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_differ.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_embeddings.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_embeddings.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_embeddings.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_exceptions.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_exceptions.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_exceptions.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_explainer.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_test_explainer.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_explainer.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_extractor.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_test_extractor.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_extractor.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_graph_export.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_test_graph_export.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_graph_export.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_hydration.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_hydration.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_hydration.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_integration.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_integration.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_integration.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_linker.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_linker.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_linker.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_linter.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_linter.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_linter.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_loader.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_loader.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_loader.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_loader_fields.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_loader_fields.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_loader_fields.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_new_properties.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_new_properties.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_new_properties.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_phase1_integration.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_phase1_integration.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_phase1_integration.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_registry.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_test_registry.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_registry.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_resolve.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_resolve.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_resolve.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_schemas.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_schemas.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_schemas.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_security.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_security.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_security.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_serialization.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_serialization.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_serialization.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_serialization_props.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_serialization_props.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_serialization_props.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_sparql.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_sparql.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_sparql.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_storage.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_storage.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_storage.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_subskill_integration.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_subskill_integration.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_subskill_integration.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_transformer.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'compiler'"
+        },
+        {
+          "name": "help_test_transformer.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_transformer.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_validation.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_validation.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_validation.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_e2e_search.sh",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_e2e_search.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_e2e_search.sh",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 307 checks, 243 fails, 26 warns\n  benchmark/agents/__init__.py: exit=1, 51 ms, timed_out=False\n  benchmark/agents/__init__.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/agents/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/agents/base.py: exit=1, 51 ms, timed_out=False\n  benchmark/agents/base.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/agents/base.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/agents/utils.py: exit=0, 51 ms, timed_out=False\n  benchmark/agents/utils.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/agents/utils.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/config.py: exit=0, 51 ms, timed_out=False\n  benchmark/config.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/config.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/content_coverage.py: exit=1, 51 ms, timed_out=False\n  benchmark/content_coverage.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/content_coverage.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/merge_results.py: exit=2, 51 ms, timed_out=False\n  benchmark/merge_results.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/merge_results.py (no args): exit=2, 51 ms, timed_out=False\n  benchmark/reporting/__init__.py: exit=1, 51 ms, timed_out=False\n  benchmark/reporting/__init__.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/reporting/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/reporting/chart_data.py: exit=0, 54 ms, timed_out=False\n  benchmark/reporting/chart_data.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/reporting/chart_data.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/reporting/comparison.py: exit=1, 51 ms, timed_out=False\n  benchmark/reporting/comparison.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/reporting/comparison.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/reporting/metrics.py: exit=0, 51 ms, timed_out=False\n  benchmark/reporting/metrics.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/reporting/metrics.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/run.py: exit=1, 151 ms, timed_out=False\n  benchmark/run.py --help: exit=0, 101 ms, timed_out=False\n  benchmark/run.py (no args): exit=1, 151 ms, timed_out=False\n  benchmark/state.py: exit=0, 51 ms, timed_out=False\n  benchmark/state.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/state.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/tests/__init__.py: exit=0, 51 ms, timed_out=False\n  benchmark/tests/__init__.py --help: exit=0, 51 ms, timed_out=False\n  benchmark/tests/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  benchmark/tests/test_mcp_inject.py: exit=1, 51 ms, timed_out=False\n  benchmark/tests/test_mcp_inject.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/tests/test_mcp_inject.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/tests/test_pipelining.py: exit=1, 101 ms, timed_out=False\n  benchmark/tests/test_pipelining.py --help: exit=1, 101 ms, timed_out=False\n  benchmark/tests/test_pipelining.py (no args): exit=1, 101 ms, timed_out=False\n  benchmark/tests/test_state.py: exit=1, 51 ms, timed_out=False\n  benchmark/tests/test_state.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/tests/test_state.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/wrappers/__init__.py: exit=1, 51 ms, timed_out=False\n  benchmark/wrappers/__init__.py --help: exit=1, 51 ms, timed_out=False\n  benchmark/wrappers/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  benchmark/wrappers/skillsbench.py: exit=1, 101 ms, timed_out=False\n  benchmark/wrappers/skillsbench.py --help: exit=1, 101 ms, timed_out=False\n  benchmark/wrappers/skillsbench.py (no args): exit=1, 101 ms, timed_out=False\n  cli/lib/install.js: exit=127, 51 ms, timed_out=False\n  cli/lib/install.js --help: exit=127, 51 ms, timed_out=False\n  cli/lib/install.js (no args): exit=127, 51 ms, timed_out=False\n  cli/lib/mcp-config.js: exit=127, 51 ms, timed_out=False\n  cli/lib/mcp-config.js --help: exit=127, 51 ms, timed_out=False\n  cli/lib/mcp-config.js (no args): exit=127, 51 ms, timed_out=False\n  cli/lib/paths.js: exit=127, 51 ms, timed_out=False\n  cli/lib/paths.js --help: exit=127, 51 ms, timed_out=False\n  cli/lib/paths.js (no args): exit=127, 51 ms, timed_out=False\n  cli/lib/registry.js: exit=127, 51 ms, timed_out=False\n  cli/lib/registry.js --help: exit=127, 51 ms, timed_out=False\n  cli/lib/registry.js (no args): exit=127, 51 ms, timed_out=False\n  cli/ontoskills.js: exit=127, 51 ms, timed_out=False\n  cli/ontoskills.js --help: exit=127, 51 ms, timed_out=False\n  cli/ontoskills.js (no args): exit=127, 51 ms, timed_out=False\n  cli/tests/embeddings-merge.test.js: exit=127, 51 ms, timed_out=False\n  cli/tests/embeddings-merge.test.js --help: exit=127, 51 ms, timed_out=False\n  cli/tests/embeddings-merge.test.js (no args): exit=127, 51 ms, timed_out=False\n  cli/tests/ontoskills-mcp-bootstrap.test.js: exit=127, 51 ms, timed_out=False\n  cli/tests/ontoskills-mcp-bootstrap.test.js --help: exit=127, 51 ms, timed_out=False\n  cli/tests/ontoskills-mcp-bootstrap.test.js (no args): exit=127, 51 ms, timed_out=False\n  core/src/__init__.py: exit=0, 51 ms, timed_out=False\n  core/src/__init__.py --help: exit=0, 51 ms, timed_out=False\n  core/src/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/cli/__init__.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/__init__.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/__init__.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/cli/__main__.py: exit=1, 51 ms, timed_out=False\n  core/src/cli/__main__.py --help: exit=1, 51 ms, timed_out=False\n  core/src/cli/__main__.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/cli/audit.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/audit.py --help: exit=1, 152 ms, timed_out=False\n  core/src/cli/audit.py (no args): exit=1, 152 ms, timed_out=False\n  core/src/cli/compile.py: exit=1, 152 ms, timed_out=False\n  core/src/cli/compile.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/compile.py (no args): exit=1, 152 ms, timed_out=False\n  core/src/cli/dev.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/dev.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/dev.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/cli/export.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/export.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/export.py (no args): exit=1, 152 ms, timed_out=False\n  core/src/cli/install.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/install.py --help: exit=1, 152 ms, timed_out=False\n  core/src/cli/install.py (no args): exit=1, 152 ms, timed_out=False\n  core/src/cli/lint.py: exit=1, 152 ms, timed_out=False\n  core/src/cli/lint.py --help: exit=1, 152 ms, timed_out=False\n  core/src/cli/lint.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/cli/query.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/query.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/query.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/cli/registry.py: exit=1, 151 ms, timed_out=False\n  core/src/cli/registry.py --help: exit=1, 151 ms, timed_out=False\n  core/src/cli/registry.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/config.py: exit=1, 51 ms, timed_out=False\n  core/src/config.py --help: exit=1, 51 ms, timed_out=False\n  core/src/config.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/content_parser.py: exit=1, 51 ms, timed_out=False\n  core/src/content_parser.py --help: exit=1, 51 ms, timed_out=False\n  core/src/content_parser.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/core_ontology.py: exit=1, 51 ms, timed_out=False\n  core/src/core_ontology.py --help: exit=1, 51 ms, timed_out=False\n  core/src/core_ontology.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/differ.py: exit=1, 51 ms, timed_out=False\n  core/src/differ.py --help: exit=1, 51 ms, timed_out=False\n  core/src/differ.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/drift_report.py: exit=1, 101 ms, timed_out=False\n  core/src/drift_report.py --help: exit=1, 101 ms, timed_out=False\n  core/src/drift_report.py (no args): exit=1, 101 ms, timed_out=False\n  core/src/embeddings/__init__.py: exit=1, 51 ms, timed_out=False\n  core/src/embeddings/__init__.py --help: exit=1, 51 ms, timed_out=False\n  core/src/embeddings/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/embeddings/exporter.py: exit=1, 51 ms, timed_out=False\n  core/src/embeddings/exporter.py --help: exit=1, 51 ms, timed_out=False\n  core/src/embeddings/exporter.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/env.py: exit=0, 51 ms, timed_out=False\n  core/src/env.py --help: exit=0, 51 ms, timed_out=False\n  core/src/env.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/exceptions.py: exit=0, 51 ms, timed_out=False\n  core/src/exceptions.py --help: exit=0, 51 ms, timed_out=False\n  core/src/exceptions.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/explainer.py: exit=1, 51 ms, timed_out=False\n  core/src/explainer.py --help: exit=1, 51 ms, timed_out=False\n  core/src/explainer.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/extractor.py: exit=0, 51 ms, timed_out=False\n  core/src/extractor.py --help: exit=0, 51 ms, timed_out=False\n  core/src/extractor.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/graph_export.py: exit=1, 51 ms, timed_out=False\n  core/src/graph_export.py --help: exit=1, 51 ms, timed_out=False\n  core/src/graph_export.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/linker.py: exit=1, 51 ms, timed_out=False\n  core/src/linker.py --help: exit=1, 51 ms, timed_out=False\n  core/src/linker.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/linter.py: exit=1, 51 ms, timed_out=False\n  core/src/linter.py --help: exit=1, 51 ms, timed_out=False\n  core/src/linter.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/loader.py: exit=1, 51 ms, timed_out=False\n  core/src/loader.py --help: exit=1, 51 ms, timed_out=False\n  core/src/loader.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/main.py: exit=1, 151 ms, timed_out=False\n  core/src/main.py --help: exit=1, 151 ms, timed_out=False\n  core/src/main.py (no args): exit=1, 151 ms, timed_out=False\n  core/src/prompts.py: exit=0, 51 ms, timed_out=False\n  core/src/prompts.py --help: exit=0, 52 ms, timed_out=False\n  core/src/prompts.py (no args): exit=0, 52 ms, timed_out=False\n  core/src/registry/__init__.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/__init__.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/__init__.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/registry/compile.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/compile.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/compile.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/registry/index.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/index.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/index.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/registry/install.py: exit=1, 101 ms, timed_out=False\n  core/src/registry/install.py --help: exit=1, 101 ms, timed_out=False\n  core/src/registry/install.py (no args): exit=1, 101 ms, timed_out=False\n  core/src/registry/models.py: exit=0, 201 ms, timed_out=False\n  core/src/registry/models.py --help: exit=0, 202 ms, timed_out=False\n  core/src/registry/models.py (no args): exit=0, 201 ms, timed_out=False\n  core/src/registry/paths.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/paths.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/paths.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/registry/resolve.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/resolve.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/resolve.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/registry/state.py: exit=1, 51 ms, timed_out=False\n  core/src/registry/state.py --help: exit=1, 51 ms, timed_out=False\n  core/src/registry/state.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/schemas.py: exit=0, 202 ms, timed_out=False\n  core/src/schemas.py --help: exit=0, 201 ms, timed_out=False\n  core/src/schemas.py (no args): exit=0, 202 ms, timed_out=False\n  core/src/security.py: exit=1, 51 ms, timed_out=False\n  core/src/security.py --help: exit=1, 51 ms, timed_out=False\n  core/src/security.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/serialization.py: exit=1, 51 ms, timed_out=False\n  core/src/serialization.py --help: exit=1, 51 ms, timed_out=False\n  core/src/serialization.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/skill_registry.py: exit=0, 51 ms, timed_out=False\n  core/src/skill_registry.py --help: exit=0, 51 ms, timed_out=False\n  core/src/skill_registry.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/snapshot.py: exit=0, 51 ms, timed_out=False\n  core/src/snapshot.py --help: exit=0, 51 ms, timed_out=False\n  core/src/snapshot.py (no args): exit=0, 51 ms, timed_out=False\n  core/src/sparql.py: exit=1, 101 ms, timed_out=False\n  core/src/sparql.py --help: exit=1, 101 ms, timed_out=False\n  core/src/sparql.py (no args): exit=1, 101 ms, timed_out=False\n  core/src/storage.py: exit=1, 51 ms, timed_out=False\n  core/src/storage.py --help: exit=1, 51 ms, timed_out=False\n  core/src/storage.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/transformer.py: exit=1, 51 ms, timed_out=False\n  core/src/transformer.py --help: exit=1, 51 ms, timed_out=False\n  core/src/transformer.py (no args): exit=1, 51 ms, timed_out=False\n  core/src/validator.py: exit=1, 51 ms, timed_out=False\n  core/src/validator.py --help: exit=1, 51 ms, timed_out=False\n  core/src/validator.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/__init__.py: exit=0, 51 ms, timed_out=False\n  core/tests/__init__.py --help: exit=0, 51 ms, timed_out=False\n  core/tests/__init__.py (no args): exit=0, 51 ms, timed_out=False\n  core/tests/conftest.py: exit=0, 51 ms, timed_out=False\n  core/tests/conftest.py --help: exit=0, 51 ms, timed_out=False\n  core/tests/conftest.py (no args): exit=0, 51 ms, timed_out=False\n  core/tests/test_cli.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_cli.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_cli.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_config.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_config.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_config.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_content_parser.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_content_parser.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_content_parser.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_core_ontology.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_core_ontology.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_core_ontology.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_differ.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_differ.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_differ.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_embeddings.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_embeddings.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_embeddings.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_exceptions.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_exceptions.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_exceptions.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_explainer.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_explainer.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_explainer.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_extractor.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_extractor.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_extractor.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_graph_export.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_graph_export.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_graph_export.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_hydration.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_hydration.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_hydration.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_integration.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_integration.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_integration.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_linker.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_linker.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_linker.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_linter.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_linter.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_linter.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_loader.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_loader.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_loader.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_loader_fields.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_loader_fields.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_loader_fields.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_new_properties.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_new_properties.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_new_properties.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_phase1_integration.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_phase1_integration.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_phase1_integration.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_registry.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_registry.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_registry.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_resolve.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_resolve.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_resolve.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_schemas.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_schemas.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_schemas.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_security.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_security.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_security.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization_props.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization_props.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_serialization_props.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_sparql.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_sparql.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_sparql.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_storage.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_storage.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_storage.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_subskill_integration.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_subskill_integration.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_subskill_integration.py (no args): exit=1, 51 ms, timed_out=False\n  core/tests/test_transformer.py: exit=1, 101 ms, timed_out=False\n  core/tests/test_transformer.py --help: exit=1, 101 ms, timed_out=False\n  core/tests/test_transformer.py (no args): exit=1, 101 ms, timed_out=False\n  core/tests/test_validation.py: exit=1, 51 ms, timed_out=False\n  core/tests/test_validation.py --help: exit=1, 51 ms, timed_out=False\n  core/tests/test_validation.py (no args): exit=1, 51 ms, timed_out=False\n  mcp/tests/e2e_search.sh: exit=127, 51 ms, timed_out=False\n  mcp/tests/e2e_search.sh --help: exit=127, 51 ms, timed_out=False\n  mcp/tests/e2e_search.sh (no args): exit=127, 51 ms, timed_out=False",
+      "duration_ms": 20865,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "logging detected (logging module / .log files)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:API_KEY=your_api_key_here, assignment:api_key: agent_env[\"ANTHROPIC_API_KEY\"], assignment:api_key: agent_env[\"BENCHFLOW_PROVIDER_API_KEY\"], assignment:api_key=api_key), assignment:api_key=api_key,"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 279,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

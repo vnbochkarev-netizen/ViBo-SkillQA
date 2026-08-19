@@ -1,0 +1,196 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "performing-kubernetes-etcd-security-assessment",
+  "skill_path": "/tmp/gh_skill_test/repo/skills/performing-kubernetes-etcd-security-assessment",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 2,
+  "date": "2026-08-19T16:55:08Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 483,
+  "skill_sha256": "4b16030f918d238aa4177370a5c5327adb8ad4746b2a9d38ffac4c7b09b6980d",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no tools/allowed-tools field",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: apiserver.conf",
+    "- **static/no_magic_paths** — fix FAIL: absolute magic paths in SKILL.md: /etc/ (line 67), /etc/ (line 93), /etc/ (line 94), /etc/ (line 95), /etc/ (line 108)",
+    "- static/version_consistent — reduce warning: version 1.0 is not semver (X.Y.Z)",
+    "- sandbox/noargs_agent.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_process.py — reduce warning: no args: silent success (exit 0)",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:secret: <base64-encoded-32-byte-key>, assignment:secret: <old-key>, assignment:auth = \"--client-cert-auth=t"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 7324 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: apiserver.conf"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "absolute magic paths in SKILL.md: /etc/ (line 67), /etc/ (line 93), /etc/ (line 94), /etc/ (line 95), /etc/ (line 108)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "version 1.0 is not semver (X.Y.Z)"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 2 warns",
+      "duration_ms": 4,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_agent.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_agent.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_agent.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_process.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (103 ms)"
+        },
+        {
+          "name": "help_process.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_process.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 0 fails, 2 warns\n  scripts/agent.py: exit=0, 51 ms, timed_out=False\n  scripts/agent.py --help: exit=0, 51 ms, timed_out=False\n  scripts/agent.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/process.py: exit=0, 103 ms, timed_out=False\n  scripts/process.py --help: exit=0, 101 ms, timed_out=False\n  scripts/process.py (no args): exit=0, 102 ms, timed_out=False",
+      "duration_ms": 462,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:secret: <base64-encoded-32-byte-key>, assignment:secret: <old-key>, assignment:auth = \"--client-cert-auth=true\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 10,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (69 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

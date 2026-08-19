@@ -1,0 +1,195 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "writing-style-skill",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 2,
+  "date": "2026-08-19T16:54:09Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 430,
+  "skill_sha256": "acf4e34483b1fa0bd3ce1d619f047c78ae25dfa4eb803c0da1ed1812156072ab",
+  "recommendations": [
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: YYYY-MM-DD.json",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- sandbox/run_improve.py — reduce warning: exit 0 but stderr non-empty",
+    "- sandbox/run_observe.py — reduce warning: exit 0 but stderr non-empty",
+    "- log/log_rotation — reduce warning: append logging without rotation: observe.py",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 5000 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "required fields (name, description, version, tools) present"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: YYYY-MM-DD.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.0.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 1 warns",
+      "duration_ms": 9,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_improve.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_improve.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_improve.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_observe.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_observe.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_observe.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 0 fails, 2 warns\n  scripts/improve.py: exit=1, 101 ms, timed_out=False\n  scripts/improve.py --help: exit=0, 101 ms, timed_out=False\n  scripts/improve.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/observe.py: exit=1, 51 ms, timed_out=False\n  scripts/observe.py --help: exit=0, 51 ms, timed_out=False\n  scripts/observe.py (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 413,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "warn",
+          "detail": "append logging without rotation: observe.py"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 1 warns",
+      "duration_ms": 3,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

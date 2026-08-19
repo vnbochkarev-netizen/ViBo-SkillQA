@@ -33,12 +33,9 @@ jobs:
 
       - name: Install ViBo SkillQA
         run: |
-          pip install -q vibo-skillqa 2>/dev/null || true
-          if ! command -v skillqa >/dev/null; then
-            curl -sL -o /tmp/vibo-skillqa.zip https://github.com/vnbochkarev-netizen/ViBo-SkillQA/releases/latest/download/vibo-skillqa.zip
-            unzip -qo /tmp/vibo-skillqa.zip -d /opt/skillqa
-            echo "/opt/skillqa" >> "$GITHUB_PATH"
-          fi
+          curl -sL -o /tmp/vibo-skillqa.zip https://github.com/vnbochkarev-netizen/ViBo-SkillQA/releases/latest/download/vibo-skillqa.zip
+          unzip -qo /tmp/vibo-skillqa.zip -d /opt/skillqa
+          echo "installed: $(ls /opt/skillqa/skillqa.py)"
 
       - name: Run SkillQA
         id: skillqa
@@ -46,7 +43,7 @@ jobs:
         run: |
           SKILL_DIR="."
           [ -f SKILL.md ] || SKILL_DIR="$(ls -d skills/*/ 2>/dev/null | head -1 || echo .)"
-          skillqa test "$SKILL_DIR" --skip load,parallel --lang en > /tmp/skillqa_report.txt 2>&1 || true
+          python3 /opt/skillqa/skillqa.py test "$SKILL_DIR" --skip load,parallel --lang en > /tmp/skillqa_report.txt 2>&1 || true
           cat /tmp/skillqa_report.txt
           echo "report<<EOF" >> "$GITHUB_OUTPUT"
           cat /tmp/skillqa_report.txt >> "$GITHUB_OUTPUT"

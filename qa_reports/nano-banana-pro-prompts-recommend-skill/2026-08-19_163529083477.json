@@ -1,0 +1,183 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "nano-banana-pro-prompts-recommend-skill",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T16:35:29Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 528,
+  "skill_sha256": "697230cff3f2bdeff14160f0f4e6a58637d60f9fdae7539c7fffed973fa6edb2",
+  "recommendations": [
+    "- **static/frontmatter_fields** — fix FAIL: missing required fields: version",
+    "- static/referenced_paths_exist — reduce warning: mentioned in examples but missing: {SKILL_DIR}/references/manifest.json, references/category-name.json, <skill_dir>/scri",
+    "- **static/no_empty_broken_files** — fix FAIL: empty/broken files: references/.gitkeep",
+    "- static/reasonable_sizes — reduce warning: files over 5 MB: .git/objects/pack/pack-73d1f21c7c72ef0530ff093d9e60d63155389e3a.pack, references/product-marketing.json",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_setup.js** — fix FAIL: exit 127 or unhandled exception",
+    "- **sandbox/help_setup.js** — fix FAIL: --help failed (exit 127)",
+    "- sandbox/noargs_setup.js — reduce warning: no args: exit 127 without explanation",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 16600 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "missing required fields: version"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "mentioned in examples but missing: {SKILL_DIR}/references/manifest.json, references/category-name.json, <skill_dir>/scripts/setup.js"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "fail",
+          "detail": "empty/broken files: references/.gitkeep"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "warn",
+          "detail": "files over 5 MB: .git/objects/pack/pack-73d1f21c7c72ef0530ff093d9e60d63155389e3a.pack, references/product-marketing.json, references/social-media-post.json"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 3 warns",
+      "duration_ms": 18,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_setup.js",
+          "status": "fail",
+          "detail": "exit 127 or unhandled exception"
+        },
+        {
+          "name": "help_setup.js",
+          "status": "fail",
+          "detail": "--help failed (exit 127)"
+        },
+        {
+          "name": "noargs_setup.js",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 4 checks, 2 fails, 1 warns\n  scripts/setup.js: exit=127, 51 ms, timed_out=False\n  scripts/setup.js --help: exit=127, 51 ms, timed_out=False\n  scripts/setup.js (no args): exit=127, 51 ms, timed_out=False",
+      "duration_ms": 160,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 290,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

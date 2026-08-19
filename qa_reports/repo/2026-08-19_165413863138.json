@@ -1,0 +1,293 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T16:54:13Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 2479,
+  "skill_sha256": "3c21ceeea93827e8600ee898a20be51a24708061b6d331e4f951e863db38116e",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/noargs_check_catalog_schema.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_check_marketplace_consistency.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_check_skill_drift.py — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_install-all.sh** — fix FAIL: exit 1 or unhandled exception",
+    "- **sandbox/help_install-all.sh** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/noargs_test_catalog.py — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_test_catalog_schema.py** — fix FAIL: exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'",
+    "- **sandbox/help_test_catalog_schema.py** — fix FAIL: --help crashed with traceback"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 16,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_check_catalog_schema.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (202 ms)"
+        },
+        {
+          "name": "help_check_catalog_schema.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check_catalog_schema.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_check_marketplace_consistency.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_check_marketplace_consistency.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check_marketplace_consistency.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_check_skill_drift.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (302 ms)"
+        },
+        {
+          "name": "help_check_skill_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check_skill_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_install-all.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_install-all.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_install-all.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_test_catalog.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_test_catalog.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_catalog.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_catalog_schema.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_catalog_schema.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_catalog_schema.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_test_example_artifacts.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_test_example_artifacts.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_example_artifacts.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_release_hygiene.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'pytest'"
+        },
+        {
+          "name": "help_test_release_hygiene.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_test_release_hygiene.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 25 checks, 8 fails, 5 warns\n  scripts/check_catalog_schema.py: exit=0, 202 ms, timed_out=False\n  scripts/check_catalog_schema.py --help: exit=0, 151 ms, timed_out=False\n  scripts/check_catalog_schema.py (no args): exit=0, 152 ms, timed_out=False\n  scripts/check_marketplace_consistency.py: exit=0, 102 ms, timed_out=False\n  scripts/check_marketplace_consistency.py --help: exit=0, 101 ms, timed_out=False\n  scripts/check_marketplace_consistency.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/check_skill_drift.py: exit=0, 302 ms, timed_out=False\n  scripts/check_skill_drift.py --help: exit=0, 102 ms, timed_out=False\n  scripts/check_skill_drift.py (no args): exit=0, 302 ms, timed_out=False\n  scripts/install-all.sh: exit=1, 51 ms, timed_out=False\n  scripts/install-all.sh --help: exit=1, 51 ms, timed_out=False\n  scripts/install-all.sh (no args): exit=1, 51 ms, timed_out=False\n  tests/test_catalog.py: exit=0, 101 ms, timed_out=False\n  tests/test_catalog.py --help: exit=0, 51 ms, timed_out=False\n  tests/test_catalog.py (no args): exit=0, 51 ms, timed_out=False\n  tests/test_catalog_schema.py: exit=1, 51 ms, timed_out=False\n  tests/test_catalog_schema.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_catalog_schema.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_example_artifacts.py: exit=0, 51 ms, timed_out=False\n  tests/test_example_artifacts.py --help: exit=0, 51 ms, timed_out=False\n  tests/test_example_artifacts.py (no args): exit=0, 51 ms, timed_out=False\n  tests/test_release_hygiene.py: exit=1, 51 ms, timed_out=False\n  tests/test_release_hygiene.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_release_hygiene.py (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 2356,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: sk_token:sk-20260426T002644Z, sk_token:sk-20260426T002742Z"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 82,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}
