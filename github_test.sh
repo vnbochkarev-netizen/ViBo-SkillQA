@@ -91,7 +91,11 @@ $(if [ "$SECRET_HIT" = "1" ]; then echo "⚠️ **Security notice:** the scanner
         -d "{\"body\":$BODY_JSON}" \
         | python3 -c "import json,sys; d=json.load(sys.stdin); print('comment:', d.get('html_url') or d.get('message'))"
     else
-      echo "no issues found — open one first or use --pr"
+      echo "no issues found — opening a new issue"
+      curl -s -m 30 -X POST -H "Authorization: token $TOKEN" -H "Accept: application/vnd.github+json" \
+        "https://api.github.com/repos/$REPO/issues" \
+        -d "{\"title\":\"QA report — automated check of the skill\",\"body\":$BODY_JSON}" \
+        | python3 -c "import json,sys; d=json.load(sys.stdin); print('issue:', d.get('html_url') or d.get('message'))"
     fi
   fi
 fi
