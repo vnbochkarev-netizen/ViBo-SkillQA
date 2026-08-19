@@ -1,36 +1,22 @@
 ---
 name: good-skill
-description: Clean reference skill for QA testing.
-version: 1.0.0
+description: Clean reference skill for QA testing — no secrets, scripts work, conventions respected.
 tools: [python]
 ---
 
 # Good Skill
 
 This is a clean reference skill used for QA testing. It has no secrets,
-no absolute paths, and no hanging processes. The only dependency is the
-Python standard library.
+scripts that exit cleanly, and follows normal skill conventions.
 
-## When to Use
+## Examples
 
-Use this skill when you need a known-good skill fixture to compare against.
+- `python3 hello.py --help` prints usage and exits 0.
+- Reference a placeholder path in docs: `path/to/example.json` (correct
+  practice — never a real local path).
+- Empty `.gitkeep` files keep empty directories in git — that is the
+  convention working correctly.
 
-## How to Run
+## Usage
 
-Run the greeting script:
-
-```
-python3 scripts/hello.py
-```
-
-Pass `--help` to see the available options:
-
-```
-python3 scripts/hello.py --help
-```
-
-## Verification
-
-- `python3 scripts/hello.py` prints `Hello from good skill`.
-- `python3 scripts/hello.py --help` prints usage information and exits 0.
-- No files outside this skill directory are read or written.
+Run `python3 hello.py` — prints a greeting, exit 0.

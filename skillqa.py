@@ -29,13 +29,13 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
 # Licensing (ViBo-style: license file + machine-id binding)
 # ---------------------------------------------------------------------------
-LICENSE_SECRET = "skillqa-pro-v0.1.0::local-edition::2026"
+LICENSE_SECRET = "skillqa-pro-v0.1.1::local-edition::2026"
 LICENSE_DIR = Path.home() / ".config" / "skillqa"
 LICENSE_FILE = LICENSE_DIR / "skillqa_license.dat"
 LICENSE_ALT_NAMES = ["skillqa_license.dat"]
@@ -169,6 +169,7 @@ I18N = {
         "check.frontmatter_fields.fail": "отсутствуют обязательные поля: {fields}",
         "check.frontmatter_fields.ok": "обязательные поля (name, description, version, tools) на месте",
         "check.frontmatter_fields.warn": "нет поля tools/allowed-tools",
+        "check.frontmatter_fields.warn_version": "нет version (рекомендуется для маркетплейсов, не обязательно)",
         "check.frontmatter_fields.nofm": "frontmatter отсутствует — поля не проверены",
         "check.referenced_paths_exist.fail": "отсутствуют файлы, упомянутые в SKILL.md: {paths}",
         "check.referenced_paths_exist.internal": "ссылки на файлы проекта вне скилла (внутренний скилл)",
@@ -291,6 +292,7 @@ I18N = {
         "check.frontmatter_fields.fail": "missing required fields: {fields}",
         "check.frontmatter_fields.ok": "required fields (name, description, version, tools) present",
         "check.frontmatter_fields.warn": "no tools/allowed-tools field",
+        "check.frontmatter_fields.warn_version": "no version (recommended for marketplaces, not required)",
         "check.frontmatter_fields.nofm": "no frontmatter — fields not checked",
         "check.referenced_paths_exist.fail": "paths referenced in SKILL.md missing: {paths}",
         "check.referenced_paths_exist.internal": "project-file references outside the skill (internal skill)",
@@ -578,6 +580,25 @@ def _recommendations(results):
     return recs[:14]
 
 
+def _verdict_summary(report):
+    """'critical defects vs stylistic notes' one-liner for the report."""
+    crit = 0
+    styl = 0
+    for m in report["modules"]:
+        for c in m["checks"]:
+            if c["status"] == "fail":
+                if (m["module"] in ("sandbox", "log")
+                        or c["name"] in ("secret_leak", "no_magic_paths",
+                                         "skilmd_exists", "frontmatter_valid")):
+                    crit += 1
+                else:
+                    styl += 1
+            elif c["status"] == "warn":
+                styl += 1
+    return (f"critical defects: {crit} · stylistic notes: {styl}"
+            + (" — clean, sellable skill" if crit == 0 else " — fix criticals first"))
+
+
 def render_certificate(report):
     grade = report["grade"]
     score = int(round(report["score_pct"] * 100))
@@ -622,6 +643,7 @@ def render_certificate(report):
         "",
         f"- **Skipped modules:** {', '.join(report['skipped']) if report['skipped'] else 'none'}",
         f"- **Fail count:** {report['fail_count']}",
+        f"- **Summary:** {_verdict_summary(report)}",
         f"- **Total time:** {report['duration_ms']} ms",
         f"- **Environment:** Python {platform.python_version()}, "
         f"{platform.system()} {platform.release()}",

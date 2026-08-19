@@ -14,6 +14,10 @@ MAGIC_PATH_RE = re.compile(r"(?:/home/|/root/|/etc/(?!hosts)|/Users/|C:\\)")
 RUNTIME_GENERATED = {
     "vibo_license.dat", "vibo_usage.json", "vibo_usage.jsonl",
     "web_cache.json", "guardian_config.json", "hermes_memory.web",
+    "_quick_index.json", "extra_model_paths.yaml", "KNOWN_ISSUES.md",
+    "KNOWN_ISSUES", "package-lock.json", "pyproject.toml", "requirements.txt",
+    ".env", "config.json", "config.yaml", "templates/_quick_index.json",
+    "tsconfig.json", "package.json", ".comfyui-agent.json",
 }
 TILDE_RE = re.compile(r"~\/")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
@@ -106,12 +110,27 @@ def _referenced_missing(md_text, skill_dir):
             continue
         if "/" not in tok and Path(tok).suffix.lower() not in KNOWN_EXTS:
             continue  # plain words like "python3" are not file references
+        # placeholder paths in examples (path/to/…, example.com/…) are correct
+        # practice, not broken references
+        low = tok.lower()
+        if low.startswith(("path/to/", "example/", "sample/", "your-", "<",
+                           "path/to", "examples/")):
+            continue
+        # dated artifacts (2026-06-21_zimage_hero.json) are generated output
+        if re.match(r"\d{4}-\d{2}-\d{2}_.*\.", tok):
+            continue
         p = Path(skill_dir) / tok
         checked += 1
-        if not p.exists():
-            # the file may live in a subfolder (vibo-proxy/ViBoProxy.md)
-            if any(Path(skill_dir).rglob(tok)):
-                continue
+        found = p.exists() or any(Path(skill_dir).rglob(tok))
+        if not found:
+            # files may live outside the skill subfolder but inside the repo
+            parent = Path(skill_dir).parent
+            for _ in range(4):
+                if (parent / tok).exists() or any(parent.rglob(tok)):
+                    found = True
+                    break
+                parent = parent.parent
+        if not found:
             # runtime-generated files are legitimately absent from the package
             if tok in RUNTIME_GENERATED:
                 continue
@@ -131,6 +150,8 @@ def _empty_broken(skill_dir, md_path):
         except OSError:
             empty.append(str(p.relative_to(skill_dir)))
             continue
+        if p.name == ".gitkeep":
+            continue  # convention: empty file that keeps an empty dir in git
         if size == 0:
             empty.append(str(p.relative_to(skill_dir)))
             continue
@@ -237,12 +258,17 @@ class StaticScan:
 
         # 3. required fields
         if isinstance(frontmatter, dict) and not frontmatter.get("_error"):
-            required = ["name", "description", "version"]
+            required = ["name", "description"]
             missing = [f for f in required if not frontmatter.get(f)]
             if missing:
                 checks.append(_check("frontmatter_fields", "fail",
                                      t("check.frontmatter_fields.fail",
                                        fields=", ".join(missing))))
+            elif not frontmatter.get("version"):
+                # version is NOT required by the base spec — recommended for
+                # marketplaces (warn, not fail)
+                checks.append(_check("frontmatter_fields", "warn",
+                                     t("check.frontmatter_fields.warn_version")))
             else:
                 has_tools = bool(frontmatter.get("tools")
                                  or frontmatter.get("allowed-tools"))
