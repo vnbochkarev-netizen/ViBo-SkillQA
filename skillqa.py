@@ -29,13 +29,13 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
 # Licensing (ViBo-style: license file + machine-id binding)
 # ---------------------------------------------------------------------------
-LICENSE_SECRET = "skillqa-pro-v0.1.2::local-edition::2026"
+LICENSE_SECRET = "skillqa-pro::local-edition::2026"
 LICENSE_DIR = Path.home() / ".config" / "skillqa"
 LICENSE_FILE = LICENSE_DIR / "skillqa_license.dat"
 LICENSE_ALT_NAMES = ["skillqa_license.dat"]
@@ -518,6 +518,9 @@ def find_main_script(skill_dir):
 
 def compute_grade(results):
     """Grade from module results. pass=2, warn=1, fail=0."""
+    CRITICAL_CHECKS = {"secret_leak", "no_magic_paths",
+                       "skilmd_exists", "frontmatter_valid", "sandbox_isolated",
+                       "run_", "help_", "noargs_"}
     if not results:
         return "D", 0.0, 0
     total = sum(2 if r["status"] == "pass"
@@ -535,6 +538,16 @@ def compute_grade(results):
     # crashes / secret leaks cap the grade at B
     if grade == "A" and any(r["module"] in ("sandbox", "log")
                             and r["status"] == "fail" for r in results):
+        grade = "B"
+    # trust threshold: with no critical defects and a decent score,
+    # stylistic findings alone must never sink the grade below B
+    critical = any(
+        r["status"] == "fail" and (
+            r["module"] in ("sandbox", "log")
+            or any(c["status"] == "fail" and c["name"] in CRITICAL_CHECKS
+                   for c in r["checks"]))
+        for r in results)
+    if not critical and score >= 0.5:
         grade = "B"
     return grade, round(score, 4), fails
 

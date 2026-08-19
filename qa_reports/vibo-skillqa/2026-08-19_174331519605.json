@@ -1,0 +1,191 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.2",
+  "edition": "pro",
+  "skill_name": "vibo-skillqa",
+  "skill_path": "/root/skillqa",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 1,
+  "date": "2026-08-19T17:43:31Z",
+  "lang": "ru",
+  "skipped": [
+    "load",
+    "novelty",
+    "parallel"
+  ],
+  "duration_ms": 1243,
+  "skill_sha256": "462c3e50aada3e6d24fb00399321425d71597fb32b1e49039026fd4db5e31b1b",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: нет поля tools/allowed-tools",
+    "- sandbox/run_github_test.sh — reduce warning: exit 0, но stderr непустой",
+    "- sandbox/help_github_test.sh — reduce warning: exit 128, но usage/help выводится",
+    "- sandbox/run_skillqa.py — reduce warning: exit 0, но stderr непустой",
+    "- **log/error_quality** — fix FAIL: traceback без файла:строки",
+    "- **log/secret_leak** — fix FAIL: возможная утечка секретов: bearer_token:Bearer sk-abcdef1234567890\", sk_token:sk-abcdef1234567890, assignment:SECRET = \"skillqa-pro::local-e",
+    "- compat/deps_installable — reduce warning: нерезолвятся импорты: tomli"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 1538 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "нет поля tools/allowed-tools"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "все упомянутые пути существуют (2)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "нет абсолютных магических путей"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "версия 0.1.2 согласована"
+        }
+      ],
+      "details": "Итог: 8 проверок, 0 fail, 1 warn",
+      "duration_ms": 287,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_github_test.sh",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_github_test.sh",
+          "status": "warn",
+          "detail": "exit 128, но usage/help выводится"
+        },
+        {
+          "name": "noargs_github_test.sh",
+          "status": "pass",
+          "detail": "без аргументов — понятная ошибка (exit 1)"
+        },
+        {
+          "name": "run_skillqa.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_skillqa.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_skillqa.py",
+          "status": "pass",
+          "detail": "без аргументов — понятная ошибка (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "все запуски изолированы, в оригинал ничего не записано"
+        }
+      ],
+      "details": "Итог: 7 проверок, 0 fail, 3 warn\n  github_test.sh: exit=1, 52 ms, timed_out=False\n  github_test.sh --help: exit=128, 51 ms, timed_out=False\n  github_test.sh (no args): exit=1, 51 ms, timed_out=False\n  skillqa.py: exit=2, 101 ms, timed_out=False\n  skillqa.py --help: exit=0, 101 ms, timed_out=False\n  skillqa.py (no args): exit=2, 101 ms, timed_out=False",
+      "duration_ms": 573,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование обнаружено (logging/.log)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "fail",
+          "detail": "traceback без файла:строки"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "возможная утечка секретов: bearer_token:Bearer sk-abcdef1234567890\", sk_token:sk-abcdef1234567890, assignment:SECRET = \"skillqa-pro::local-edition::2026\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 2 fail, 0 warn",
+      "duration_ms": 24,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "требуется Python >= 3.8 (фичи: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "нерезолвятся импорты: tomli"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "проходит на: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "версионозависимые фичи: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 1 warn — обнаружены фичи: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)",
+      "duration_ms": 351,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

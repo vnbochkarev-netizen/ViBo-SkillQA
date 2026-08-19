@@ -1,0 +1,220 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.2",
+  "edition": "pro",
+  "skill_name": "good-skill",
+  "skill_path": "/root/skillqa/fixtures/good_skill",
+  "grade": "B",
+  "score_pct": 0.6667,
+  "fail_count": 0,
+  "date": "2026-08-19T17:42:50Z",
+  "lang": "ru",
+  "skipped": [
+    "parallel"
+  ],
+  "duration_ms": 161,
+  "skill_sha256": "2b5f226aea0d7e6bc7717472939f2a63a7fee1ac7a74280c8f5fc41e9592b7b7",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: нет version (рекомендуется для маркетплейсов, не обязательно)",
+    "- static/version_consistent — reduce warning: версия не указана",
+    "- sandbox/noargs_hello.py — reduce warning: без аргументов — молчаливый успех (exit 0)",
+    "- load/main_script_found — reduce warning: главный скрипт не найден",
+    "- compat/runs_on_installed_pythons — reduce warning: главный скрипт не найден — прогон на версиях пропущен"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 645 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "нет version (рекомендуется для маркетплейсов, не обязательно)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "все упомянутые пути существуют (1)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "нет абсолютных магических путей"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "версия не указана"
+        }
+      ],
+      "details": "Итог: 8 проверок, 0 fail, 2 warn",
+      "duration_ms": 1,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_hello.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (51 мс)"
+        },
+        {
+          "name": "help_hello.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_hello.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "все запуски изолированы, в оригинал ничего не записано"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 1 warn\n  scripts/hello.py: exit=0, 51 ms, timed_out=False\n  scripts/hello.py --help: exit=0, 51 ms, timed_out=False\n  scripts/hello.py (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 155,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование не обнаружено"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "ошибок в выводе не обнаружено"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "секреты в логах/выводе не найдены"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 0 warn",
+      "duration_ms": 1,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "библиотека скиллов отсутствует — дублей нет"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "коллизий по имени нет"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "пересечений описаний нет"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "описание содержательное (87 симв.)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "секция примеров/Usage или пример в коде найден"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 0 warn — добавляет ценность библиотеке",
+      "duration_ms": 0,
+      "title": "Новизна"
+    },
+    {
+      "module": "load",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "warn",
+          "detail": "главный скрипт не найден"
+        }
+      ],
+      "details": "главный скрипт не найден",
+      "duration_ms": 0,
+      "title": "Нагрузочный тест"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "версионозависимых фич нет — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "зависимости парсятся, сторонних импортов нет"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "warn",
+          "detail": "главный скрипт не найден — прогон на версиях пропущен"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "версионозависимые фичи: none"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 1 warn",
+      "duration_ms": 0,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

@@ -18,6 +18,7 @@ RUNTIME_GENERATED = {
     "KNOWN_ISSUES", "package-lock.json", "pyproject.toml", "requirements.txt",
     ".env", "config.json", "config.yaml", "templates/_quick_index.json",
     "tsconfig.json", "package.json", ".comfyui-agent.json",
+    "PERF.md", "CHANGELOG.md", "TASKS.md", "TODO.md", "NOTES.md", "HINTS.md",
 }
 
 # code identifiers / DOM APIs that look like files but are not:
@@ -127,6 +128,14 @@ def _referenced_missing(md_text, skill_dir):
             continue
         # code identifiers are NOT files: console.log, db.config, process.stdout
         if low in NON_PATH_IDENTIFIERS:
+            continue
+        # word continued by letters = part of a longer identifier, not a file
+        # (db.conf from db.config.findFirst(), sideEffects from sideEffects:)
+        rest = md_text[md_text.find(tok) + len(tok):] if tok in md_text else ""
+        if rest[:1].isalnum() or rest[:1] == "_":
+            continue
+        # method call: console.log( → token followed by "(" is a function call
+        if rest[:1] == "(":
             continue
         # dated artifacts (2026-06-21_zimage_hero.json) are generated output
         if re.match(r"\d{4}-\d{2}-\d{2}_.*\.", tok):
