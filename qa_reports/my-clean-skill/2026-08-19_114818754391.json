@@ -1,0 +1,123 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.1",
+  "edition": "pro",
+  "skill_name": "my-clean-skill",
+  "skill_path": "/tmp/sq_good",
+  "grade": "D",
+  "score_pct": 0.3333,
+  "fail_count": 2,
+  "date": "2026-08-19T11:48:18Z",
+  "lang": "ru",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel",
+    "sandbox"
+  ],
+  "duration_ms": 4,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md пуст или слишком мал (158 байт, нужно > 200)"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "обязательные поля (name, description, version, tools) на месте"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "все упомянутые пути существуют (0)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "нет абсолютных магических путей"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "версия 1.0.0 согласована"
+        }
+      ],
+      "details": "Итог: 8 проверок, 1 fail, 0 warn",
+      "duration_ms": 1,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование не обнаружено"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "ошибок в выводе не обнаружено"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "секреты в логах/выводе не найдены"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 0 warn",
+      "duration_ms": 0,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "TypeError: '>' not supported between instances of 'dict' and 'dict'"
+        }
+      ],
+      "details": "TypeError: '>' not supported between instances of 'dict' and 'dict'",
+      "duration_ms": 1,
+      "title": "Новизна"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

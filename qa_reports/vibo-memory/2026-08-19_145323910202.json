@@ -1,0 +1,159 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.4",
+  "edition": "pro",
+  "skill_name": "vibo-memory",
+  "skill_path": "/root/.hermes/skills/vibo-memory",
+  "grade": "D",
+  "score_pct": 0.1,
+  "fail_count": 4,
+  "date": "2026-08-19T14:53:23Z",
+  "lang": "ru",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 515,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 26950 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "нет поля tools/allowed-tools"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "отсутствуют файлы, упомянутые в SKILL.md: yes/no, (yes/no)\"*, vibo-proxy/INSTALL.md).\"*, (L1/L2/L3, L1/L2"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "абсолютные магические пути в SKILL.md: /etc/ (line 271)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "версии в тексте SKILL.md различаются: 127.0.0, 3.173.21, 2.0.2, 2.0.0"
+        }
+      ],
+      "details": "Итог: 8 проверок, 2 fail, 2 warn",
+      "duration_ms": 12,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "NameError: name 'sys' is not defined"
+        }
+      ],
+      "details": "NameError: name 'sys' is not defined",
+      "duration_ms": 1,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование не обнаружено"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "fail",
+          "detail": "traceback без файла:строки"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "возможная утечка секретов: assignment:PASSWORD=<user-passphrase>, assignment:API_KEY=sk-your-upstream-key, bearer_token:Bearer {UPSTREAM_KEY}\"}"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 2 fail, 0 warn",
+      "duration_ms": 439,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "библиотека скиллов не найдена (~/.openclaw отсутствует)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "описание содержательное (380 симв.)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "секция примеров/Usage или пример в коде найден"
+        }
+      ],
+      "details": "Итог: 3 проверок, 0 fail, 1 warn — добавляет ценность библиотеке",
+      "duration_ms": 0,
+      "title": "Новизна"
+    },
+    {
+      "module": "compat",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "NameError: name 'sys' is not defined"
+        }
+      ],
+      "details": "NameError: name 'sys' is not defined",
+      "duration_ms": 38,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

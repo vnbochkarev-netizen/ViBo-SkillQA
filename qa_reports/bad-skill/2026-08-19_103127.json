@@ -1,0 +1,289 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "bad-skill",
+  "skill_path": "/root/skillqa/fixtures/bad_skill",
+  "grade": "D",
+  "score_pct": 0.2143,
+  "fail_count": 5,
+  "date": "2026-08-19T10:31:27Z",
+  "lang": "en",
+  "skipped": [],
+  "duration_ms": 49661,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 850 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "required fields (name, description, version, tools) present"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: data/missing_data.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "absolute magic paths in SKILL.md: /home/ (line 18)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 0.1.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 0 warns",
+      "duration_ms": 2,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_hang.py",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_hang.py",
+          "status": "fail",
+          "detail": "--help hung: killed by 15s timeout"
+        },
+        {
+          "name": "noargs_hang.py",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "run_leak.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty"
+        },
+        {
+          "name": "help_leak.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_leak.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ZeroDivisionError: division by zero"
+        },
+        {
+          "name": "help_run.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_run.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 10 checks, 6 fails, 3 warns\n  scripts/hang.py: exit=137, 15047 ms, timed_out=True\n  scripts/hang.py --help: exit=137, 15052 ms, timed_out=True\n  scripts/hang.py (no args): exit=137, 15048 ms, timed_out=True\n  scripts/leak.py: exit=0, 52 ms, timed_out=False\n  scripts/leak.py --help: exit=0, 52 ms, timed_out=False\n  scripts/leak.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/run.py: exit=1, 152 ms, timed_out=False\n  scripts/run.py --help: exit=1, 153 ms, timed_out=False\n  scripts/run.py (no args): exit=1, 203 ms, timed_out=False",
+      "duration_ms": 45817,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "logging detected (logging module / .log files)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: bearer_token:Bearer sk-abcdef1234567890, sk_token:sk-abcdef1234567890, bearer_token:Bearer sk-abcdef1234567890, sk_token:sk-abcdef1234567890, bearer_token:Bearer sk-abcdef1234567890"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 2,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "no skill library found (~/.openclaw missing)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (42 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 3 checks, 0 fails, 2 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "load",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "pass",
+          "detail": "main script: run.py"
+        },
+        {
+          "name": "runs_completed",
+          "status": "pass",
+          "detail": "all 20 runs completed"
+        },
+        {
+          "name": "timing_stats",
+          "status": "pass",
+          "detail": "min 0.152s avg 0.162s max 0.207s median 0.152s"
+        },
+        {
+          "name": "no_degradation",
+          "status": "pass",
+          "detail": "no degradation trend"
+        },
+        {
+          "name": "no_memory_leak",
+          "status": "pass",
+          "detail": "no memory leak"
+        },
+        {
+          "name": "hang_detected",
+          "status": "pass",
+          "detail": "no hangs"
+        }
+      ],
+      "details": "Summary: 6 checks, 0 fails, 0 warns\n  run 1: 0.152s, rss=31076 kB\n  run 2: 0.202s, rss=31032 kB\n  run 3: 0.203s, rss=31076 kB\n  run 4: 0.207s, rss=31072 kB\n  run 5: 0.152s, rss=31204 kB\n  run 6: 0.203s, rss=30868 kB\n  run 7: 0.153s, rss=31204 kB\n  run 8: 0.152s, rss=31068 kB\n  run 9: 0.152s, rss=31076 kB\n  run 10: 0.152s, rss=31188 kB\n  run 11: 0.152s, rss=30952 kB\n  run 12: 0.152s, rss=31080 kB\n  run 13: 0.152s, rss=31080 kB\n  run 14: 0.152s, rss=31076 kB\n  run 15: 0.152s, rss=31204 kB\n  run 16: 0.152s, rss=31208 kB\n  run 17: 0.152s, rss=31076 kB\n  run 18: 0.152s, rss=31076 kB\n  run 19: 0.152s, rss=31204 kB\n  run 20: 0.152s, rss=31072 kB",
+      "duration_ms": 3259,
+      "title": "Load test"
+    },
+    {
+      "module": "parallel",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "pass",
+          "detail": "main script: run.py"
+        },
+        {
+          "name": "all_finished",
+          "status": "pass",
+          "detail": "all 5 processes finished"
+        },
+        {
+          "name": "exit_codes_ok",
+          "status": "fail",
+          "detail": "all 5 processes failed"
+        },
+        {
+          "name": "unique_tmp_files",
+          "status": "warn",
+          "detail": "no unique temp files (possible shared state)"
+        },
+        {
+          "name": "no_conflicts",
+          "status": "pass",
+          "detail": "no write conflicts"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns\n  instance 1: exit=1, 258 ms, timed_out=False\n  instance 2: exit=1, 314 ms, timed_out=False\n  instance 3: exit=1, 310 ms, timed_out=False\n  instance 4: exit=1, 205 ms, timed_out=False\n  instance 5: exit=1, 305 ms, timed_out=False",
+      "duration_ms": 319,
+      "title": "Parallel run"
+    },
+    {
+      "module": "compat",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "fail",
+          "detail": "crashes on: python3.11 (exit 1), python3.12 (exit 1)"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 1 fails, 0 warns",
+      "duration_ms": 256,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

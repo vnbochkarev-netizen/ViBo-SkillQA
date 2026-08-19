@@ -1,0 +1,7 @@
+# SkillQA Pro — self-QA configuration.
+# Modules listed here are skipped when SkillQA Pro tests its own code
+# (`python3 skillqa.py test .`): the tool's own layout is a CLI package,
+# not a script-based skill, so these modules add no signal.
+parallel
+novelty
+load

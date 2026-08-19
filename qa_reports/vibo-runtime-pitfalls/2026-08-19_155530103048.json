@@ -1,0 +1,184 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.6",
+  "edition": "pro",
+  "skill_name": "vibo-runtime-pitfalls",
+  "skill_path": "/root/.hermes/skills/vibo/vibo-runtime-pitfalls",
+  "grade": "B",
+  "score_pct": 0.8,
+  "fail_count": 0,
+  "date": "2026-08-19T15:55:30Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 22,
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 32655 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "required fields (name, description, version, tools) present"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "project-file references outside the skill (internal skill)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version history in internal docs"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 1 warns",
+      "duration_ms": 12,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "scripts_discovered",
+          "status": "pass",
+          "detail": "no executable scripts (*.py/*.sh/*.js) found"
+        }
+      ],
+      "details": "no executable scripts found",
+      "duration_ms": 0,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 3,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (42 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "no main script — version runs skipped"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 0 warns",
+      "duration_ms": 0,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

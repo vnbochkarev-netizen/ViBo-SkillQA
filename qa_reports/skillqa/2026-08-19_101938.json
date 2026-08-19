@@ -1,0 +1,286 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "skillqa",
+  "skill_path": "/root/skillqa",
+  "grade": "D",
+  "score_pct": 0.125,
+  "fail_count": 3,
+  "date": "2026-08-19T10:19:38Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "novelty",
+    "parallel"
+  ],
+  "duration_ms": 3630,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 15,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (152 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_compat.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_compat.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_compat.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_load.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'modules'"
+        },
+        {
+          "name": "help_load.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_load.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_log.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ModuleNotFoundError: No module named 'modules'"
+        },
+        {
+          "name": "help_log.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_log.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_novelty.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_novelty.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_novelty.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_parallel.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_parallel.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_parallel.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_sandbox.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_sandbox.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_sandbox.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_static.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_static.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_static.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skillqa.py",
+          "status": "fail",
+          "detail": "exit 2 or unhandled exception"
+        },
+        {
+          "name": "help_skillqa.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skillqa.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 28 checks, 7 fails, 6 warns\n  modules/__init__.py: exit=0, 152 ms, timed_out=False\n  modules/__init__.py --help: exit=0, 152 ms, timed_out=False\n  modules/__init__.py (no args): exit=0, 152 ms, timed_out=False\n  modules/compat.py: exit=0, 52 ms, timed_out=False\n  modules/compat.py --help: exit=0, 52 ms, timed_out=False\n  modules/compat.py (no args): exit=0, 52 ms, timed_out=False\n  modules/load.py: exit=1, 202 ms, timed_out=False\n  modules/load.py --help: exit=1, 152 ms, timed_out=False\n  modules/load.py (no args): exit=1, 202 ms, timed_out=False\n  modules/log.py: exit=1, 204 ms, timed_out=False\n  modules/log.py --help: exit=1, 152 ms, timed_out=False\n  modules/log.py (no args): exit=1, 203 ms, timed_out=False\n  modules/novelty.py: exit=0, 52 ms, timed_out=False\n  modules/novelty.py --help: exit=0, 51 ms, timed_out=False\n  modules/novelty.py (no args): exit=0, 51 ms, timed_out=False\n  modules/parallel.py: exit=0, 51 ms, timed_out=False\n  modules/parallel.py --help: exit=0, 52 ms, timed_out=False\n  modules/parallel.py (no args): exit=0, 52 ms, timed_out=False\n  modules/sandbox.py: exit=0, 101 ms, timed_out=False\n  modules/sandbox.py --help: exit=0, 101 ms, timed_out=False\n  modules/sandbox.py (no args): exit=0, 101 ms, timed_out=False\n  modules/static.py: exit=0, 102 ms, timed_out=False\n  modules/static.py --help: exit=0, 102 ms, timed_out=False\n  modules/static.py (no args): exit=0, 102 ms, timed_out=False\n  skillqa.py: exit=2, 102 ms, timed_out=False\n  skillqa.py --help: exit=0, 102 ms, timed_out=False\n  skillqa.py (no args): exit=2, 102 ms, timed_out=False",
+      "duration_ms": 2974,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "logging detected (logging module / .log files)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "fail",
+          "detail": "traceback without file:line"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: bearer_token:Bearer sk-abcdef1234567890\", sk_token:sk-abcdef1234567890, assignment:SECRET = \"skillqa-pro-v0.1.0::local-edition::2026\""
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 2 fails, 0 warns",
+      "duration_ms": 24,
+      "title": "Log audit"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: modules, tomli"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns — detected features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)",
+      "duration_ms": 610,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

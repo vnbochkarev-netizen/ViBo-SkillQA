@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "skill": "bad_skill",
+  "bugs": [
+    {"id": "crash", "desc": "run.py crashes with an unhandled exception", "hint": "ZeroDivisionError"},
+    {"id": "hang", "desc": "hang.py runs longer than the timeout", "hint": "time.sleep"},
+    {"id": "missing-file", "desc": "SKILL.md references missing_data.json which does not exist", "hint": "missing_data.json"},
+    {"id": "secret-leak", "desc": "leak.py prints a hardcoded API token", "hint": "Bearer|sk-"},
+    {"id": "magic-path", "desc": "SKILL.md contains an absolute path /home/user/secrets/config.json", "hint": "/home/"}
+  ]
+}

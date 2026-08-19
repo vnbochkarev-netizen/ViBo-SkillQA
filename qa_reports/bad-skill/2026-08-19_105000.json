@@ -1,0 +1,289 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "bad-skill",
+  "skill_path": "/root/skillqa/fixtures/bad_skill",
+  "grade": "D",
+  "score_pct": 0.2143,
+  "fail_count": 5,
+  "date": "2026-08-19T10:50:00Z",
+  "lang": "ru",
+  "skipped": [],
+  "duration_ms": 49535,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 850 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "обязательные поля (name, description, version, tools) на месте"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "отсутствуют файлы, упомянутые в SKILL.md: data/missing_data.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "fail",
+          "detail": "абсолютные магические пути в SKILL.md: /home/ (line 18)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "версия 0.1.0 согласована"
+        }
+      ],
+      "details": "Итог: 8 проверок, 2 fail, 0 warn",
+      "duration_ms": 1,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_hang.py",
+          "status": "fail",
+          "detail": "завис: убит по таймауту 15 c (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_hang.py",
+          "status": "fail",
+          "detail": "--help завис: убит по таймауту 15 c"
+        },
+        {
+          "name": "noargs_hang.py",
+          "status": "fail",
+          "detail": "без аргументов завис: убит по таймауту 15 c"
+        },
+        {
+          "name": "run_leak.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_leak.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_leak.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "run_run.py",
+          "status": "fail",
+          "detail": "exit 1 или необработанное исключение: ZeroDivisionError: division by zero"
+        },
+        {
+          "name": "help_run.py",
+          "status": "fail",
+          "detail": "--help упал с traceback"
+        },
+        {
+          "name": "noargs_run.py",
+          "status": "fail",
+          "detail": "без аргументов упал с traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "часть запусков зависла (подозрение на hang)"
+        }
+      ],
+      "details": "Итог: 10 проверок, 6 fail, 3 warn\n  scripts/hang.py: exit=137, 15045 ms, timed_out=True\n  scripts/hang.py --help: exit=137, 15044 ms, timed_out=True\n  scripts/hang.py (no args): exit=137, 15043 ms, timed_out=True\n  scripts/leak.py: exit=0, 51 ms, timed_out=False\n  scripts/leak.py --help: exit=0, 51 ms, timed_out=False\n  scripts/leak.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/run.py: exit=1, 152 ms, timed_out=False\n  scripts/run.py --help: exit=1, 152 ms, timed_out=False\n  scripts/run.py (no args): exit=1, 152 ms, timed_out=False",
+      "duration_ms": 45747,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование обнаружено (logging/.log)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "ошибки содержат traceback с файл:строкой"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "возможная утечка секретов: bearer_token:Bearer sk-abcdef1234567890, sk_token:sk-abcdef1234567890, bearer_token:Bearer sk-abcdef1234567890, sk_token:sk-abcdef1234567890, bearer_token:Bearer sk-abcdef1234567890"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 1 fail, 0 warn",
+      "duration_ms": 2,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "библиотека скиллов не найдена (~/.openclaw отсутствует)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "описание содержательное (42 симв.)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "примеров использования не найдено"
+        }
+      ],
+      "details": "Итог: 3 проверок, 0 fail, 2 warn — добавляет ценность библиотеке",
+      "duration_ms": 0,
+      "title": "Новизна"
+    },
+    {
+      "module": "load",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "pass",
+          "detail": "главный скрипт: run.py"
+        },
+        {
+          "name": "runs_completed",
+          "status": "pass",
+          "detail": "все 20 прогонов завершились"
+        },
+        {
+          "name": "timing_stats",
+          "status": "pass",
+          "detail": "min 0.152s avg 0.165s max 0.203s медиана 0.152s"
+        },
+        {
+          "name": "no_degradation",
+          "status": "pass",
+          "detail": "деградации не обнаружено"
+        },
+        {
+          "name": "no_memory_leak",
+          "status": "pass",
+          "detail": "утечки памяти не обнаружено"
+        },
+        {
+          "name": "hang_detected",
+          "status": "pass",
+          "detail": "зависаний нет"
+        }
+      ],
+      "details": "Итог: 6 проверок, 0 fail, 0 warn\n  run 1: 0.152s, rss=31204 kB\n  run 2: 0.153s, rss=31072 kB\n  run 3: 0.152s, rss=31068 kB\n  run 4: 0.203s, rss=31060 kB\n  run 5: 0.203s, rss=31076 kB\n  run 6: 0.153s, rss=30960 kB\n  run 7: 0.152s, rss=31204 kB\n  run 8: 0.152s, rss=31076 kB\n  run 9: 0.152s, rss=30948 kB\n  run 10: 0.152s, rss=31332 kB\n  run 11: 0.152s, rss=31204 kB\n  run 12: 0.202s, rss=31076 kB\n  run 13: 0.202s, rss=30940 kB\n  run 14: 0.202s, rss=31080 kB\n  run 15: 0.153s, rss=31192 kB\n  run 16: 0.152s, rss=31328 kB\n  run 17: 0.152s, rss=31460 kB\n  run 18: 0.152s, rss=31080 kB\n  run 19: 0.152s, rss=31332 kB\n  run 20: 0.152s, rss=31204 kB",
+      "duration_ms": 3307,
+      "title": "Нагрузочный тест"
+    },
+    {
+      "module": "parallel",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "pass",
+          "detail": "главный скрипт: run.py"
+        },
+        {
+          "name": "all_finished",
+          "status": "pass",
+          "detail": "все 5 процессов завершились"
+        },
+        {
+          "name": "exit_codes_ok",
+          "status": "fail",
+          "detail": "все 5 процессов завершились с ошибкой"
+        },
+        {
+          "name": "unique_tmp_files",
+          "status": "warn",
+          "detail": "нет уникальных temp-файлов (возможна общая запись)"
+        },
+        {
+          "name": "no_conflicts",
+          "status": "pass",
+          "detail": "конфликтов записи не обнаружено"
+        }
+      ],
+      "details": "Итог: 5 проверок, 1 fail, 1 warn\n  instance 1: exit=1, 262 ms, timed_out=False\n  instance 2: exit=1, 212 ms, timed_out=False\n  instance 3: exit=1, 211 ms, timed_out=False\n  instance 4: exit=1, 159 ms, timed_out=False\n  instance 5: exit=1, 261 ms, timed_out=False",
+      "duration_ms": 267,
+      "title": "Параллельный запуск"
+    },
+    {
+      "module": "compat",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "версионозависимых фич нет — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "зависимости парсятся, сторонних импортов нет"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "fail",
+          "detail": "крашится на: python3.11 (exit 1), python3.12 (exit 1)"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "версионозависимые фичи: none"
+        }
+      ],
+      "details": "Итог: 4 проверок, 1 fail, 0 warn",
+      "duration_ms": 205,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

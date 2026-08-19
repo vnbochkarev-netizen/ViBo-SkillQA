@@ -1,0 +1,199 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.3",
+  "edition": "pro",
+  "skill_name": "good-skill",
+  "skill_path": "/tmp/skillqa_selflib_hqmuvzfk/good_skill_installed",
+  "grade": "A",
+  "score_pct": 0.9,
+  "fail_count": 0,
+  "date": "2026-08-19T14:29:59Z",
+  "lang": "ru",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 265,
+  "modules": [
+    {
+      "module": "static",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 759 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "обязательные поля (name, description, version, tools) на месте"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "все упомянутые пути существуют (1)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "нет абсолютных магических путей"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "версия 1.0.0 согласована"
+        }
+      ],
+      "details": "Итог: 8 проверок, 0 fail, 0 warn",
+      "duration_ms": 1,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_hello.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (51 мс)"
+        },
+        {
+          "name": "help_hello.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_hello.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "все запуски изолированы, в оригинал ничего не записано"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 1 warn\n  scripts/hello.py: exit=0, 51 ms, timed_out=False\n  scripts/hello.py --help: exit=0, 51 ms, timed_out=False\n  scripts/hello.py (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 155,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование не обнаружено"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "ошибок в выводе не обнаружено"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "секреты в логах/выводе не найдены"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 0 warn",
+      "duration_ms": 1,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "библиотека скиллов: /tmp/skillqa_selflib_hqmuvzfk"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "коллизий по имени нет"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "пересечений описаний нет"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "описание содержательное (37 симв.)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "секция примеров/Usage или пример в коде найден"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 0 warn — добавляет ценность библиотеке",
+      "duration_ms": 0,
+      "title": "Новизна"
+    },
+    {
+      "module": "compat",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "версионозависимых фич нет — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "зависимости парсятся, сторонних импортов нет"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "проходит на: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "версионозависимые фичи: none"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 0 warn",
+      "duration_ms": 104,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

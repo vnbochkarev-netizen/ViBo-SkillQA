@@ -1,0 +1,204 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "vibo-guardian",
+  "skill_path": "/root/.hermes/skills/vibo/vibo-guardian",
+  "grade": "C",
+  "score_pct": 0.5,
+  "fail_count": 1,
+  "date": "2026-08-19T15:37:00Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 1493,
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 9646 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no tools/allowed-tools field"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "mentioned in examples but missing: vibo_use.py, vibo_verify.py, __pycache__/.py, документ.md, (SKILL.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "versions in SKILL.md text differ: 2.0.2, 2.0.2"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 4 warns",
+      "duration_ms": 4,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_guardian_all.py",
+          "status": "warn",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_guardian_all.py",
+          "status": "warn",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_guardian_all.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_guardian_check.py",
+          "status": "warn",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_guardian_check.py",
+          "status": "warn",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_guardian_check.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 0 fails, 4 warns\n  scripts/guardian_all.py: exit=1, 252 ms, timed_out=False\n  scripts/guardian_all.py --help: exit=1, 252 ms, timed_out=False\n  scripts/guardian_all.py (no args): exit=1, 202 ms, timed_out=False\n  scripts/guardian_check.py: exit=1, 152 ms, timed_out=False\n  scripts/guardian_check.py --help: exit=1, 152 ms, timed_out=False\n  scripts/guardian_check.py (no args): exit=1, 152 ms, timed_out=False",
+      "duration_ms": 1167,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 4,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "no skill library found (~/.openclaw missing)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (56 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 3 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "fail",
+          "detail": "crashes on: python3.11 (exit 1), python3.12 (exit 1)"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 1 fails, 0 warns",
+      "duration_ms": 314,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

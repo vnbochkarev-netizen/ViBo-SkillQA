@@ -1,0 +1,324 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.4",
+  "edition": "pro",
+  "skill_name": "vibo-memory",
+  "skill_path": "/root/.hermes/skills/vibo-memory",
+  "grade": "D",
+  "score_pct": 0.4,
+  "fail_count": 1,
+  "date": "2026-08-19T15:00:23Z",
+  "lang": "ru",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 4566,
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md найден, 26950 байт"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "валидный YAML-заголовок"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "нет поля tools/allowed-tools"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "отсутствуют файлы, упомянутые в SKILL.md: vibo_license.dat, ViBoProxy.md, proxy_server.py, vibo_usage.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "нет пустых или битых файлов"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "в SKILL.md есть пути с ~/ (непортируемо)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "все файлы в пределах лимитов"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "версии в тексте SKILL.md различаются: 127.0.0, 3.173.21, 2.0.2, 2.0.0"
+        }
+      ],
+      "details": "Итог: 8 проверок, 1 fail, 3 warn",
+      "duration_ms": 15,
+      "title": "Статический анализ"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_activate.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_activate.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_activate.py",
+          "status": "warn",
+          "detail": "без аргументов exit 1 без пояснения"
+        },
+        {
+          "name": "run_check_license.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_check_license.py",
+          "status": "warn",
+          "detail": "exit 1, но usage/help выводится"
+        },
+        {
+          "name": "noargs_check_license.py",
+          "status": "warn",
+          "detail": "без аргументов exit 1 без пояснения"
+        },
+        {
+          "name": "run_guardian_check.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_guardian_check.py",
+          "status": "warn",
+          "detail": "exit 2, но usage/help выводится"
+        },
+        {
+          "name": "noargs_guardian_check.py",
+          "status": "warn",
+          "detail": "без аргументов exit 2 без пояснения"
+        },
+        {
+          "name": "run_migrate_secrets.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_migrate_secrets.py",
+          "status": "warn",
+          "detail": "exit 1, но usage/help выводится"
+        },
+        {
+          "name": "noargs_migrate_secrets.py",
+          "status": "warn",
+          "detail": "без аргументов exit 1 без пояснения"
+        },
+        {
+          "name": "run_test_verify.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (102 мс)"
+        },
+        {
+          "name": "help_test_verify.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_test_verify.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "run_vibo_arch.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (102 мс)"
+        },
+        {
+          "name": "help_vibo_arch.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_vibo_arch.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "run_vibo_search.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_vibo_search.py",
+          "status": "warn",
+          "detail": "exit 2, но usage/help выводится"
+        },
+        {
+          "name": "noargs_vibo_search.py",
+          "status": "pass",
+          "detail": "без аргументов — понятная ошибка (exit 1)"
+        },
+        {
+          "name": "run_vibo_use.py",
+          "status": "warn",
+          "detail": "exit 0, но stderr непустой"
+        },
+        {
+          "name": "help_vibo_use.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_vibo_use.py",
+          "status": "pass",
+          "detail": "без аргументов — понятная ошибка (exit 1)"
+        },
+        {
+          "name": "run_vibo_verify.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (52 мс)"
+        },
+        {
+          "name": "help_vibo_verify.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_vibo_verify.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "run_vibo_web.py",
+          "status": "pass",
+          "detail": "exit 0, stderr пуст (51 мс)"
+        },
+        {
+          "name": "help_vibo_web.py",
+          "status": "pass",
+          "detail": "--help отрабатывает, exit 0"
+        },
+        {
+          "name": "noargs_vibo_web.py",
+          "status": "warn",
+          "detail": "без аргументов — молчаливый успех (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "все запуски изолированы, в оригинал ничего не записано"
+        }
+      ],
+      "details": "Итог: 31 проверок, 0 fail, 18 warn\n  activate.py: exit=1, 102 ms, timed_out=False\n  activate.py --help: exit=0, 102 ms, timed_out=False\n  activate.py (no args): exit=1, 102 ms, timed_out=False\n  check_license.py: exit=1, 102 ms, timed_out=False\n  check_license.py --help: exit=1, 102 ms, timed_out=False\n  check_license.py (no args): exit=1, 102 ms, timed_out=False\n  guardian_check.py: exit=2, 102 ms, timed_out=False\n  guardian_check.py --help: exit=2, 102 ms, timed_out=False\n  guardian_check.py (no args): exit=2, 103 ms, timed_out=False\n  migrate_secrets.py: exit=1, 101 ms, timed_out=False\n  migrate_secrets.py --help: exit=1, 101 ms, timed_out=False\n  migrate_secrets.py (no args): exit=1, 102 ms, timed_out=False\n  test_verify.py: exit=0, 102 ms, timed_out=False\n  test_verify.py --help: exit=0, 102 ms, timed_out=False\n  test_verify.py (no args): exit=0, 102 ms, timed_out=False\n  vibo_arch.py: exit=0, 102 ms, timed_out=False\n  vibo_arch.py --help: exit=0, 102 ms, timed_out=False\n  vibo_arch.py (no args): exit=0, 102 ms, timed_out=False\n  vibo_search.py: exit=1, 101 ms, timed_out=False\n  vibo_search.py --help: exit=2, 101 ms, timed_out=False\n  vibo_search.py (no args): exit=1, 102 ms, timed_out=False\n  vibo_use.py: exit=1, 101 ms, timed_out=False\n  vibo_use.py --help: exit=0, 102 ms, timed_out=False\n  vibo_use.py (no args): exit=1, 102 ms, timed_out=False\n  vibo_verify.py: exit=0, 52 ms, timed_out=False\n  vibo_verify.py --help: exit=0, 51 ms, timed_out=False\n  vibo_verify.py (no args): exit=0, 52 ms, timed_out=False\n  vibo_web.py: exit=0, 51 ms, timed_out=False\n  vibo_web.py --help: exit=0, 51 ms, timed_out=False\n  vibo_web.py (no args): exit=0, 51 ms, timed_out=False",
+      "duration_ms": 2771,
+      "title": "Песочница (запуск скриптов)"
+    },
+    {
+      "module": "log",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "логирование не обнаружено"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "append-логирования без ротации нет"
+        },
+        {
+          "name": "error_quality",
+          "status": "warn",
+          "detail": "ошибки без файла:строки"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "секреты в логах/выводе не найдены"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "неконтролируемого роста логов нет"
+        }
+      ],
+      "details": "Итог: 5 проверок, 0 fail, 1 warn",
+      "duration_ms": 424,
+      "title": "Аудит логов"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "библиотека скиллов не найдена (~/.openclaw отсутствует)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "описание содержательное (380 симв.)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "секция примеров/Usage или пример в коде найден"
+        }
+      ],
+      "details": "Итог: 3 проверок, 0 fail, 1 warn — добавляет ценность библиотеке",
+      "duration_ms": 0,
+      "title": "Новизна"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "требуется Python >= 3.8 (фичи: union type hints (3.10+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "нерезолвятся импорты: license, vibo, vibo_archive, vibo_verify, vibo_web"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "warn",
+          "detail": "протестировано только на Python python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "версионозависимые фичи: union type hints (3.10+)"
+        }
+      ],
+      "details": "Итог: 4 проверок, 0 fail, 2 warn — обнаружены фичи: union type hints (3.10+)",
+      "duration_ms": 1323,
+      "title": "Совместимость"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

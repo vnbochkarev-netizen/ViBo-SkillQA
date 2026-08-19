@@ -1,0 +1,69 @@
+name: ViBo SkillQA
+
+on:
+  pull_request:
+    paths:
+      - "SKILL.md"
+      - "skills/**"
+      - "scripts/**"
+  push:
+    branches: [main, master]
+    paths:
+      - "SKILL.md"
+      - "skills/**"
+      - "scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  skillqa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ViBo SkillQA
+        run: |
+          pip install -q vibo-skillqa 2>/dev/null || true
+          if ! command -v skillqa >/dev/null; then
+            curl -sL -o /tmp/vibo-skillqa.zip https://github.com/vnbochkarev-netizen/ViBo-SkillQA/releases/latest/download/vibo-skillqa.zip
+            unzip -qo /tmp/vibo-skillqa.zip -d /opt/skillqa
+            echo "/opt/skillqa" >> "$GITHUB_PATH"
+          fi
+
+      - name: Run SkillQA
+        id: skillqa
+        continue-on-error: true
+        run: |
+          SKILL_DIR="."
+          [ -f SKILL.md ] || SKILL_DIR="$(ls -d skills/*/ 2>/dev/null | head -1 || echo .)"
+          skillqa test "$SKILL_DIR" --skip load,parallel --lang en > /tmp/skillqa_report.txt 2>&1 || true
+          cat /tmp/skillqa_report.txt
+          echo "report<<EOF" >> "$GITHUB_OUTPUT"
+          cat /tmp/skillqa_report.txt >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Post comment with the certificate
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const report = process.env.SKILLQA_REPORT || 'SkillQA report unavailable.';
+            const body = `## 🛡️ ViBo SkillQA report\n\n\`\`\`\n${report.slice(0, 6000)}\n\`\`\`\n\n*Automated check by [ViBo SkillQA](https://wwwvibo.com/skillqa) — 7 checks, grade A–D. Free 2-day trial.*`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body
+            });
+        env:
+          SKILLQA_REPORT: ${{ steps.skillqa.outputs.report }}

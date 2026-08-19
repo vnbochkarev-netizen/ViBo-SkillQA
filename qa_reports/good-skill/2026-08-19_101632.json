@@ -1,0 +1,227 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.0",
+  "edition": "pro",
+  "skill_name": "good-skill",
+  "skill_path": "/root/skillqa/fixtures/good_skill",
+  "grade": "B",
+  "score_pct": 0.8333,
+  "fail_count": 0,
+  "date": "2026-08-19T10:16:32Z",
+  "lang": "en",
+  "skipped": [
+    "parallel"
+  ],
+  "duration_ms": 531,
+  "modules": [
+    {
+      "module": "static",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 759 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "pass",
+          "detail": "required fields (name, description, version, tools) present"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (1)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "pass",
+          "detail": "version 1.0.0 is consistent"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 0 warns",
+      "duration_ms": 1,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_hello.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_hello.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_hello.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns\n  scripts/hello.py: exit=0, 52 ms, timed_out=False\n  scripts/hello.py --help: exit=0, 52 ms, timed_out=False\n  scripts/hello.py (no args): exit=0, 52 ms, timed_out=False",
+      "duration_ms": 158,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 1,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "warn",
+          "detail": "no skill library found (~/.openclaw missing)"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (37 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 3 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "load",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "main_script_found",
+          "status": "pass",
+          "detail": "main script: hello.py"
+        },
+        {
+          "name": "runs_completed",
+          "status": "pass",
+          "detail": "all 5 runs completed"
+        },
+        {
+          "name": "timing_stats",
+          "status": "pass",
+          "detail": "min 0.051s avg 0.052s max 0.052s median 0.052s"
+        },
+        {
+          "name": "no_degradation",
+          "status": "pass",
+          "detail": "no degradation trend"
+        },
+        {
+          "name": "no_memory_leak",
+          "status": "pass",
+          "detail": "no memory leak"
+        },
+        {
+          "name": "hang_detected",
+          "status": "pass",
+          "detail": "no hangs"
+        }
+      ],
+      "details": "Summary: 6 checks, 0 fails, 0 warns\n  run 1: 0.052s, rss=26424 kB\n  run 2: 0.052s, rss=26424 kB\n  run 3: 0.052s, rss=26424 kB\n  run 4: 0.052s, rss=26424 kB\n  run 5: 0.051s, rss=26424 kB",
+      "duration_ms": 261,
+      "title": "Load test"
+    },
+    {
+      "module": "compat",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 0 warns",
+      "duration_ms": 105,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}
