@@ -19,6 +19,15 @@ RUNTIME_GENERATED = {
     ".env", "config.json", "config.yaml", "templates/_quick_index.json",
     "tsconfig.json", "package.json", ".comfyui-agent.json",
 }
+
+# code identifiers / DOM APIs that look like files but are not:
+# console.log, db.config, process.stdout, document.body...
+NON_PATH_IDENTIFIERS = {
+    "console.log", "console.error", "console.warn", "console.info",
+    "process.stdout", "process.stderr", "db.config", "document.body",
+    "document.title", "window.location", "stdout", "stderr",
+    "sideeffects", "side-effects", "perf.mark", "performance.now",
+}
 TILDE_RE = re.compile(r"~\/")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 VERSION_MENTION_RE = re.compile(r"\b\d+\.\d+\.\d+\b")
@@ -115,6 +124,9 @@ def _referenced_missing(md_text, skill_dir):
         low = tok.lower()
         if low.startswith(("path/to/", "example/", "sample/", "your-", "<",
                            "path/to", "examples/")):
+            continue
+        # code identifiers are NOT files: console.log, db.config, process.stdout
+        if low in NON_PATH_IDENTIFIERS:
             continue
         # dated artifacts (2026-06-21_zimage_hero.json) are generated output
         if re.match(r"\d{4}-\d{2}-\d{2}_.*\.", tok):
