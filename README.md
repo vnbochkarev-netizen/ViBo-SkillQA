@@ -4,7 +4,7 @@
 
 SkillQA Pro is an autonomous QA and certification tool for AI agent skills (OpenClaw / ClawHub): it runs your skill through seven deep checks and produces a shareable quality certificate buyers can trust.
 
-> **v0.1.0** · Python 3.10+ · pip-free · OpenClaw-ready · ClawHub-ready
+> **v0.1.9** · Python 3.10+ · pip-free · OpenClaw-ready · ClawHub-ready
 
 ---
 
@@ -96,7 +96,7 @@ Every Pro run produces a **certificate-quality Markdown report** you can attach 
 - 🏅 **Overall grade — A, B, C or D** — computed from per-module scores (`pass` = 2, `warn` = 1, `fail` = 0) with a hard rule: crashes or secret leaks cap the grade at **B**, no matter the score.
 - 📋 **Per-module verdicts** — a table of all 7 modules with status, execution time and check counts, followed by a detailed section for each module: every check with its icon, name and localized explanation.
 - ⚙️ **Environment summary** — skipped modules, total runtime, Python and OS versions.
-- ✍️ **Signature** — *"Certified by SkillQA Pro v0.1.0"* with the owner's machine ID and license term.
+- ✍️ **Signature** — *"Certified by SkillQA Pro"* with the owner's machine ID and license term.
 
 The same run produces a **JSON report** (Pro) with the full machine-readable structure — `grade`, `score_pct`, `fail_count`, per-module results — ready for CI gates, marketplaces and automated listing filters.
 

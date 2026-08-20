@@ -1,7 +1,7 @@
 ---
 name: vibo-skillqa
-description: "Test and certify AI agent skills: 7 automated checks, grade A–D, certificate. Use when asked to check, test, or certify a skill."
-version: 0.1.5
+description: "Test and certify AI agent skills: 7 automated checks, grade A–D, certificate. Use when asked to check, test, review, or certify a skill before publishing. Use ONLY with the user's explicit consent: SkillQA reads the skill folder and runs its scripts in a sandbox — tell the user what will be scanned and that reports are saved locally."
+version: 0.1.9
 author: Viacheslav Bochkarev
 license: Proprietary — https://wwwvibo.com
 metadata:
@@ -12,9 +12,11 @@ metadata:
 
 # ViBo SkillQA
 
-Autonomous QA and certification for agent skills (structure: a folder with
-SKILL.md + helper scripts). Runs 7 checks and issues a certificate
-(grade A–D) you can show to buyers.
+**Local-first. No telemetry, no cloud sync — tested skills and reports never leave your machine.**
+
+Autonomous QA and certification for agent skills (a folder with `SKILL.md`
++ helper scripts). Runs 7 automated checks, grades the skill **A–D** and
+issues a certificate you can show to buyers or feed to CI (JSON).
 
 ## Commands (run from the skillqa folder)
 
@@ -33,10 +35,38 @@ python3 skillqa.py license --status  # license state (demo vs pro)
 - User asks to check, test, review, or certify a skill.
 - Before publishing a skill to a marketplace — run the check, show the grade.
 - After editing a skill — re-run to prove nothing broke.
+- **Use only with the user's explicit consent**: testing reads the skill
+  folder and executes its scripts in a sandbox. Tell the user what will be
+  scanned and where reports are saved before running.
 
-## Rules
+## Privacy, consent, retention & deletion
 
+| What | Where | How to delete |
+|---|---|---|
+| QA reports (`.md`/`.json`) | `qa_reports/<skill>/` next to the tester | delete the folder |
+| License file | `~/.config/skillqa/skillqa_license.dat` | `rm` the file |
+| Sandbox copies of the tested skill | temp dir, removed after each run | automatic |
+
+- No telemetry, no cloud sync, no data leaves your machine.
+- Reports only store findings (pass/warn/fail, file:line), never secret values
+  found inside a tested skill — a leaked secret is reported as a finding, not
+  echoed.
 - All executables run in a sandbox: fake tokens, no network, hard timeouts.
 - Never run a skill's scripts outside the sandbox.
-- Report honestly: pass/warn/fail per module, final grade A–D, certificate path.
-- The tester tests itself (`selftest`) — if it fails, say so, don't hide it.
+
+## Permissions
+
+- **Files**: reads the tested skill folder; writes `qa_reports/` and
+  `~/.config/skillqa/` only.
+- **Process**: runs tested skill scripts inside a sandbox (unshare -n,
+  timeout, kill) — never as the calling agent.
+- **Network**: none (sandbox runs with network disabled).
+- **Secrets**: never read, logged or sent; only flagged as a finding.
+
+## License (important!)
+
+This skill is **commercial**. Demo mode is free (static scan + teaser report);
+full certification (7 modules, grade, certificate, JSON) requires a valid
+ViBo SkillQA license — see https://wwwvibo.com. The registry listing carries
+the platform default license (MIT-0) which covers the hosted showcase copy
+only; the product itself is licensed per the terms above.

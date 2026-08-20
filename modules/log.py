@@ -2,8 +2,8 @@
 
 Secret scanning only inspects *contents* (script outputs, log files and
 skill text files) — never file names or paths — so a path like
-/root/skillqa/fixtures/good_skill/script.py can never be mistaken for a
-secret.  Exact fake-token values injected by the sandbox are ignored.
+/home/user/skillqa/fixtures/good_skill/script.py can never be mistaken for
+a secret.  Exact fake-token values injected by the sandbox are ignored.
 """
 
 import re

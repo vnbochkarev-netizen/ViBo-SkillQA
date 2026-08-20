@@ -29,7 +29,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.5"
+VERSION = "0.1.9"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
@@ -40,12 +40,12 @@ LICENSE_DIR = Path.home() / ".config" / "skillqa"
 LICENSE_FILE = LICENSE_DIR / "skillqa_license.dat"
 LICENSE_ALT_NAMES = ["skillqa_license.dat"]
 
-# Payment placeholders (ViBo "Model A") — fill in before release.
+# Payment details (ViBo "Model A") — same terms as wwwvibo.com.
 PAYMENT = {
-    "usdt_trc20": "T...ПОДСТАВИТЬ_ПЕРЕД_РЕЛИЗОМ",
-    "telegram_stars": "@...ПОДСТАВИТЬ",
+    "usdt_trc20": "TSqMvmUX9SkweTCBJ3oLo744gamZ6kLt1h",
+    "telegram_stars": "@ViBomemorybot",
     "currency": "USDT (TRC-20)",
-    "prices_usd": {"pro_monthly": 9, "pro_lifetime": 49},
+    "prices_usd": {"pro_monthly": 5, "pro_lifetime": 49},
 }
 
 BANNER = r"""
@@ -751,7 +751,7 @@ def render_demo_report(report):
         f"- Payment: USDT (TRC-20) `{PAYMENT['usdt_trc20']}` · "
         f"Telegram Stars {PAYMENT['telegram_stars']}",
         f"- Prices: monthly ${PAYMENT['prices_usd']['pro_monthly']} / "
-        f"lifetime ${PAYMENT['prices_usd']['pro_lifetime']} (placeholders)",
+        f"lifetime ${PAYMENT['prices_usd']['pro_lifetime']}",
         "",
         "Get a license: `python3 skillqa.py license --status` · "
         "`python3 skillqa.py license --machine-id`",
