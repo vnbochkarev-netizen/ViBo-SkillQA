@@ -1,0 +1,198 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "mailbot-programmable-inbox",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.125,
+  "fail_count": 3,
+  "date": "2026-08-19T19:46:34Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 843,
+  "skill_sha256": "579eda1a74f26e66fc90b1586058f9c2ff0271b84bcea6f1fbc8ad32d57a5623",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/run_support-bot.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_support-bot.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_support-bot.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_mailbot-helper.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- **sandbox/help_mailbot-helper.py** — fix FAIL: --help failed (exit 1)",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: assignment:API_KEY=mb_your_key_here, assignment:API_KEY=mb_your_key_here, assignment:api_key=api_key,",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 16706 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (5)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 2 warns",
+      "duration_ms": 501,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_support-bot.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_support-bot.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_support-bot.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_mailbot-helper.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_mailbot-helper.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_mailbot-helper.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 1 fails, 4 warns\n  examples/support-bot.py: exit=1, 52 ms, timed_out=False\n  examples/support-bot.py --help: exit=1, 52 ms, timed_out=False\n  examples/support-bot.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/mailbot-helper.py: exit=1, 52 ms, timed_out=False\n  scripts/mailbot-helper.py --help: exit=1, 52 ms, timed_out=False\n  scripts/mailbot-helper.py (no args): exit=1, 52 ms, timed_out=False",
+      "duration_ms": 322,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:API_KEY=mb_your_key_here, assignment:API_KEY=mb_your_key_here, assignment:api_key=api_key,"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 10,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

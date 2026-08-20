@@ -1,0 +1,200 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "tiktok-docs",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T19:45:40Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 23733,
+  "skill_sha256": "185b1d83c4e5da63a754e8827aa54cda4b9bd259060150de15e08a67a39ef47d",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: Product.json, request.json",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_developers_tiktok_com.py** — fix FAIL: exit 1 or unhandled exception: RuntimeError: Gagal fetch halaman overview.",
+    "- **sandbox/help_developers_tiktok_com.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_developers_tiktok_com.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run_partner_tiktokshop_com.py** — fix FAIL: exit 1 or unhandled exception: RuntimeError: Gagal mengambil tree. Periksa koneksi internet.",
+    "- **sandbox/help_partner_tiktokshop_com.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_partner_tiktokshop_com.py** — fix FAIL: no-args run crashed with traceback",
+    "- **log/secret_leak** — fix FAIL: possible secret leak: bearer_token:Bearer clt.example12345Example12345Example, bearer_token:Bearer clt.example12345Example12345Example', bea",
+    "- **novelty/description_not_empty** — fix FAIL: description empty / shorter than 20 chars / template"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 8917 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: Product.json, request.json"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 22957,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_developers_tiktok_com.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: RuntimeError: Gagal fetch halaman overview."
+        },
+        {
+          "name": "help_developers_tiktok_com.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_developers_tiktok_com.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_partner_tiktokshop_com.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: RuntimeError: Gagal mengambil tree. Periksa koneksi internet."
+        },
+        {
+          "name": "help_partner_tiktokshop_com.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_partner_tiktokshop_com.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 6 fails, 0 warns\n  scripts/developers_tiktok_com.py: exit=1, 154 ms, timed_out=False\n  scripts/developers_tiktok_com.py --help: exit=1, 102 ms, timed_out=False\n  scripts/developers_tiktok_com.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/partner_tiktokshop_com.py: exit=1, 102 ms, timed_out=False\n  scripts/partner_tiktokshop_com.py --help: exit=1, 102 ms, timed_out=False\n  scripts/partner_tiktokshop_com.py (no args): exit=1, 102 ms, timed_out=False",
+      "duration_ms": 674,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: bearer_token:Bearer clt.example12345Example12345Example, bearer_token:Bearer clt.example12345Example12345Example', bearer_token:Bearer clt.example12345Example12345Example, bearer_token:Bearer clt.example12345Example12345Example', bearer_token:Bearer clt.example12345Example12345Example"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 58,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

@@ -63,6 +63,81 @@ def _is_placeholder_assignment(name, snippet):
         return True
     return bool(PLACEHOLDER_VALUE_RE.match(val))
 
+
+# --- env-file secret scanning (ТЗ 20.08: .env* coverage + classification) ---
+ENV_FILE_RE = re.compile(
+    r"(?:^|/)\.[^/]*env(?:\.|$)"                                   # .env, .env.production, .env.local
+    r"|(?:^|/)[^/]*env[^/]*\.(?:prod|production|local|test|stage)$",  # *env*.prod / roomtalk.env.production
+    re.I)
+
+SEVERE_KEY_RE = re.compile(
+    r"(?:ENCRYPTION|PASSWORD|PASSWD|API[_-]?KEY|TOKEN|SECRET|PEPPER|"
+    r"AUTH[_-]?TOKEN|PRIVATE[_-]?KEY|SID|BEARER)"
+    r"|(?:password|passwd|secret|token|api[_-]?key|auth)",
+    re.I)
+
+DEV_VALUE_RE = re.compile(
+    r"^(?:test|changeme|change[-_]?me|placeholder|your[-_][a-z0-9_-]*|example|"
+    r"dummy|fake|sample|xxx+|\*+|password|passwd|pwd|secret|token|key|none|"
+    r"null|nil|true|false|0|1|local|dev|development|staging|demo)$",
+    re.I)
+
+ENV_LINE_RE = re.compile(r"^(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)$")
+TOKEN_LIKE_RE = re.compile(r"^(?:sk-|AKIA|ghp_|xox[baprs]-|eyJ[A-Za-z0-9_-]{10,})")
+
+
+def _mask(value):
+    """first4***last3 mask (ТЗ 20.08) — never expose full values in reports."""
+    v = (value or "").strip()
+    if len(v) <= 7:
+        return "***"
+    return v[:4] + "***" + v[-3:]
+
+
+def _mask_snippet(s):
+    """Mask the value part of a KEY=value / KEY: value / Bearer <token> snippet."""
+    m = re.match(r"^([A-Za-z_][A-Za-z0-9_]*\s*[=:])\s*(\S+)$", s)
+    if m:
+        return m.group(1) + _mask(m.group(2))
+    m = re.match(r"^(Bearer\s+)(\S+)$", s, re.I)
+    if m:
+        return m.group(1) + _mask(m.group(2))
+    return _mask(s)
+
+
+def classify_env_secret(name, value):
+    """Classify one KEY=value pair from an env file.
+
+    Returns one of:
+      severe — production-looking secret (real token / critical key name)
+      dev    — obvious dev/test placeholder or empty value
+      unknown— cannot tell (warn: check manually)
+    """
+    val = (value or "").strip().strip("'\"")
+    if not val or DEV_VALUE_RE.match(val) or _is_template(val):
+        return "dev"
+    if TOKEN_LIKE_RE.search(val):
+        return "severe"
+    if SEVERE_KEY_RE.search(name):
+        return "severe"
+    return "unknown"
+
+
+def scan_env_files(env_texts):
+    """Scan (label, text) env-file pairs. Returns {severe, dev, unknown} lists
+    of (key, masked_value, label). Full values never leave this function."""
+    out = {"severe": [], "dev": [], "unknown": []}
+    for label, text in env_texts:
+        for line in text.splitlines():
+            m = ENV_LINE_RE.match(line.strip())
+            if not m:
+                continue
+            name, value = m.group(1), m.group(2)
+            cls = classify_env_secret(name, value)
+            out[cls].append((name, _mask(value), label))
+    return out
+
+
 TRACEBACK_FILE_LINE = re.compile(r'File "[^"]+", line \d+')
 BARE_ERROR = re.compile(r"\b[A-Za-z]\w*(?:Error|Exception)\b")
 APPEND_OPEN = re.compile(r'open\s*\([^)]*["\']a[+"\'"]')
@@ -118,6 +193,7 @@ def scan_secrets(texts, fake_values=None):
                 if _is_placeholder_assignment(name, snippet):
                     continue
                 disp = re.sub(r"\s+", " ", snippet).strip()
+                disp = _mask_snippet(disp)   # ТЗ 20.08: never expose full values
                 if len(disp) > 60:
                     disp = disp[:57] + "..."
                 hits.append((name, disp, label))
@@ -144,9 +220,19 @@ class LogAudit:
                 run_texts.append((f"stderr[{i}]", r["stderr"]))
 
         file_texts = []
+        env_texts = []
         log_files = []
         for p in sorted(skill_dir.rglob("*")):
             if not p.is_file():
+                continue
+            if ENV_FILE_RE.search(p.name):
+                if _is_text_file(p):
+                    try:
+                        env_texts.append(
+                            (str(p.relative_to(skill_dir)),
+                             p.read_text(encoding="utf-8", errors="replace")))
+                    except OSError:
+                        pass
                 continue
             if p.suffix.lower() == ".log":
                 log_files.append(p)
@@ -227,7 +313,30 @@ class LogAudit:
                 checks.append(_check("error_quality", "pass",
                                      t("check.error_quality.none")))
 
-        # 4. secret leaks (contents only, fake values ignored)
+        # 4a. env-file secrets (.env*) — classified, masked (ТЗ 20.08)
+        env_findings = scan_env_files(env_texts)
+        if env_texts:
+            if env_findings["severe"]:
+                items = ", ".join(
+                    f"{k}={masked}" for k, masked, _ in env_findings["severe"][:5])
+                checks.append(_check("env_secrets", "fail",
+                                     t("check.env_secrets.fail", items=items)))
+            elif env_findings["unknown"]:
+                items = ", ".join(
+                    f"{k}={masked}" for k, masked, _ in env_findings["unknown"][:5])
+                checks.append(_check("env_secrets", "warn",
+                                     t("check.env_secrets.unknown", items=items)))
+            elif env_findings["dev"]:
+                checks.append(_check("env_secrets", "warn",
+                                     t("check.env_secrets.dev")))
+            else:
+                checks.append(_check("env_secrets", "pass",
+                                     t("check.env_secrets.ok")))
+        else:
+            checks.append(_check("env_secrets", "pass",
+                                 t("check.env_secrets.ok")))
+
+        # 4b. hardcoded secrets in code/logs (separate signal — ТЗ 20.08)
         all_texts = run_texts + file_texts
         hits = scan_secrets(all_texts)
         if hits:

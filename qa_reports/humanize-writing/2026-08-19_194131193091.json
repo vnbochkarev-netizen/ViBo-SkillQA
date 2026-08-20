@@ -1,0 +1,160 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "humanize-writing",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "B",
+  "score_pct": 0.5,
+  "fail_count": 1,
+  "date": "2026-08-19T19:41:31Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 3422,
+  "skill_sha256": "4ab7be490f9058eb24ba3c992385054d009bb8704fcad34694d79b5ffd91c19c",
+  "recommendations": [
+    "- **static/module_crash** — fix FAIL: FileNotFoundError: [Errno 2] No such file or directory: '/proc/514917'",
+    "- sandbox/noargs_ai_pattern_lint.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_test_lint.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_test_lint.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_test_lint.py — reduce warning: no args: exit 1 without explanation",
+    "- novelty/has_examples — reduce warning: no usage examples found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/proc/514917'"
+        }
+      ],
+      "details": "FileNotFoundError: [Errno 2] No such file or directory: '/proc/514917'",
+      "duration_ms": 2923,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run_ai_pattern_lint.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_ai_pattern_lint.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_ai_pattern_lint.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_lint.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_lint.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_lint.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 7 checks, 0 fails, 4 warns\n  scripts/ai_pattern_lint.py: exit=0, 102 ms, timed_out=False\n  scripts/ai_pattern_lint.py --help: exit=0, 102 ms, timed_out=False\n  scripts/ai_pattern_lint.py (no args): exit=0, 101 ms, timed_out=False\n  tests/test_lint.py: exit=1, 52 ms, timed_out=False\n  tests/test_lint.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_lint.py (no args): exit=1, 52 ms, timed_out=False",
+      "duration_ms": 469,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 21,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (510 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

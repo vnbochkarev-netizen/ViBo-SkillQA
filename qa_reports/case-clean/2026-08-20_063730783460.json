@@ -1,0 +1,165 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.9",
+  "edition": "pro",
+  "skill_name": "case-clean",
+  "skill_path": "/tmp/case_clean",
+  "grade": "D",
+  "score_pct": 0.375,
+  "fail_count": 1,
+  "date": "2026-08-20T06:37:30Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "novelty",
+    "parallel"
+  ],
+  "duration_ms": 4,
+  "skill_sha256": "45462b3a41534081fd357cf10007411fa1de4f3f5a673aa601da1dc530b1df2e",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md empty or too small (127 bytes, need > 200)",
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/scripts_discovered — reduce warning: no executable scripts (*.py/*.sh/*.js) found",
+    "- log/env_secrets — reduce warning: all .env values are dev placeholders (test/changeme/example)",
+    "- compat/runs_on_installed_pythons — reduce warning: no main script — version runs skipped"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md empty or too small (127 bytes, need > 200)"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "pass",
+          "detail": "all referenced paths exist (0)"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 2 warns",
+      "duration_ms": 1,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "scripts_discovered",
+          "status": "warn",
+          "detail": "no executable scripts (*.py/*.sh/*.js) found"
+        }
+      ],
+      "details": "no executable scripts found",
+      "duration_ms": 0,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "no errors in output"
+        },
+        {
+          "name": "env_secrets",
+          "status": "warn",
+          "detail": "all .env values are dev placeholders (test/changeme/example)"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no hardcoded secrets in code or logs"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 6 checks, 0 fails, 1 warns",
+      "duration_ms": 0,
+      "title": "Log audit"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "no version-specific features — Python >= 3.8"
+        },
+        {
+          "name": "deps_installable",
+          "status": "pass",
+          "detail": "dependencies parse cleanly, no third-party imports"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "warn",
+          "detail": "no main script — version runs skipped"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: none"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns",
+      "duration_ms": 0,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

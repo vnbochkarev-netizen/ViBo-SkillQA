@@ -6,6 +6,7 @@
     {"id": "hang", "desc": "hang.py runs longer than the timeout", "hint": "time.sleep"},
     {"id": "missing-file", "desc": "SKILL.md references missing_data.json which does not exist", "hint": "missing_data.json"},
     {"id": "secret-leak", "desc": "leak.py prints a hardcoded API token", "hint": "Bearer|sk-"},
+    {"id": "env-secret", "desc": ".env.production contains production secrets", "hint": "env_secrets|TOTP"},
     {"id": "magic-path", "desc": "SKILL.md contains an absolute path /home/user/secrets/config.json", "hint": "/home/"}
   ]
 }

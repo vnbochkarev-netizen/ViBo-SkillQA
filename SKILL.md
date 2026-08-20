@@ -1,7 +1,7 @@
 ---
 name: vibo-skillqa
 description: "Test and certify AI agent skills: 7 automated checks, grade A–D, certificate. Use when asked to check, test, review, or certify a skill before publishing. Use ONLY with the user's explicit consent: SkillQA reads the skill folder and runs its scripts in a sandbox — tell the user what will be scanned and that reports are saved locally."
-version: 0.1.9
+version: 0.2.0
 author: Viacheslav Bochkarev
 license: Proprietary — https://wwwvibo.com
 metadata:

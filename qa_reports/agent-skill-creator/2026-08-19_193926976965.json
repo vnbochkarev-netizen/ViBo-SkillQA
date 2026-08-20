@@ -1,0 +1,1178 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "agent-skill-creator",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.0,
+  "fail_count": 4,
+  "date": "2026-08-19T19:39:26Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 91987,
+  "skill_sha256": "47df6f2ab4433915611abfc9d3e4637486c4c73c3385cd6d01a5a10aa0c288c6",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: MCP_AUDIT.md, mcp_audit.json, .eval.md, guidelines.md",
+    "- **static/no_empty_broken_files** — fix FAIL: empty/broken files: scripts/tests/__init__.py",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- **sandbox/run_render_architecture.py** — fix FAIL: exit 1 or unhandled exception: IndexError: list index out of range",
+    "- **sandbox/help_render_architecture.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_render_architecture.py** — fix FAIL: no-args run crashed with traceback",
+    "- sandbox/noargs_install.sh — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_dependency_health.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_evolve.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/noargs_evolve.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_review_staleness.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/run_run_evals.py — reduce warning: exit 0 but stderr non-empty, or usage shown"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 35654 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: MCP_AUDIT.md, mcp_audit.json, .eval.md, guidelines.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "fail",
+          "detail": "empty/broken files: scripts/tests/__init__.py"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 3 warns",
+      "duration_ms": 47636,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_render_architecture.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: IndexError: list index out of range"
+        },
+        {
+          "name": "help_render_architecture.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_render_architecture.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_install.sh",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_install.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_install.sh",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_dependency_health.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_dependency_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dependency_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evolve.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_evolve.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_evolve.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_review_staleness.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_review_staleness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_review_staleness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_evals.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_evals.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_evals.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_pipeline.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_pipeline.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_schema_drift.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_schema_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_schema_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skill_document.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_skill_document.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_document.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 2 but usage/help shown"
+        },
+        {
+          "name": "noargs_staleness_check.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_dependency_health.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_dependency_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dependency_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evolve.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_evolve.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_evolve.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_main.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_main.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_main.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_review_staleness.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_review_staleness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_review_staleness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_evals.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_evals.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_evals.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_pipeline.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_pipeline.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_schema_drift.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_schema_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_schema_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skill_document.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_skill_document.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_document.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 2 but usage/help shown"
+        },
+        {
+          "name": "noargs_staleness_check.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_dependency_health.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_dependency_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dependency_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evolve.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_evolve.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_evolve.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_review_staleness.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_review_staleness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_review_staleness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_evals.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_evals.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_evals.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_pipeline.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_run_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_pipeline.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_schema_drift.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_schema_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_schema_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skill_document.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_skill_document.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_document.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 2 but usage/help shown"
+        },
+        {
+          "name": "noargs_staleness_check.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_artifact_detector.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_artifact_detector.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_artifact_detector.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_bootstrap.sh",
+          "status": "fail",
+          "detail": "exit 128 or unhandled exception"
+        },
+        {
+          "name": "help_bootstrap.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 128)"
+        },
+        {
+          "name": "noargs_bootstrap.sh",
+          "status": "warn",
+          "detail": "no args: exit 128 without explanation"
+        },
+        {
+          "name": "run_check_pipeline.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_check_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_check_pipeline.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_dependency_health.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (101 ms)"
+        },
+        {
+          "name": "help_dependency_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dependency_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evolve_template.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_evolve_template.py",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_evolve_template.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_export_utils.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_export_utils.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_export_utils.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_install-skill.sh",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_install-skill.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_install-skill.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_install-template.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_install-template.sh",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_install-template.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_mcp_audit_validate.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_mcp_audit_validate.py",
+          "status": "warn",
+          "detail": "exit 2 but usage/help shown"
+        },
+        {
+          "name": "noargs_mcp_audit_validate.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_platforms.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_platforms.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_platforms.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_review_staleness.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_review_staleness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_review_staleness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_run_evals_template.py",
+          "status": "fail",
+          "detail": "exit 2 or unhandled exception"
+        },
+        {
+          "name": "help_run_evals_template.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_run_evals_template.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_schema_drift.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_schema_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_schema_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_security_scan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_security_scan.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_security_scan.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_skill_document.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help_skill_document.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_document.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skill_registry.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_skill_registry.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_registry.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_staleness_check.py",
+          "status": "warn",
+          "detail": "exit 2 but usage/help shown"
+        },
+        {
+          "name": "noargs_staleness_check.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (51 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_artifact_detector.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_artifact_detector.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_artifact_detector.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_check_pipeline.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_check_pipeline.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_check_pipeline.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_dependency_health.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_dependency_health.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_dependency_health.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_evolve.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_evolve.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_evolve.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_export_utils.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_export_utils.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_export_utils.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_install_parity.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_install_parity.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_install_parity.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_mcp_audit_validate.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_mcp_audit_validate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_mcp_audit_validate.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_phase2_integration.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_phase2_integration.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_phase2_integration.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_platforms.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_platforms.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_platforms.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_plugin_manifests.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_plugin_manifests.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_plugin_manifests.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_review_staleness.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_review_staleness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_review_staleness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_run_evals.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_run_evals.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_run_evals.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_schema_drift.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_schema_drift.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_schema_drift.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_security_scan.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_security_scan.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_security_scan.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_skill_document.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_skill_document.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_skill_document.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_skill_registry.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_skill_registry.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_skill_registry.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_staleness_record.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_staleness_record.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_staleness_record.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_template_structure.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_template_structure.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_template_structure.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_v4_regression.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_v4_regression.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_v4_regression.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_validate.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_validate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_validate.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_vendored_parity.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_test_vendored_parity.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_test_vendored_parity.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_validate.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_validate.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_validate.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 202 checks, 9 fails, 100 warns\n  assets/render_architecture.py: exit=1, 105 ms, timed_out=False\n  assets/render_architecture.py --help: exit=1, 102 ms, timed_out=False\n  assets/render_architecture.py (no args): exit=1, 102 ms, timed_out=False\n  install.sh: exit=0, 52 ms, timed_out=False\n  install.sh --help: exit=0, 52 ms, timed_out=False\n  install.sh (no args): exit=0, 52 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/dependency_health.py: exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/dependency_health.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/dependency_health.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/evolve.py: exit=0, 607 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/evolve.py --help: exit=0, 555 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/evolve.py (no args): exit=0, 555 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/review_staleness.py: exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/review_staleness.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/review_staleness.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_evals.py: exit=0, 353 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_evals.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_evals.py (no args): exit=0, 352 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_pipeline.py: exit=2, 52 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_pipeline.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/run_pipeline.py (no args): exit=2, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/schema_drift.py: exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/schema_drift.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/schema_drift.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/skill_document.py: exit=0, 52 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/skill_document.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/skill_document.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/staleness_check.py: exit=1, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/staleness_check.py --help: exit=2, 102 ms, timed_out=False\n  references/examples/pr-blocker-summarizer/scripts/staleness_check.py (no args): exit=1, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/dependency_health.py: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/dependency_health.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/dependency_health.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/evolve.py: exit=0, 604 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/evolve.py --help: exit=0, 554 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/evolve.py (no args): exit=0, 553 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/main.py: exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/main.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/main.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/review_staleness.py: exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/review_staleness.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/review_staleness.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_evals.py: exit=0, 354 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_evals.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_evals.py (no args): exit=0, 354 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_pipeline.py: exit=2, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_pipeline.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/run_pipeline.py (no args): exit=2, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/schema_drift.py: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/schema_drift.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/schema_drift.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/skill_document.py: exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/skill_document.py --help: exit=0, 52 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/skill_document.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/staleness_check.py: exit=1, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/staleness_check.py --help: exit=2, 102 ms, timed_out=False\n  references/examples/stock-analyzer/scripts/staleness_check.py (no args): exit=1, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/dependency_health.py: exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/dependency_health.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/dependency_health.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/evolve.py: exit=0, 556 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/evolve.py --help: exit=0, 553 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/evolve.py (no args): exit=0, 555 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/review_staleness.py: exit=0, 52 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/review_staleness.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/review_staleness.py (no args): exit=0, 51 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_evals.py: exit=0, 353 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_evals.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_evals.py (no args): exit=0, 303 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_pipeline.py: exit=2, 51 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_pipeline.py --help: exit=0, 51 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/run_pipeline.py (no args): exit=2, 51 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/schema_drift.py: exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/schema_drift.py --help: exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/schema_drift.py (no args): exit=0, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/skill_document.py: exit=0, 52 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/skill_document.py --help: exit=0, 52 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/skill_document.py (no args): exit=0, 52 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/staleness_check.py: exit=1, 103 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/staleness_check.py --help: exit=2, 102 ms, timed_out=False\n  references/examples/weekly-crm-report/scripts/staleness_check.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/artifact_detector.py: exit=0, 52 ms, timed_out=False\n  scripts/artifact_detector.py --help: exit=0, 52 ms, timed_out=False\n  scripts/artifact_detector.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/bootstrap.sh: exit=128, 52 ms, timed_out=False\n  scripts/bootstrap.sh --help: exit=128, 51 ms, timed_out=False\n  scripts/bootstrap.sh (no args): exit=128, 52 ms, timed_out=False\n  scripts/check_pipeline.py: exit=2, 102 ms, timed_out=False\n  scripts/check_pipeline.py --help: exit=0, 102 ms, timed_out=False\n  scripts/check_pipeline.py (no args): exit=2, 51 ms, timed_out=False\n  scripts/dependency_health.py: exit=0, 101 ms, timed_out=False\n  scripts/dependency_health.py --help: exit=0, 102 ms, timed_out=False\n  scripts/dependency_health.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/evolve_template.py: exit=1, 205 ms, timed_out=False\n  scripts/evolve_template.py --help: exit=1, 202 ms, timed_out=False\n  scripts/evolve_template.py (no args): exit=1, 202 ms, timed_out=False\n  scripts/export_utils.py: exit=1, 102 ms, timed_out=False\n  scripts/export_utils.py --help: exit=1, 102 ms, timed_out=False\n  scripts/export_utils.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/install-skill.sh: exit=1, 52 ms, timed_out=False\n  scripts/install-skill.sh --help: exit=0, 52 ms, timed_out=False\n  scripts/install-skill.sh (no args): exit=1, 52 ms, timed_out=False\n  scripts/install-template.sh: exit=1, 52 ms, timed_out=False\n  scripts/install-template.sh --help: exit=0, 52 ms, timed_out=False\n  scripts/install-template.sh (no args): exit=1, 52 ms, timed_out=False\n  scripts/mcp_audit_validate.py: exit=2, 51 ms, timed_out=False\n  scripts/mcp_audit_validate.py --help: exit=2, 51 ms, timed_out=False\n  scripts/mcp_audit_validate.py (no args): exit=2, 52 ms, timed_out=False\n  scripts/platforms.py: exit=0, 51 ms, timed_out=False\n  scripts/platforms.py --help: exit=0, 102 ms, timed_out=False\n  scripts/platforms.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/review_staleness.py: exit=0, 52 ms, timed_out=False\n  scripts/review_staleness.py --help: exit=0, 51 ms, timed_out=False\n  scripts/review_staleness.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/run_evals_template.py: exit=2, 101 ms, timed_out=False\n  scripts/run_evals_template.py --help: exit=0, 102 ms, timed_out=False\n  scripts/run_evals_template.py (no args): exit=2, 102 ms, timed_out=False\n  scripts/schema_drift.py: exit=0, 102 ms, timed_out=False\n  scripts/schema_drift.py --help: exit=0, 102 ms, timed_out=False\n  scripts/schema_drift.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/security_scan.py: exit=1, 51 ms, timed_out=False\n  scripts/security_scan.py --help: exit=1, 51 ms, timed_out=False\n  scripts/security_scan.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/skill_document.py: exit=0, 51 ms, timed_out=False\n  scripts/skill_document.py --help: exit=0, 51 ms, timed_out=False\n  scripts/skill_document.py (no args): exit=0, 51 ms, timed_out=False\n  scripts/skill_registry.py: exit=1, 102 ms, timed_out=False\n  scripts/skill_registry.py --help: exit=0, 102 ms, timed_out=False\n  scripts/skill_registry.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/staleness_check.py: exit=1, 102 ms, timed_out=False\n  scripts/staleness_check.py --help: exit=2, 102 ms, timed_out=False\n  scripts/staleness_check.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/tests/__init__.py: exit=0, 51 ms, timed_out=False\n  scripts/tests/__init__.py --help: exit=0, 52 ms, timed_out=False\n  scripts/tests/__init__.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/tests/test_artifact_detector.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_artifact_detector.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_artifact_detector.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_check_pipeline.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_check_pipeline.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_check_pipeline.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_dependency_health.py: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_dependency_health.py --help: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_dependency_health.py (no args): exit=0, 152 ms, timed_out=False\n  scripts/tests/test_evolve.py: exit=0, 1659 ms, timed_out=False\n  scripts/tests/test_evolve.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_evolve.py (no args): exit=0, 1663 ms, timed_out=False\n  scripts/tests/test_export_utils.py: exit=0, 553 ms, timed_out=False\n  scripts/tests/test_export_utils.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_export_utils.py (no args): exit=0, 556 ms, timed_out=False\n  scripts/tests/test_install_parity.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_install_parity.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_install_parity.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_mcp_audit_validate.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_mcp_audit_validate.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_mcp_audit_validate.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_phase2_integration.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_phase2_integration.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_phase2_integration.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_platforms.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_platforms.py --help: exit=0, 101 ms, timed_out=False\n  scripts/tests/test_platforms.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_plugin_manifests.py: exit=1, 52 ms, timed_out=False\n  scripts/tests/test_plugin_manifests.py --help: exit=1, 51 ms, timed_out=False\n  scripts/tests/test_plugin_manifests.py (no args): exit=1, 51 ms, timed_out=False\n  scripts/tests/test_review_staleness.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_review_staleness.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_review_staleness.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_run_evals.py: exit=0, 8087 ms, timed_out=False\n  scripts/tests/test_run_evals.py --help: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_run_evals.py (no args): exit=0, 8239 ms, timed_out=False\n  scripts/tests/test_schema_drift.py: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_schema_drift.py --help: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_schema_drift.py (no args): exit=0, 154 ms, timed_out=False\n  scripts/tests/test_security_scan.py: exit=0, 202 ms, timed_out=False\n  scripts/tests/test_security_scan.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_security_scan.py (no args): exit=0, 202 ms, timed_out=False\n  scripts/tests/test_skill_document.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_skill_document.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_skill_document.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_skill_registry.py: exit=0, 202 ms, timed_out=False\n  scripts/tests/test_skill_registry.py --help: exit=0, 152 ms, timed_out=False\n  scripts/tests/test_skill_registry.py (no args): exit=0, 203 ms, timed_out=False\n  scripts/tests/test_staleness_record.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_staleness_record.py --help: exit=0, 101 ms, timed_out=False\n  scripts/tests/test_staleness_record.py (no args): exit=0, 101 ms, timed_out=False\n  scripts/tests/test_template_structure.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_template_structure.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_template_structure.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_v4_regression.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_v4_regression.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_v4_regression.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/tests/test_validate.py: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_validate.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_validate.py (no args): exit=0, 103 ms, timed_out=False\n  scripts/tests/test_vendored_parity.py: exit=0, 103 ms, timed_out=False\n  scripts/tests/test_vendored_parity.py --help: exit=0, 102 ms, timed_out=False\n  scripts/tests/test_vendored_parity.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/validate.py: exit=1, 51 ms, timed_out=False\n  scripts/validate.py --help: exit=1, 52 ms, timed_out=False\n  scripts/validate.py (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 44133,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "warn",
+          "detail": "append logging without rotation: evolve.py, staleness_check.py, run_evals.py, evolve.py, staleness_check.py"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:Key=\"period\", assignment:Key=\"category\", assignment:Key=\"category\", assignment:Key=\"period\", assignment:key: [step-by-step]"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns",
+      "duration_ms": 172,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

@@ -4,7 +4,7 @@
 
 SkillQA Pro is an autonomous QA and certification tool for AI agent skills (OpenClaw / ClawHub): it runs your skill through seven deep checks and produces a shareable quality certificate buyers can trust.
 
-> **v0.1.9** · Python 3.10+ · pip-free · OpenClaw-ready · ClawHub-ready
+> **v0.2.0** · Python 3.10+ · pip-free · OpenClaw-ready · ClawHub-ready
 
 ---
 
@@ -30,7 +30,7 @@ SkillQA Pro is the missing quality gate for the skill economy: an autonomous tes
 |---|---|
 | 🛡️ **Static scan** | Structure: `SKILL.md` exists, valid YAML frontmatter (`name`, `description`, `version`), referenced files exist, no empty/broken files, no magic absolute paths, sane sizes, consistent versioning. |
 | 🧪 **Sandbox run** | Behaviour: auto-discovers `*.py` / `*.sh` / `*.js`, runs each in an isolated sandbox with fake env and tokens, checks exit codes, `--help` handling, no-args behaviour, crashes and hangs. |
-| 📜 **Log audit** | Logging hygiene: does the skill log, where, is there rotation, are errors readable (`file:line`), and — critically — **no secret leaks** (Bearer tokens, `sk-…`, `token=…`, AWS keys, private keys, long hex/base64) in output or logs. |
+| 📜 **Log audit** | Logging hygiene: does the skill log, where, is there rotation, are errors readable (`file:line`), and — critically — **no secret leaks**: hardcoded secrets in code/logs (Bearer tokens, `sk-…`, `token=…`, AWS keys, private keys, long hex/base64) **and production secrets in `.env*` files** (`.env`, `.env.production`, `.env.local`, `*env*.prod`). Env values are classified `severe` / `dev` / `unknown` and **always masked** in reports (`first4***last3`) — full values never leave the tester. |
 | 🔍 **Novelty** | Originality: compares against your local skill library (`~/.openclaw/skills`, workspace, ClawHub cache) for name collisions and description overlap; verifies the skill isn't an empty shell and includes usage examples. |
 | ⚡ **Load test** | Performance: runs the main script N times (default 20, `--load N`), reports min/avg/max/median timings and peak RSS, flags progressive degradation and memory leaks, kills hangs. |
 | 🔀 **Parallel test** | Concurrency: launches 5–10 simultaneous instances, detects deadlocks, races, shared temp-file conflicts and runaway processes. |

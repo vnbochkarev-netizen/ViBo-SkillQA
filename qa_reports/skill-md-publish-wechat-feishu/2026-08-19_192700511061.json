@@ -1,0 +1,466 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "skill-md-publish-wechat-feishu",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.3,
+  "fail_count": 3,
+  "date": "2026-08-19T19:27:00Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 122801,
+  "skill_sha256": "753b9ebbd548d566ef6ecd7221110faf316c26cf1647f8b5905ac7b760ce114a",
+  "recommendations": [
+    "- **static/module_crash** — fix FAIL: FileNotFoundError: [Errno 2] No such file or directory: '/proc/480874'",
+    "- sandbox/run_compress_md_attachments.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- sandbox/run_convert_svg_attachments_to_png.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_convert_svg_attachments_to_png.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_convert_svg_attachments_to_png.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_feishu_create_import_task.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_feishu_create_import_task.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_feishu_create_import_task.py — reduce warning: no args: exit 1 without explanation",
+    "- **sandbox/run_feishu_oauth_login.py** — fix FAIL: hung: killed by 15s timeout (SIGTERM/SIGKILL)",
+    "- **sandbox/noargs_feishu_oauth_login.py** — fix FAIL: no-args run hung: killed by 15s timeout",
+    "- sandbox/run_feishu_preprocess_md.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_feishu_preprocess_md.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_feishu_preprocess_md.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_feishu_publish_replaced_md.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "module_crash",
+          "status": "fail",
+          "detail": "FileNotFoundError: [Errno 2] No such file or directory: '/proc/480874'"
+        }
+      ],
+      "details": "FileNotFoundError: [Errno 2] No such file or directory: '/proc/480874'",
+      "duration_ms": 84535,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_compress_md_attachments.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_compress_md_attachments.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_compress_md_attachments.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_convert_svg_attachments_to_png.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_convert_svg_attachments_to_png.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_convert_svg_attachments_to_png.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_feishu_create_import_task.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_feishu_create_import_task.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_feishu_create_import_task.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_feishu_oauth_login.py",
+          "status": "fail",
+          "detail": "hung: killed by 15s timeout (SIGTERM/SIGKILL)"
+        },
+        {
+          "name": "help_feishu_oauth_login.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_feishu_oauth_login.py",
+          "status": "fail",
+          "detail": "no-args run hung: killed by 15s timeout"
+        },
+        {
+          "name": "run_feishu_preprocess_md.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_feishu_preprocess_md.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_feishu_preprocess_md.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_feishu_publish_replaced_md.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_feishu_publish_replaced_md.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_feishu_publish_replaced_md.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_feishu_publish_utils.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (152 ms)"
+        },
+        {
+          "name": "help_feishu_publish_utils.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_feishu_publish_utils.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_feishu_upload_import_source.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_feishu_upload_import_source.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_feishu_upload_import_source.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_path_utils.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_path_utils.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_path_utils.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_publish_local_md.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_publish_local_md.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_publish_local_md.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_rename_image_references.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_rename_image_references.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_rename_image_references.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "run_setup_credentials.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_setup_credentials.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_setup_credentials.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_skill_config.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_skill_config.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_skill_config.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_publish_helpers.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_publish_helpers.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_publish_helpers.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_wechat_preprocess_html.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_wechat_preprocess_html.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_wechat_preprocess_html.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_wechat_publish_utils.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_wechat_publish_utils.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_wechat_publish_utils.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_wechat_remote_client.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (152 ms)"
+        },
+        {
+          "name": "help_wechat_remote_client.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_wechat_remote_client.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_wechat_replace_md_images.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_wechat_replace_md_images.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_wechat_replace_md_images.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_wechat_upload_draft.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_wechat_upload_draft.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_wechat_upload_draft.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_wechat_upload_images.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_wechat_upload_images.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_wechat_upload_images.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "warn",
+          "detail": "some runs timed out (hang suspected)"
+        }
+      ],
+      "details": "Summary: 61 checks, 3 fails, 44 warns\n  scripts/compress_md_attachments.py: exit=2, 104 ms, timed_out=False\n  scripts/compress_md_attachments.py --help: exit=0, 102 ms, timed_out=False\n  scripts/compress_md_attachments.py (no args): exit=2, 103 ms, timed_out=False\n  scripts/convert_svg_attachments_to_png.py: exit=1, 52 ms, timed_out=False\n  scripts/convert_svg_attachments_to_png.py --help: exit=1, 102 ms, timed_out=False\n  scripts/convert_svg_attachments_to_png.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/feishu_create_import_task.py: exit=1, 152 ms, timed_out=False\n  scripts/feishu_create_import_task.py --help: exit=1, 152 ms, timed_out=False\n  scripts/feishu_create_import_task.py (no args): exit=1, 202 ms, timed_out=False\n  scripts/feishu_oauth_login.py: exit=137, 15048 ms, timed_out=True\n  scripts/feishu_oauth_login.py --help: exit=0, 152 ms, timed_out=False\n  scripts/feishu_oauth_login.py (no args): exit=137, 15045 ms, timed_out=True\n  scripts/feishu_preprocess_md.py: exit=1, 152 ms, timed_out=False\n  scripts/feishu_preprocess_md.py --help: exit=1, 152 ms, timed_out=False\n  scripts/feishu_preprocess_md.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/feishu_publish_replaced_md.py: exit=1, 152 ms, timed_out=False\n  scripts/feishu_publish_replaced_md.py --help: exit=1, 152 ms, timed_out=False\n  scripts/feishu_publish_replaced_md.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/feishu_publish_utils.py: exit=0, 152 ms, timed_out=False\n  scripts/feishu_publish_utils.py --help: exit=0, 152 ms, timed_out=False\n  scripts/feishu_publish_utils.py (no args): exit=0, 152 ms, timed_out=False\n  scripts/feishu_upload_import_source.py: exit=1, 152 ms, timed_out=False\n  scripts/feishu_upload_import_source.py --help: exit=1, 202 ms, timed_out=False\n  scripts/feishu_upload_import_source.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/path_utils.py: exit=0, 52 ms, timed_out=False\n  scripts/path_utils.py --help: exit=0, 52 ms, timed_out=False\n  scripts/path_utils.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/publish_local_md.py: exit=1, 102 ms, timed_out=False\n  scripts/publish_local_md.py --help: exit=1, 102 ms, timed_out=False\n  scripts/publish_local_md.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/rename_image_references.py: exit=2, 52 ms, timed_out=False\n  scripts/rename_image_references.py --help: exit=0, 102 ms, timed_out=False\n  scripts/rename_image_references.py (no args): exit=2, 102 ms, timed_out=False\n  scripts/setup_credentials.py: exit=1, 52 ms, timed_out=False\n  scripts/setup_credentials.py --help: exit=0, 102 ms, timed_out=False\n  scripts/setup_credentials.py (no args): exit=1, 52 ms, timed_out=False\n  scripts/skill_config.py: exit=0, 52 ms, timed_out=False\n  scripts/skill_config.py --help: exit=0, 52 ms, timed_out=False\n  scripts/skill_config.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/tests/test_publish_helpers.py: exit=1, 202 ms, timed_out=False\n  scripts/tests/test_publish_helpers.py --help: exit=1, 202 ms, timed_out=False\n  scripts/tests/test_publish_helpers.py (no args): exit=1, 203 ms, timed_out=False\n  scripts/wechat_preprocess_html.py: exit=1, 202 ms, timed_out=False\n  scripts/wechat_preprocess_html.py --help: exit=1, 152 ms, timed_out=False\n  scripts/wechat_preprocess_html.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/wechat_publish_utils.py: exit=1, 152 ms, timed_out=False\n  scripts/wechat_publish_utils.py --help: exit=1, 152 ms, timed_out=False\n  scripts/wechat_publish_utils.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/wechat_remote_client.py: exit=0, 152 ms, timed_out=False\n  scripts/wechat_remote_client.py --help: exit=0, 152 ms, timed_out=False\n  scripts/wechat_remote_client.py (no args): exit=0, 152 ms, timed_out=False\n  scripts/wechat_replace_md_images.py: exit=1, 102 ms, timed_out=False\n  scripts/wechat_replace_md_images.py --help: exit=1, 102 ms, timed_out=False\n  scripts/wechat_replace_md_images.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/wechat_upload_draft.py: exit=1, 202 ms, timed_out=False\n  scripts/wechat_upload_draft.py --help: exit=1, 152 ms, timed_out=False\n  scripts/wechat_upload_draft.py (no args): exit=1, 152 ms, timed_out=False\n  scripts/wechat_upload_images.py: exit=1, 152 ms, timed_out=False\n  scripts/wechat_upload_images.py --help: exit=1, 152 ms, timed_out=False\n  scripts/wechat_upload_images.py (no args): exit=1, 152 ms, timed_out=False",
+      "duration_ms": 37604,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "logging detected (logging module / .log files)"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:token=file_token,, assignment:key=folder_token, assignment:token=file_token,, assignment:key=folder_token, assignment:secret = app_secret"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 22,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (226 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: f-string debug = (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: bs4, resvg_py"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "pass",
+          "detail": "passes on: python3.11, python3.12"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: f-string debug = (3.8+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 1 warns — detected features: f-string debug = (3.8+)",
+      "duration_ms": 628,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

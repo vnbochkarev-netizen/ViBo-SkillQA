@@ -1,0 +1,323 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "inkjet",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "B",
+  "score_pct": 0.625,
+  "fail_count": 1,
+  "date": "2026-08-19T19:42:44Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 45134,
+  "skill_sha256": "c5735ba7cc0a86d28bfadcc65b088f486ac8983aeef1ba14b50801db0da987c7",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: ./.inkjet/config.json, TOOLS.md",
+    "- static/no_magic_paths — reduce warning: SKILL.md contains ~/ paths (not portable)",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/run___init__.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help___init__.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs___init__.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run___main__.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help___main__.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs___main__.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_cli.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_cli.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_cli.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/noargs_config.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 4910 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: ./.inkjet/config.json, TOOLS.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "SKILL.md contains ~/ paths (not portable)"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 1 fails, 3 warns",
+      "duration_ms": 42624,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run___main__.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help___main__.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs___main__.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_cli.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_cli.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_cli.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_config.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_config.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_config.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_discovery.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_discovery.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_discovery.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_image.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_image.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_image.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_output.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (152 ms)"
+        },
+        {
+          "name": "help_output.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_output.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_printer.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_printer.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_printer.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_text.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_text.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_text.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_cli.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_cli.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_cli.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 31 checks, 0 fails, 24 warns\n  src/inkjet/__init__.py: exit=1, 53 ms, timed_out=False\n  src/inkjet/__init__.py --help: exit=1, 52 ms, timed_out=False\n  src/inkjet/__init__.py (no args): exit=1, 52 ms, timed_out=False\n  src/inkjet/__main__.py: exit=1, 52 ms, timed_out=False\n  src/inkjet/__main__.py --help: exit=1, 52 ms, timed_out=False\n  src/inkjet/__main__.py (no args): exit=1, 52 ms, timed_out=False\n  src/inkjet/cli.py: exit=1, 52 ms, timed_out=False\n  src/inkjet/cli.py --help: exit=1, 52 ms, timed_out=False\n  src/inkjet/cli.py (no args): exit=1, 51 ms, timed_out=False\n  src/inkjet/config.py: exit=0, 52 ms, timed_out=False\n  src/inkjet/config.py --help: exit=0, 52 ms, timed_out=False\n  src/inkjet/config.py (no args): exit=0, 52 ms, timed_out=False\n  src/inkjet/discovery.py: exit=1, 102 ms, timed_out=False\n  src/inkjet/discovery.py --help: exit=1, 102 ms, timed_out=False\n  src/inkjet/discovery.py (no args): exit=1, 102 ms, timed_out=False\n  src/inkjet/image.py: exit=1, 102 ms, timed_out=False\n  src/inkjet/image.py --help: exit=1, 102 ms, timed_out=False\n  src/inkjet/image.py (no args): exit=1, 102 ms, timed_out=False\n  src/inkjet/output.py: exit=0, 152 ms, timed_out=False\n  src/inkjet/output.py --help: exit=0, 152 ms, timed_out=False\n  src/inkjet/output.py (no args): exit=0, 152 ms, timed_out=False\n  src/inkjet/printer.py: exit=1, 102 ms, timed_out=False\n  src/inkjet/printer.py --help: exit=1, 102 ms, timed_out=False\n  src/inkjet/printer.py (no args): exit=1, 102 ms, timed_out=False\n  src/inkjet/text.py: exit=0, 102 ms, timed_out=False\n  src/inkjet/text.py --help: exit=0, 102 ms, timed_out=False\n  src/inkjet/text.py (no args): exit=0, 101 ms, timed_out=False\n  tests/test_cli.py: exit=1, 52 ms, timed_out=False\n  tests/test_cli.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_cli.py (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 2476,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 23,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (160 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

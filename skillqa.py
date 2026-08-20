@@ -29,7 +29,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.1.9"
+VERSION = "0.2.0"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
@@ -216,8 +216,12 @@ I18N = {
         "check.error_quality.fail": "traceback без файла:строки",
         "check.error_quality.warn": "ошибки без файла:строки",
         "check.error_quality.none": "ошибок в выводе не обнаружено",
-        "check.secret_leak.fail": "возможная утечка секретов: {items}",
-        "check.secret_leak.ok": "секреты в логах/выводе не найдены",
+        "check.secret_leak.fail": "возможный хардкод-секрет в коде/логах: {items}",
+        "check.secret_leak.ok": "хардкод-секретов в коде/логах нет",
+        "check.env_secrets.fail": "прод-секреты в .env-файлах: {items}",
+        "check.env_secrets.dev": "все значения в .env — dev-заглушки (test/changeme/пример)",
+        "check.env_secrets.unknown": "пограничные значения в .env (проверить вручную): {items}",
+        "check.env_secrets.ok": ".env-файлов нет или они пустые",
         "check.log_growth.warn": "файловый лог без ротации/лимита размера: {files}",
         "check.log_growth.ok": "неконтролируемого роста логов нет",
         "check.library_reachable.warn": "библиотека скиллов не найдена (~/.openclaw отсутствует)",
@@ -340,8 +344,12 @@ I18N = {
         "check.error_quality.fail": "traceback without file:line",
         "check.error_quality.warn": "errors without file:line",
         "check.error_quality.none": "no errors in output",
-        "check.secret_leak.fail": "possible secret leak: {items}",
-        "check.secret_leak.ok": "no secrets in logs or output",
+        "check.secret_leak.fail": "possible hardcoded secret in code/logs: {items}",
+        "check.secret_leak.ok": "no hardcoded secrets in code or logs",
+        "check.env_secrets.fail": "production secrets in .env files: {items}",
+        "check.env_secrets.dev": "all .env values are dev placeholders (test/changeme/example)",
+        "check.env_secrets.unknown": "borderline values in .env (check manually): {items}",
+        "check.env_secrets.ok": "no .env files or they are empty",
         "check.log_growth.warn": "file log without rotation/size limit: {files}",
         "check.log_growth.ok": "no unbounded log growth",
         "check.library_reachable.warn": "no skill library found (~/.openclaw missing)",
@@ -952,6 +960,7 @@ BUG_CHECK_MAP = {
     "hang": [("sandbox", "run_hang.py")],
     "missing-file": [("static", "referenced_paths_exist")],
     "secret-leak": [("log", "secret_leak")],
+    "env-secret": [("log", "env_secrets")],
     "magic-path": [("static", "no_magic_paths")],
 }
 
@@ -1064,8 +1073,8 @@ def cmd_selftest(args):
     else:
         print(f"[ OK ] phase 1: integrity (exit {r.returncode})")
 
-    # ---- phase 2: bad_skill must expose all 5 expected bugs ----
-    print("[selftest] phase 2: bad_skill — all 5 expected bugs must be found")
+    # ---- phase 2: bad_skill must expose all expected bugs ----
+    print("[selftest] phase 2: bad_skill — all expected bugs must be found")
     missing = []
     if not bad.is_dir() or not expected_file.exists():
         missing.append("(fixtures/bad_skill missing)")

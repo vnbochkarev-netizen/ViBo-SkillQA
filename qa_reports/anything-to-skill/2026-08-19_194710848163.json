@@ -1,0 +1,503 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "anything-to-skill",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.25,
+  "fail_count": 3,
+  "date": "2026-08-19T19:47:10Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 23306,
+  "skill_sha256": "00a0425b39dcc66c297ede016064246dcab27fea2fc1805fb9b79017d5004c96",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- **static/referenced_paths_exist** — fix FAIL: paths referenced in SKILL.md missing: 03d.jpg, diagnostic.md",
+    "- **static/no_empty_broken_files** — fix FAIL: empty/broken files: scripts/__init__.py, tests/__init__.py",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/noargs___init__.py — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_check_deps.sh** — fix FAIL: exit 1 or unhandled exception",
+    "- **sandbox/help_check_deps.sh** — fix FAIL: --help failed (exit 1)",
+    "- sandbox/noargs_check_deps.sh — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/noargs_dedup.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_evaluate.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_extract_pdf.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_extract_video.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_extract_web.py — reduce warning: no args: silent success (exit 0)",
+    "- sandbox/noargs_freshness.py — reduce warning: no args: silent success (exit 0)"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 7139 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "fail",
+          "detail": "paths referenced in SKILL.md missing: 03d.jpg, diagnostic.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "fail",
+          "detail": "empty/broken files: scripts/__init__.py, tests/__init__.py"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 2 fails, 2 warns",
+      "duration_ms": 18555,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_check_deps.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_check_deps.sh",
+          "status": "fail",
+          "detail": "--help failed (exit 1)"
+        },
+        {
+          "name": "noargs_check_deps.sh",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_dedup.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_dedup.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_dedup.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_evaluate.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_evaluate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_evaluate.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_extract_pdf.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (103 ms)"
+        },
+        {
+          "name": "help_extract_pdf.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_extract_pdf.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_extract_video.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_extract_video.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_extract_video.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_extract_web.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (102 ms)"
+        },
+        {
+          "name": "help_extract_web.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_extract_web.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_freshness.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_freshness.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_freshness.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_parse.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_parse.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_parse.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_pipeline.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_pipeline.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_pipeline.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_router.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_router.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_router.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_validate.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (53 ms)"
+        },
+        {
+          "name": "help_validate.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_validate.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_test_dedup.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_dedup.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_dedup.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_evaluate.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_evaluate.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_evaluate.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_extract_pdf.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_extract_pdf.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_extract_pdf.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_extract_video.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_extract_video.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_extract_video.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_extract_web.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_extract_web.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_extract_web.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_freshness.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_freshness.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_freshness.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_pipeline.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_pipeline.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_pipeline.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_router.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_router.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_router.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_validate.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_validate.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_validate.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "fail",
+          "detail": "script wrote into the original skill folder: /tmp/gh_skill_test/repo/README.md, /tmp/gh_skill_test/repo/LICENSE, /tmp/gh_skill_test/repo/SKILL.md"
+        }
+      ],
+      "details": "Summary: 67 checks, 3 fails, 42 warns\n  scripts/__init__.py: exit=0, 52 ms, timed_out=False\n  scripts/__init__.py --help: exit=0, 52 ms, timed_out=False\n  scripts/__init__.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/check_deps.sh: exit=1, 253 ms, timed_out=False\n  scripts/check_deps.sh --help: exit=1, 253 ms, timed_out=False\n  scripts/check_deps.sh (no args): exit=1, 203 ms, timed_out=False\n  scripts/dedup.py: exit=0, 52 ms, timed_out=False\n  scripts/dedup.py --help: exit=0, 52 ms, timed_out=False\n  scripts/dedup.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/evaluate.py: exit=0, 52 ms, timed_out=False\n  scripts/evaluate.py --help: exit=0, 52 ms, timed_out=False\n  scripts/evaluate.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/extract_pdf.py: exit=0, 103 ms, timed_out=False\n  scripts/extract_pdf.py --help: exit=0, 102 ms, timed_out=False\n  scripts/extract_pdf.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/extract_video.py: exit=0, 102 ms, timed_out=False\n  scripts/extract_video.py --help: exit=0, 102 ms, timed_out=False\n  scripts/extract_video.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/extract_web.py: exit=0, 102 ms, timed_out=False\n  scripts/extract_web.py --help: exit=0, 102 ms, timed_out=False\n  scripts/extract_web.py (no args): exit=0, 102 ms, timed_out=False\n  scripts/freshness.py: exit=0, 52 ms, timed_out=False\n  scripts/freshness.py --help: exit=0, 52 ms, timed_out=False\n  scripts/freshness.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/parse.py: exit=0, 52 ms, timed_out=False\n  scripts/parse.py --help: exit=0, 52 ms, timed_out=False\n  scripts/parse.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/pipeline.py: exit=1, 102 ms, timed_out=False\n  scripts/pipeline.py --help: exit=1, 102 ms, timed_out=False\n  scripts/pipeline.py (no args): exit=1, 102 ms, timed_out=False\n  scripts/router.py: exit=0, 52 ms, timed_out=False\n  scripts/router.py --help: exit=0, 52 ms, timed_out=False\n  scripts/router.py (no args): exit=0, 52 ms, timed_out=False\n  scripts/validate.py: exit=0, 53 ms, timed_out=False\n  scripts/validate.py --help: exit=0, 102 ms, timed_out=False\n  scripts/validate.py (no args): exit=0, 103 ms, timed_out=False\n  tests/__init__.py: exit=0, 52 ms, timed_out=False\n  tests/__init__.py --help: exit=0, 52 ms, timed_out=False\n  tests/__init__.py (no args): exit=0, 52 ms, timed_out=False\n  tests/test_dedup.py: exit=1, 52 ms, timed_out=False\n  tests/test_dedup.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_dedup.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_evaluate.py: exit=1, 52 ms, timed_out=False\n  tests/test_evaluate.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_evaluate.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_extract_pdf.py: exit=1, 51 ms, timed_out=False\n  tests/test_extract_pdf.py --help: exit=1, 53 ms, timed_out=False\n  tests/test_extract_pdf.py (no args): exit=1, 54 ms, timed_out=False\n  tests/test_extract_video.py: exit=1, 51 ms, timed_out=False\n  tests/test_extract_video.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_extract_video.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_extract_web.py: exit=1, 52 ms, timed_out=False\n  tests/test_extract_web.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_extract_web.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_freshness.py: exit=1, 51 ms, timed_out=False\n  tests/test_freshness.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_freshness.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_pipeline.py: exit=1, 51 ms, timed_out=False\n  tests/test_pipeline.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_pipeline.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_router.py: exit=1, 51 ms, timed_out=False\n  tests/test_router.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_router.py (no args): exit=1, 51 ms, timed_out=False\n  tests/test_validate.py: exit=1, 51 ms, timed_out=False\n  tests/test_validate.py --help: exit=1, 51 ms, timed_out=False\n  tests/test_validate.py (no args): exit=1, 51 ms, timed_out=False",
+      "duration_ms": 4716,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 25,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "pass",
+          "detail": "examples section / Usage / code example found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

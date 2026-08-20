@@ -1,0 +1,681 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "repo",
+  "skill_path": "/tmp/gh_skill_test/repo",
+  "grade": "D",
+  "score_pct": 0.1,
+  "fail_count": 4,
+  "date": "2026-08-19T19:22:08Z",
+  "lang": "en",
+  "skipped": [
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 5796,
+  "skill_sha256": "f92cace4546dac46813a321e9b9b53c9634b2265d77b60d9acc4ec8ce788404f",
+  "recommendations": [
+    "- **static/skilmd_exists** — fix FAIL: SKILL.md not found",
+    "- **static/frontmatter_valid** — fix FAIL: frontmatter block (---) not found",
+    "- **static/frontmatter_fields** — fix FAIL: no frontmatter — fields not checked",
+    "- static/referenced_paths_exist — reduce warning: no SKILL.md — check skipped",
+    "- static/no_magic_paths — reduce warning: no SKILL.md — check skipped",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/run_demo.sh — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_demo.sh — reduce warning: exit 127 but usage/help shown",
+    "- sandbox/noargs_demo.sh — reduce warning: no args: exit 127 without explanation",
+    "- sandbox/noargs___init__.py — reduce warning: no args: silent success (exit 0)",
+    "- **sandbox/run_cli.py** — fix FAIL: exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package",
+    "- **sandbox/help_cli.py** — fix FAIL: --help crashed with traceback",
+    "- **sandbox/noargs_cli.py** — fix FAIL: no-args run crashed with traceback",
+    "- **sandbox/run___init__.py** — fix FAIL: exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "fail",
+          "detail": "SKILL.md not found"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "fail",
+          "detail": "frontmatter block (---) not found"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "fail",
+          "detail": "no frontmatter — fields not checked"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "warn",
+          "detail": "no SKILL.md — check skipped"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 3 fails, 3 warns",
+      "duration_ms": 10,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_demo.sh",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_demo.sh",
+          "status": "warn",
+          "detail": "exit 127 but usage/help shown"
+        },
+        {
+          "name": "noargs_demo.sh",
+          "status": "warn",
+          "detail": "no args: exit 127 without explanation"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_cli.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_cli.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_cli.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run___init__.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help___init__.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs___init__.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_base.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_base.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_base.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_cli_help.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_cli_help.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_cli_help.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_docs.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_docs.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_docs.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_generic.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_generic.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_generic.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_node.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_node.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_node.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_python.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_python.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_python.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_cli.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_cli.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_cli.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_config.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_config.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_config.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_describe.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_describe.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_describe.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_errors.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_errors.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_errors.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_frontmatter.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_frontmatter.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_frontmatter.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_generate.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_generate.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_generate.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_llm.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_llm.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_llm.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_models.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_models.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_models.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_skill.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_skill.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_skill.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_slug.py",
+          "status": "pass",
+          "detail": "exit 0, empty stderr (52 ms)"
+        },
+        {
+          "name": "help_slug.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_slug.py",
+          "status": "warn",
+          "detail": "no args: silent success (exit 0)"
+        },
+        {
+          "name": "run_templates.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_templates.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_templates.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_update.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_update.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_update.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_validate.py",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception: ImportError: attempted relative import with no known parent package"
+        },
+        {
+          "name": "help_validate.py",
+          "status": "fail",
+          "detail": "--help crashed with traceback"
+        },
+        {
+          "name": "noargs_validate.py",
+          "status": "fail",
+          "detail": "no-args run crashed with traceback"
+        },
+        {
+          "name": "run_conftest.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_conftest.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_conftest.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_analyzers.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_analyzers.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_analyzers.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_cli.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_cli.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_cli.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_forge.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_forge.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_forge.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_llm.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_llm.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_llm.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_review_regressions.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_review_regressions.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_review_regressions.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_units.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_units.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_units.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_test_update.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_test_update.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_test_update.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 97 checks, 47 fails, 35 warns\n  examples/demo.sh: exit=127, 52 ms, timed_out=False\n  examples/demo.sh --help: exit=127, 52 ms, timed_out=False\n  examples/demo.sh (no args): exit=127, 57 ms, timed_out=False\n  examples/sample_tool/sample_tool/__init__.py: exit=0, 52 ms, timed_out=False\n  examples/sample_tool/sample_tool/__init__.py --help: exit=0, 52 ms, timed_out=False\n  examples/sample_tool/sample_tool/__init__.py (no args): exit=0, 52 ms, timed_out=False\n  examples/sample_tool/sample_tool/cli.py: exit=1, 102 ms, timed_out=False\n  examples/sample_tool/sample_tool/cli.py --help: exit=1, 103 ms, timed_out=False\n  examples/sample_tool/sample_tool/cli.py (no args): exit=1, 102 ms, timed_out=False\n  skill_forge/__init__.py: exit=1, 52 ms, timed_out=False\n  skill_forge/__init__.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/__init__.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/__init__.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/__init__.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/__init__.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/base.py: exit=0, 52 ms, timed_out=False\n  skill_forge/analyzers/base.py --help: exit=0, 52 ms, timed_out=False\n  skill_forge/analyzers/base.py (no args): exit=0, 52 ms, timed_out=False\n  skill_forge/analyzers/cli_help.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/cli_help.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/cli_help.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/docs.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/docs.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/docs.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/generic.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/generic.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/generic.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/node.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/node.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/node.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/python.py: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/python.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/analyzers/python.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/cli.py: exit=1, 52 ms, timed_out=False\n  skill_forge/cli.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/cli.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/config.py: exit=0, 52 ms, timed_out=False\n  skill_forge/config.py --help: exit=0, 52 ms, timed_out=False\n  skill_forge/config.py (no args): exit=0, 52 ms, timed_out=False\n  skill_forge/describe.py: exit=1, 52 ms, timed_out=False\n  skill_forge/describe.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/describe.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/errors.py: exit=0, 52 ms, timed_out=False\n  skill_forge/errors.py --help: exit=0, 52 ms, timed_out=False\n  skill_forge/errors.py (no args): exit=0, 52 ms, timed_out=False\n  skill_forge/frontmatter.py: exit=0, 52 ms, timed_out=False\n  skill_forge/frontmatter.py --help: exit=0, 52 ms, timed_out=False\n  skill_forge/frontmatter.py (no args): exit=0, 52 ms, timed_out=False\n  skill_forge/generate.py: exit=1, 52 ms, timed_out=False\n  skill_forge/generate.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/generate.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/llm.py: exit=1, 52 ms, timed_out=False\n  skill_forge/llm.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/llm.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/models.py: exit=0, 52 ms, timed_out=False\n  skill_forge/models.py --help: exit=0, 102 ms, timed_out=False\n  skill_forge/models.py (no args): exit=0, 102 ms, timed_out=False\n  skill_forge/skill.py: exit=1, 52 ms, timed_out=False\n  skill_forge/skill.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/skill.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/slug.py: exit=0, 52 ms, timed_out=False\n  skill_forge/slug.py --help: exit=0, 52 ms, timed_out=False\n  skill_forge/slug.py (no args): exit=0, 52 ms, timed_out=False\n  skill_forge/templates.py: exit=1, 52 ms, timed_out=False\n  skill_forge/templates.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/templates.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/update.py: exit=1, 103 ms, timed_out=False\n  skill_forge/update.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/update.py (no args): exit=1, 52 ms, timed_out=False\n  skill_forge/validate.py: exit=1, 52 ms, timed_out=False\n  skill_forge/validate.py --help: exit=1, 52 ms, timed_out=False\n  skill_forge/validate.py (no args): exit=1, 52 ms, timed_out=False\n  tests/conftest.py: exit=1, 52 ms, timed_out=False\n  tests/conftest.py --help: exit=1, 52 ms, timed_out=False\n  tests/conftest.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_analyzers.py: exit=1, 52 ms, timed_out=False\n  tests/test_analyzers.py --help: exit=1, 102 ms, timed_out=False\n  tests/test_analyzers.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_cli.py: exit=1, 52 ms, timed_out=False\n  tests/test_cli.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_cli.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_forge.py: exit=1, 52 ms, timed_out=False\n  tests/test_forge.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_forge.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_llm.py: exit=1, 52 ms, timed_out=False\n  tests/test_llm.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_llm.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_review_regressions.py: exit=1, 52 ms, timed_out=False\n  tests/test_review_regressions.py --help: exit=1, 102 ms, timed_out=False\n  tests/test_review_regressions.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_units.py: exit=1, 52 ms, timed_out=False\n  tests/test_units.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_units.py (no args): exit=1, 52 ms, timed_out=False\n  tests/test_update.py: exit=1, 52 ms, timed_out=False\n  tests/test_update.py --help: exit=1, 52 ms, timed_out=False\n  tests/test_update.py (no args): exit=1, 52 ms, timed_out=False",
+      "duration_ms": 5465,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "fail",
+          "detail": "possible secret leak: assignment:api_key=api_key)"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 0 warns",
+      "duration_ms": 44,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "fail",
+          "detail": "description empty / shorter than 20 chars / template"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 1 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    },
+    {
+      "module": "compat",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "python_required",
+          "status": "pass",
+          "detail": "requires Python >= 3.8 (features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+))"
+        },
+        {
+          "name": "deps_installable",
+          "status": "warn",
+          "detail": "unresolvable imports: anthropic, pytest"
+        },
+        {
+          "name": "runs_on_installed_pythons",
+          "status": "warn",
+          "detail": "no main script — version runs skipped"
+        },
+        {
+          "name": "version_features_noted",
+          "status": "pass",
+          "detail": "version-dependent features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)"
+        }
+      ],
+      "details": "Summary: 4 checks, 0 fails, 2 warns — detected features: union type hints (3.10+), f-string debug = (3.8+), walrus operator (3.8+)",
+      "duration_ms": 267,
+      "title": "Compat check"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}

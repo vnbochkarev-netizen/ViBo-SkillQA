@@ -1,0 +1,232 @@
+{
+  "tool": "skillqa",
+  "version": "0.1.5",
+  "edition": "pro",
+  "skill_name": "skillopt-sleep",
+  "skill_path": "/tmp/gh_skill_test/repo/plugins/openclaw",
+  "grade": "C",
+  "score_pct": 0.5,
+  "fail_count": 1,
+  "date": "2026-08-19T19:52:07Z",
+  "lang": "en",
+  "skipped": [
+    "compat",
+    "load",
+    "parallel"
+  ],
+  "duration_ms": 3022,
+  "skill_sha256": "b6bc0ed7e423bde4e2bbf4c691b7d205eab4dc22d14cba5e4a54bce7c322026e",
+  "recommendations": [
+    "- static/frontmatter_fields — reduce warning: no version (recommended for marketplaces, not required)",
+    "- static/referenced_paths_exist — reduce warning: mentioned in examples but missing: proposed_SKILL.md, proposed_CLAUDE.md",
+    "- static/version_consistent — reduce warning: no version declared",
+    "- sandbox/run_run_sleep.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_run_sleep.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_run_sleep.py — reduce warning: no args: exit 1 without explanation",
+    "- **sandbox/run_run_sleep_cron.sh** — fix FAIL: exit 1 or unhandled exception",
+    "- sandbox/help_run_sleep_cron.sh — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/run_skillopt_sleep_openclaw.py — reduce warning: environment gap (missing dependency/interpreter) — not a skill defect",
+    "- sandbox/help_skillopt_sleep_openclaw.py — reduce warning: exit 1 but usage/help shown",
+    "- sandbox/noargs_skillopt_sleep_openclaw.py — reduce warning: no args: exit 1 without explanation",
+    "- sandbox/run_slash_sleep.py — reduce warning: exit 0 but stderr non-empty, or usage shown",
+    "- novelty/has_examples — reduce warning: no usage examples found"
+  ],
+  "modules": [
+    {
+      "module": "static",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "skilmd_exists",
+          "status": "pass",
+          "detail": "SKILL.md found, 5133 bytes"
+        },
+        {
+          "name": "frontmatter_valid",
+          "status": "pass",
+          "detail": "valid YAML frontmatter"
+        },
+        {
+          "name": "frontmatter_fields",
+          "status": "warn",
+          "detail": "no version (recommended for marketplaces, not required)"
+        },
+        {
+          "name": "referenced_paths_exist",
+          "status": "warn",
+          "detail": "mentioned in examples but missing: proposed_SKILL.md, proposed_CLAUDE.md"
+        },
+        {
+          "name": "no_empty_broken_files",
+          "status": "pass",
+          "detail": "no empty or broken files"
+        },
+        {
+          "name": "no_magic_paths",
+          "status": "pass",
+          "detail": "no absolute magic paths"
+        },
+        {
+          "name": "reasonable_sizes",
+          "status": "pass",
+          "detail": "all files within limits"
+        },
+        {
+          "name": "version_consistent",
+          "status": "warn",
+          "detail": "no version declared"
+        }
+      ],
+      "details": "Summary: 8 checks, 0 fails, 3 warns",
+      "duration_ms": 1968,
+      "title": "Static scan"
+    },
+    {
+      "module": "sandbox",
+      "status": "fail",
+      "checks": [
+        {
+          "name": "run_run_sleep.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_run_sleep.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_run_sleep.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_run_sleep_cron.sh",
+          "status": "fail",
+          "detail": "exit 1 or unhandled exception"
+        },
+        {
+          "name": "help_run_sleep_cron.sh",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_run_sleep_cron.sh",
+          "status": "pass",
+          "detail": "no args: clear error (exit 1)"
+        },
+        {
+          "name": "run_skillopt_sleep_openclaw.py",
+          "status": "warn",
+          "detail": "environment gap (missing dependency/interpreter) — not a skill defect"
+        },
+        {
+          "name": "help_skillopt_sleep_openclaw.py",
+          "status": "warn",
+          "detail": "exit 1 but usage/help shown"
+        },
+        {
+          "name": "noargs_skillopt_sleep_openclaw.py",
+          "status": "warn",
+          "detail": "no args: exit 1 without explanation"
+        },
+        {
+          "name": "run_slash_sleep.py",
+          "status": "warn",
+          "detail": "exit 0 but stderr non-empty, or usage shown"
+        },
+        {
+          "name": "help_slash_sleep.py",
+          "status": "pass",
+          "detail": "--help works, exit 0"
+        },
+        {
+          "name": "noargs_slash_sleep.py",
+          "status": "pass",
+          "detail": "no args: clear error (exit 2)"
+        },
+        {
+          "name": "sandbox_isolated",
+          "status": "pass",
+          "detail": "all runs isolated, nothing written to the original"
+        }
+      ],
+      "details": "Summary: 13 checks, 1 fails, 8 warns\n  run_sleep.py: exit=1, 103 ms, timed_out=False\n  run_sleep.py --help: exit=1, 102 ms, timed_out=False\n  run_sleep.py (no args): exit=1, 104 ms, timed_out=False\n  run_sleep_cron.sh: exit=1, 52 ms, timed_out=False\n  run_sleep_cron.sh --help: exit=1, 52 ms, timed_out=False\n  run_sleep_cron.sh (no args): exit=1, 52 ms, timed_out=False\n  skillopt_sleep_openclaw.py: exit=1, 103 ms, timed_out=False\n  skillopt_sleep_openclaw.py --help: exit=1, 103 ms, timed_out=False\n  skillopt_sleep_openclaw.py (no args): exit=1, 52 ms, timed_out=False\n  slash_sleep.py: exit=2, 102 ms, timed_out=False\n  slash_sleep.py --help: exit=0, 102 ms, timed_out=False\n  slash_sleep.py (no args): exit=2, 102 ms, timed_out=False",
+      "duration_ms": 1038,
+      "title": "Sandbox run"
+    },
+    {
+      "module": "log",
+      "status": "pass",
+      "checks": [
+        {
+          "name": "logging_present",
+          "status": "pass",
+          "detail": "no logging detected"
+        },
+        {
+          "name": "log_rotation",
+          "status": "pass",
+          "detail": "no append-without-rotation logging"
+        },
+        {
+          "name": "error_quality",
+          "status": "pass",
+          "detail": "errors carry file:line tracebacks"
+        },
+        {
+          "name": "secret_leak",
+          "status": "pass",
+          "detail": "no secrets in logs or output"
+        },
+        {
+          "name": "log_growth",
+          "status": "pass",
+          "detail": "no unbounded log growth"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 0 warns",
+      "duration_ms": 10,
+      "title": "Log audit"
+    },
+    {
+      "module": "novelty",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "library_reachable",
+          "status": "pass",
+          "detail": "no skill library — no duplicates"
+        },
+        {
+          "name": "name_collision",
+          "status": "pass",
+          "detail": "no name collisions"
+        },
+        {
+          "name": "description_overlap",
+          "status": "pass",
+          "detail": "no description overlap"
+        },
+        {
+          "name": "description_not_empty",
+          "status": "pass",
+          "detail": "description is meaningful (147 chars)"
+        },
+        {
+          "name": "has_examples",
+          "status": "warn",
+          "detail": "no usage examples found"
+        }
+      ],
+      "details": "Summary: 5 checks, 0 fails, 1 warns — adds value to the library",
+      "duration_ms": 0,
+      "title": "Novelty"
+    }
+  ],
+  "qaignore_notes": [],
+  "license": {
+    "status": "valid",
+    "expires": "2099-12-31"
+  }
+}
