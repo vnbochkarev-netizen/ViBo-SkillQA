@@ -1,0 +1,29 @@
+name: SkillQA selftest
+
+on:
+  push:
+    paths: ["skillqa.py", "modules/**", "SKILL.md", "README.md", "fixtures/**"]
+  pull_request:
+    paths: ["skillqa.py", "modules/**", "SKILL.md", "README.md", "fixtures/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install --quiet python-docx pymupdf || true
+
+      - name: Selftest (5 phases)
+        run: python3 skillqa.py selftest
+
+      - name: Test the tester on itself
+        run: python3 skillqa.py test . --lang en --skip parallel || true
