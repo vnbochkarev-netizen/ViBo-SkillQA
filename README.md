@@ -1,5 +1,7 @@
 # SkillQA Pro
 
+[![Selftest CI](https://github.com/vnbochkarev-netizen/ViBo-SkillQA/actions/workflows/selftest-ci.yml/badge.svg)](https://github.com/vnbochkarev-netizen/ViBo-SkillQA/actions/workflows/selftest-ci.yml)
+
 **Certify your skills. Sell with confidence.**
 
 SkillQA Pro is an autonomous QA and certification tool for AI agent skills (OpenClaw / ClawHub): it runs your skill through seven deep checks and produces a shareable quality certificate buyers can trust.
@@ -114,7 +116,13 @@ SkillQA Pro takes safety seriously — for both sides:
 - **Timeout-kill.** Every execution is wrapped in a hard `timeout --kill-after=2 --signal=KILL`; a hung script is killed, marked `timed_out`, and reported as a failure — never allowed to run forever.
 - **`rm -rf` is impossible outside the sandbox.** Isolation is enforced by environment and paths; the only directory the tool ever deletes is its own `skillqa_*` temp root.
 
-**What SkillQA Pro will never do:** touch real secrets, reach the network, write into your skill, or read your home directory.
+**Sandbox limitations (honest):** the sandbox isolates tested scripts via scrubbed environment, network-disabled namespaces (when possible), path confinement and hard timeout-kills. It is **not** a VM/container security boundary (no cgroups/seccomp). For untrusted or potentially malicious skills, run SkillQA inside a disposable VM or container.
+
+**Access scope (disclosed):**
+- **Reads:** the selected skill folder (including `.env`-like files, for secret checks); novelty *metadata* (names/descriptions) of local skill libraries under `~/.openclaw/skills`, `~/.openclaw/workspace/skills`, `~/.claude/skills` and `$OPENCLAW_SKILLS_DIR`; license state at `~/.config/skillqa/skillqa_license.dat`.
+- **Writes:** QA reports to `./qa_reports/<skill>/` (absolute skill path + content hash included for certification); license file to `~/.config/skillqa/` (Pro / selftest).
+- **Does not access:** the network; real secret values (found secrets are reported as findings with masked fragments only, never echoed in full); any other files outside the paths listed above.
+- **Fixtures** under `fixtures/bad_skill/` are *intentionally bad examples* (fake secrets like `sk-abc…`, leaky scripts) used to verify detectors — they run only inside the sandbox, never against real data. The marketplace package ships WITHOUT `fixtures/` (they live in the GitHub source repo for selftest).
 
 ---
 
