@@ -1,5 +1,7 @@
 # SkillQA Pro
 
+[![SkillQA](https://img.shields.io/badge/SkillQA-A-brightgreen)](https://github.com/vnbochkarev-netizen/ViBo-SkillQA)
+
 [![Selftest CI](https://github.com/vnbochkarev-netizen/ViBo-SkillQA/actions/workflows/selftest-ci.yml/badge.svg)](https://github.com/vnbochkarev-netizen/ViBo-SkillQA/actions/workflows/selftest-ci.yml)
 
 **Certify your skills. Sell with confidence.**
