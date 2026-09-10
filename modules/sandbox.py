@@ -134,14 +134,15 @@ class Sandbox:
     # environment
     # ------------------------------------------------------------------
     def env(self, extra=None):
-        """Cleaned environment: no real secrets, no proxies, fake tokens."""
+        """Whitlisted environment: only safe vars, no real secrets, no proxies.
+
+        Whitelist instead of blacklist: variables with unexpected names must
+        never reach untrusted skill code (SkillSpector: Env Variable Harvesting).
+        """
         env = {}
-        for k, v in os.environ.items():
-            if SECRET_NAME_RE.search(k):
-                continue  # real credential variables are dropped
-            if k.lower() in PROXY_NAMES:
-                continue
-            env[k] = v
+        for k in ("PATH", "HOME", "LANG", "LC_ALL", "TMPDIR", "SHELL", "USER"):
+            if k in os.environ:
+                env[k] = os.environ[k]
         env.update(FAKE_ENV)
         env.update({
             "PATH": os.path.dirname(sys.executable) + ":/usr/bin:/bin",
@@ -342,10 +343,13 @@ class Sandbox:
         duration_ms = int((time.monotonic() - t0) * 1000)
         return exec_result(exit_code, stdout, stderr, timed_out, duration_ms, rss_kb)
 
+    MAX_PARALLEL = 20  # hard cap: runaway n must not exhaust the host
+
     def run_many(self, script, n, timeout=None, interpreter=None):
         """Run n instances concurrently, each in its own par_<i> directory."""
         timeout = timeout or self.timeout
         results = []
+        n = max(1, min(int(n), self.MAX_PARALLEL))
 
         def _one(i):
             cwd = self.tmp_root / f"par_{i}"

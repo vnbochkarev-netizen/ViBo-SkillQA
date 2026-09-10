@@ -1,13 +1,17 @@
 ---
 name: vibo-skillqa
-description: "Test and certify AI agent skills: 7 automated checks, grade A–D, certificate. Use when asked to check, test, review, or certify a skill before publishing. Use ONLY with the user's explicit consent: SkillQA reads the skill folder and runs its scripts in a sandbox — tell the user what will be scanned and that reports are saved locally."
-version: 0.2.0
+description: "Test and certify AI agent skills: 7 automated checks, grade A–D, certificate. Use when asked to check, test, review, or certify a skill before publishing. Use ONLY with the user's explicit consent: SkillQA reads the skill folder (incl. .env-like files, for masked secret findings), checks local skill-library metadata for novelty, writes reports locally and a machine-bound license file — tell the user what will be scanned and where reports are saved."
+version: 0.2.9
 author: Viacheslav Bochkarev
 license: Proprietary — https://wwwvibo.com
 metadata:
   license_type: cloud-skillqa
   trial: 2 days
   price: "$5/month"
+permissions:
+  files: [<target-skill-folder>, qa_reports/, ~/.config/skillqa/]
+  network: none
+  process: [sandboxed skill scripts (env-isolated, network-disabled, hard timeouts)]
 ---
 
 # ViBo SkillQA
@@ -22,7 +26,7 @@ issues a certificate you can show to buyers or feed to CI (JSON).
 
 ```bash
 python3 skillqa.py test <path-to-skill> [--lang en|ru] [--skip module1,module2] [--load N] [--parallel [N]] [--timeout S]
-python3 skillqa.py selftest          # test the tester itself
+python3 skillqa.py selftest          # test the tester itself (needs fixtures/ — bundled in the GitHub source repo; marketplace copies omit fixtures)
 python3 skillqa.py license --status  # license state (demo vs pro)
 ```
 
@@ -58,8 +62,7 @@ python3 skillqa.py license --status  # license state (demo vs pro)
 
 - **Files**: reads the tested skill folder; writes `qa_reports/` and
   `~/.config/skillqa/` only.
-- **Process**: runs tested skill scripts inside a sandbox (unshare -n,
-  timeout, kill) — never as the calling agent.
+- **Process**: sandboxed execution of the tested skill's scripts — including its main script with `--help` under each installed Python interpreter (compat check) — all inside the env-whitelisted, network-disabled, timeout-killed sandbox. Never as the calling agent.
 - **Network**: none (sandbox runs with network disabled).
 - **Secrets**: never read, logged or sent; only flagged as a finding.
 

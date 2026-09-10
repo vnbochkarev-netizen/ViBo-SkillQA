@@ -48,8 +48,16 @@ def _is_placeholder_assignment(name, snippet):
     ($UPSTREAM_API_KEY, ${PRIVACY_ADMIN_TOKEN:-}) — not a real leak."""
     if name != "assignment":
         return False
-    val = snippet.split("=", 1)[-1].split(":", 1)[-1].strip().strip("\"',();,<> ")
+    raw = snippet.split("=", 1)[-1].split(":", 1)[-1].strip()
+    if "<" in raw or "[" in raw or "(" in raw:
+        return True  # placeholder <...>, dict-access d["key"], call f(...) — not a literal secret
+    if raw.lower().startswith(("http://", "https://")):
+        return True  # URL after key:/key= is a link, not a secret value
+    val = raw.strip("\"'(),;<> ")
     if not val:
+        return True
+    # bare lowercase identifier (agent_key, api_key) is a variable name, not a value
+    if re.match(r"^[a-z_][a-z0-9_]*$", val):
         return True
     # env-var / constant name (L3_SECRET, UPSTREAM_API_KEY) is not a value
     if re.match(r"^[A-Z][A-Z0-9_]{2,}$", val):

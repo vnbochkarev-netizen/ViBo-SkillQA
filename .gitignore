@@ -1,3 +1,5 @@
 qa_reports/
 __pycache__/
 *.pyc
+
+*.bak*

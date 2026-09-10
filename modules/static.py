@@ -1,5 +1,6 @@
 """Static scan module: structure, frontmatter, referenced paths, sizes."""
 
+import os
 import re
 from pathlib import Path
 
@@ -7,6 +8,58 @@ try:
     import yaml  # PyYAML (optional; a minimal fallback parser is included)
 except Exception:  # pragma: no cover
     yaml = None
+
+SYSTEM_TOP = ("proc", "sys", "dev", "run", "boot")
+
+
+def _fm_version(frontmatter):
+    """Version from top-level `version:` or Agent-Skills `metadata.version`."""
+    if not isinstance(frontmatter, dict):
+        return None
+    v = frontmatter.get("version")
+    if not v:
+        meta = frontmatter.get("metadata")
+        if isinstance(meta, dict):
+            v = meta.get("version")
+    return v
+
+
+ARG_FLAG_RE = re.compile(
+    r"--?(?:input|output|out|json|json-output|markdown-output|repo|expected|config|file)"
+    r"[=\s]+([^\s`'\"]+)")
+
+
+def _arg_tokens(md_text):
+    """Tokens used as CLI argument values in examples (runtime files)."""
+    return {m.group(1).strip("`'\"") for m in ARG_FLAG_RE.finditer(md_text or "")}
+
+
+def _safe_rglob(root, tok):
+    """True if `tok` exists anywhere under `root`, never descending into
+    virtual filesystems and tolerating entries that vanish mid-scan
+    (case 10.09: rglob up to / walked /proc and crashed on a dead pid)."""
+    root = Path(root)
+    if root == Path(root.anchor or "/"):
+        return False  # never scan the filesystem root
+    seen = 0
+    for dirpath, dirnames, filenames in os.walk(root, onerror=lambda e: None):
+        rel = Path(dirpath).relative_to(root) if Path(dirpath) != root else Path(".")
+        if len(rel.parts) >= MAX_WALK_DEPTH:
+            dirnames[:] = []
+        dirnames[:] = [d for d in dirnames
+                       if d not in SYSTEM_TOP and d not in SKIP_WALK_DIRS]
+        if tok in filenames or tok in dirnames:
+            return True
+        seen += len(filenames)
+        if seen > MAX_WALK_FILES:
+            return False  # noisy tree (e.g. /tmp with 240k files) — give up fast
+    return False
+
+SKIP_WALK_DIRS = {"__pycache__", "node_modules", ".git", ".venv", "venv",
+                  "cache", ".cache", ".mypy_cache", ".pytest_cache"}
+MAX_WALK_FILES = 12000
+MAX_WALK_DEPTH = 3
+
 
 MAGIC_PATH_RE = re.compile(r"(?:/home/|/root/|/etc/(?!hosts)|/Users/|C:\\)")
 # Files created at runtime (license, usage log) — legitimately absent from
@@ -145,14 +198,19 @@ def _referenced_missing(md_text, skill_dir):
         # per-user runtime files, not part of the package
         if low.startswith((".claude/", ".cursor/", ".vscode/", ".idea/")):
             continue
+        # command arguments (-o/--output/--input/--json-output ...) are runtime IO
+        if tok in _arg_tokens(md_text) or tok.startswith(".github/"):
+            continue
         p = Path(skill_dir) / tok
         checked += 1
-        found = p.exists() or any(Path(skill_dir).rglob(tok))
+        found = p.exists() or _safe_rglob(skill_dir, tok)
         if not found:
             # files may live outside the skill subfolder but inside the repo
             parent = Path(skill_dir).parent
             for _ in range(4):
-                if (parent / tok).exists() or any(parent.rglob(tok)):
+                if parent == parent.parent:
+                    break  # reached the filesystem root — stop
+                if (parent / tok).exists() or _safe_rglob(parent, tok):
                     found = True
                     break
                 parent = parent.parent
@@ -160,7 +218,17 @@ def _referenced_missing(md_text, skill_dir):
             # runtime-generated files are legitimately absent from the package
             if tok in RUNTIME_GENERATED:
                 continue
-            (missing_warn if from_backtick else missing).append(tok)
+            non_code = tok.lower().endswith(
+                (".md", ".rst", ".yml", ".yaml", ".json", ".toml", ".txt",
+                 ".cfg", ".ini", ".csv"))
+            (missing_warn if (from_backtick or non_code) else missing).append(tok)
+    # A skill that explicitly works on a TARGET repository (`--repo`, "repository")
+    # necessarily lists that repo's files (benchmarks/, core/, tests/...). Such a
+    # structure listing is not a promise that this package ships them.
+    _listed = [x for x in (missing + missing_warn) if "/" in x]
+    if (len(_listed) >= 3
+            and re.search(r"--repo\b|repository|\brepo\b", md_text or "", re.I)):
+        missing, missing_warn = [], []
     return missing, checked, missing_warn
 
 
@@ -290,7 +358,7 @@ class StaticScan:
                 checks.append(_check("frontmatter_fields", "fail",
                                      t("check.frontmatter_fields.fail",
                                        fields=", ".join(missing))))
-            elif not frontmatter.get("version"):
+            elif not _fm_version(frontmatter):
                 # version is NOT required by the base spec — recommended for
                 # marketplaces (warn, not fail)
                 checks.append(_check("frontmatter_fields", "warn",
@@ -374,7 +442,7 @@ class StaticScan:
                                  t("check.reasonable_sizes.ok")))
 
         # 8. version consistency
-        version = frontmatter.get("version") if isinstance(frontmatter, dict) else None
+        version = _fm_version(frontmatter)
         if internal:
             checks.append(_check("version_consistent", "pass",
                                  t("check.version_consistent.internal")))
