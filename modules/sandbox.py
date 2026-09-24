@@ -546,7 +546,17 @@ class SandboxRun:
                 else:
                     checks.append(_check(name, "warn", t("check.noargs.warn_code", code=rn["exit_code"])))
             else:
-                checks.append(_check(name, "warn", t("check.noargs.warn")))
+                # exit 0 — успех. «Молчаливым» он считается только если скрипт
+                # НИЧЕГО не вывел. Скрипт, который честно объяснил, что делать нечего
+                # (нет входных файлов / показал справку), — корректное поведение CLI,
+                # и раньше он получал warn, который нельзя было снять ничем: при
+                # ненулевом коде та же проверка ставит fail. 24.09.2026.
+                first = next((ln.strip() for ln in nout.splitlines() if ln.strip()), "")
+                if first:
+                    checks.append(_check(name, "pass",
+                                         t("check.noargs.explained", first=first[:70])))
+                else:
+                    checks.append(_check(name, "warn", t("check.noargs.warn")))
 
         # 4) isolation
         after_snapshot = _snapshot(ctx.skill_path)

@@ -29,7 +29,7 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "0.2.9"
+VERSION = "0.2.10"
 TOOL = "skillqa"
 
 # ---------------------------------------------------------------------------
@@ -199,6 +199,7 @@ I18N = {
         "check.noargs.ok": "без аргументов — понятная ошибка (exit {code})",
         "check.noargs.warn_code": "без аргументов exit {code} без пояснения",
         "check.noargs.warn": "без аргументов — молчаливый успех (exit 0)",
+        "check.noargs.explained": "без аргументов — объясняет, что делать (exit 0): {first}",
         "check.sandbox_isolated.fail": "скрипт писал в оригинальную папку скилла: {files}",
         "check.sandbox_isolated.warn": "часть запусков зависла (подозрение на hang)",
         "check.sandbox_isolated.ok": "все запуски изолированы, в оригинал ничего не записано",
@@ -327,6 +328,7 @@ I18N = {
         "check.noargs.ok": "no args: clear error (exit {code})",
         "check.noargs.warn_code": "no args: exit {code} without explanation",
         "check.noargs.warn": "no args: silent success (exit 0)",
+        "check.noargs.explained": "no args: explains itself (exit 0): {first}",
         "check.sandbox_isolated.fail": "script wrote into the original skill folder: {files}",
         "check.sandbox_isolated.warn": "some runs timed out (hang suspected)",
         "check.sandbox_isolated.ok": "all runs isolated, nothing written to the original",
@@ -1135,6 +1137,13 @@ def cmd_selftest(args):
                     for c in m["checks"]:
                         if c["status"] == "fail":
                             fails.append(f"{m['module']}/{c['name']}")
+                # Регрессия 24.09.2026: корректный CLI, которому без аргументов нечего
+                # делать (объяснил и вышел с кодом 0), обязан получать pass. До фикса
+                # он получал warn, а при ненулевом коде — fail: полный pass был недостижим.
+                st = {c["name"]: c["status"] for m in report["modules"] for c in m["checks"]}
+                got = st.get("noargs_noop_explained.py")
+                if got != "pass":
+                    fails.append(f"sandbox/noargs_noop_explained.py = {got} (ожидался pass)")
     if fails:
         print(f"[FAIL] phase 3: good_skill failures: {', '.join(fails[:10])}")
         ok = False
