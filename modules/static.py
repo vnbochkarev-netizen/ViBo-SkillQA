@@ -25,7 +25,8 @@ def _fm_version(frontmatter):
 
 
 ARG_FLAG_RE = re.compile(
-    r"--?(?:input|output|out|json|json-output|markdown-output|repo|expected|config|file)"
+    r"--?(?:input|output|out|o|json|json-output|markdown-output|repo|expected|config|file|"
+    r"situation|notes|materials|sources|docs|deck|report)"
     r"[=\s]+([^\s`'\"]+)")
 
 
