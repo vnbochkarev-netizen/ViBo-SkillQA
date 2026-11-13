@@ -56,7 +56,7 @@ def _safe_rglob(root, tok):
             return False  # noisy tree (e.g. /tmp with 240k files) — give up fast
     return False
 
-SKIP_WALK_DIRS = {"__pycache__", "node_modules", ".git", ".venv", "venv",
+SKIP_WALK_DIRS = {"__pycache__", "node_modules", ".git", ".venv", "venv", "site-packages", "dist-info",
                   "cache", ".cache", ".mypy_cache", ".pytest_cache"}
 MAX_WALK_FILES = 12000
 MAX_WALK_DEPTH = 3
@@ -233,11 +233,23 @@ def _referenced_missing(md_text, skill_dir):
     return missing, checked, missing_warn
 
 
+def _iter_files(root):
+    """Обход файлов навыка без вендорных окружений.
+
+    Собранный venv, node_modules и кэши — не содержимое навыка: пустые
+    __init__.py и бинарники интерпретатора внутри них давали ложные
+    срабатывания на любом навыке, который несёт своё окружение.
+    """
+    root = Path(root)
+    for dirpath, dirnames, filenames in os.walk(root, onerror=lambda e: None):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_WALK_DIRS]
+        for name in filenames:
+            yield Path(dirpath) / name
+
+
 def _empty_broken(skill_dir, md_path):
     empty, huge_bin = [], []
-    for p in sorted(Path(skill_dir).rglob("*")):
-        if not p.is_file():
-            continue
+    for p in sorted(_iter_files(skill_dir)):
         if p.resolve() == Path(md_path).resolve():
             continue
         try:
@@ -261,13 +273,12 @@ def _empty_broken(skill_dir, md_path):
 
 def _big_files(skill_dir, limit):
     big = []
-    for p in sorted(Path(skill_dir).rglob("*")):
-        if p.is_file():
-            try:
-                if p.stat().st_size > limit:
-                    big.append(str(p.relative_to(skill_dir)))
-            except OSError:
-                pass
+    for p in sorted(_iter_files(skill_dir)):
+        try:
+            if p.stat().st_size > limit:
+                big.append(str(p.relative_to(skill_dir)))
+        except OSError:
+            pass
     return big
 
 
